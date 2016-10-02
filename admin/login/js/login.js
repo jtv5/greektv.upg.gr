@@ -14,7 +14,7 @@ console.log(password);
                 data: "myusername=" + username + "&mypassword=" + password,
                 dataType: 'JSON',
                 success: function (html) {
-                    console.log(html.response + ' ' + html.username);
+                    alert(html.response + ' ' + html.username);
                     if (html.response === 'true') {
                         //location.assign("../index.php");
                        location.reload();
@@ -24,8 +24,8 @@ console.log(password);
                     }
                 },
                 error: function (textStatus, errorThrown) {
-                    console.log(textStatus);
-                    console.log(errorThrown);
+                    alert(textStatus);
+                    alert(errorThrown);
                 },
                 beforeSend: function () {
                     $("#message").html("<p class='text-center'><img src='images/ajax-loader.gif'></p>");
