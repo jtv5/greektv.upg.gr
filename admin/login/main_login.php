@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['username'])) {
     header("location:../index.php");
 }
+else {echo '??????????';}
 ?>
 <!DOCTYPE html>
 <html lang="en">
