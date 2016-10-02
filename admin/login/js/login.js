@@ -14,7 +14,7 @@ console.log(password);
                 data: "myusername=" + username + "&mypassword=" + password,
                 dataType: 'JSON',
                 success: function (html) {
-                    //console.log(html.response + ' ' + html.username);
+                    console.log(html.response + ' ' + html.username);
                     if (html.response === 'true') {
                         //location.assign("../index.php");
                        location.reload();
