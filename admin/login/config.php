@@ -8,7 +8,7 @@ include 'dbconf.php';
 $site_name = 'GreekTV by UPG.GR';
 
 //Maximum Login Attempts
-$max_attempts = 5;
+$max_attempts = 30;
 //Timeout (in seconds) after max attempts are reached
 $login_timeout = 86400;
 
