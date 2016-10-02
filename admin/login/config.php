@@ -27,7 +27,7 @@ $smtp_server = 'smtp.office365.com';
 $smtp_user = $smtpuser;
 $smtp_pw = $smtppass;
 $smtp_port = 587; //465 for ssl, 587 for tls, 25 for other
-$smtp_security = 'tls';//ssl, tls or ''
+$smtp_security = 'ssl';//ssl, tls or ''
 
 //HTML Messages shown before URL in emails (the more
 $verifymsg = 'Click this link to verify your new account!'; //Verify email message
