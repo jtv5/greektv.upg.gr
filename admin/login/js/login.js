@@ -13,14 +13,13 @@ $(document).ready(function () {
                 data: "myusername=" + username + "&mypassword=" + password,
                 dataType: 'JSON',
                 success: function (html) {
-                //    console.log(html.response + ' ' + html.username);
+                    //console.log(html.response + ' ' + html.username);
                     if (html.response === 'true') {
                         //location.assign("../index.php");
                        location.reload();
                         return html.username;
                     } else {
                         $("#message").html(html.response);
-                //        console.log(html.response + ' ' + html.username);
                     }
                 },
                 error: function (textStatus, errorThrown) {

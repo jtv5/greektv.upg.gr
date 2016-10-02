@@ -15,8 +15,8 @@
     <title>Signup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../assets/css/main.css" rel="stylesheet" media="screen">
+    <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../css/main.css" rel="stylesheet" media="screen">
   </head>
 
   <body>
@@ -30,7 +30,7 @@
         <input name="password1" id="password1" type="password" class="form-control" placeholder="Password">
         <input name="password2" id="password2" type="password" class="form-control" placeholder="Repeat Password">
 
-        <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 
         <div id="message"></div>
       </form>
