@@ -2,7 +2,7 @@
 //DATABASE CONNECTION VARIABLES
 $config = parse_ini_file('../../gtv_db.ini');
 $smtpuser = $config['smtpuser'];
-$smtppass = $config['smtppass'];
+$smtppass = $config['smtppass']; 
 $host = $config['host']; // Host name
 $username = $config['username']; // Mysql username
 $password = $config['password']; // Mysql password
