@@ -46,8 +46,8 @@ if (isset($_SESSION['username'])) {
                <img src="../branding/equilogo.png" width="174" height="39" alt=""/>
                </a>
              -->
-      <img src="../branding/equi.png" width="200" alt=""/>
-            <!--      <h5 class="text-muted m-t-0 font-600">Equidata Solutions</h5> -->
+
+            <h5 class="text-muted m-t-0 font-600">Greek TV</h5>
             </div>
         	<div class="m-t-40 card-box">
                 <div class="text-center">
