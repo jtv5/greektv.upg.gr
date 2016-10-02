@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<?php require "login/loginheader.php"; ?>
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("location:login/main_login.php");
+}
+?>
 <html>
     <head>
 
