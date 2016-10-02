@@ -7,10 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
-        <meta name="google-signin-client_id" content="113209340250-4d273vbun5pott8sl6k3fa727tebrdro.apps.googleusercontent.com">
-        <meta name="google-signin-cookiepolicy" content="single_host_origin" />
-        <meta name="google-signin-requestvisibleactions" content="https://schema.org/AddAction" />
-        <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
         <!-- App Favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
