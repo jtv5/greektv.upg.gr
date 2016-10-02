@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
-    header('location:../web-client/index.php');
+    header('location:../admin/?thepath=greekchannels');
 }
 ?>
 <!DOCTYPE html>
@@ -12,18 +12,18 @@ if (isset($_SESSION['username'])) {
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
         <!-- App Favicon -->
-        <link rel="shortcut icon" href="../web-client/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
         <!-- App title -->
-        <title>Equidata Solutions</title>
+        <title>Greek TV</title>
 
         <!-- App CSS -->
-        <link href="../web-client/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../web-client/assets/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="../web-client/assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="../web-client/assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="../web-client/assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="../web-client/assets/css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="../web-client/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/menu.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +32,7 @@ if (isset($_SESSION['username'])) {
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="../web-client/assets/js/modernizr.min.js"></script>
+        <script src="../assets/js/modernizr.min.js"></script>
 
     </head>
     <body>
@@ -121,20 +121,20 @@ if (isset($_SESSION['username'])) {
         </script>
 
         <!-- jQuery  -->
-        <script src="../web-client/assets/js/jquery.min.js"></script>
-        <script src="../web-client/assets/js/bootstrap.min.js"></script>
-        <script src="../web-client/assets/js/detect.js"></script>
-        <script src="../web-client/assets/js/fastclick.js"></script>
-        <script src="../web-client/assets/js/jquery.slimscroll.js"></script>
-        <script src="../web-client/assets/js/jquery.blockUI.js"></script>
-        <script src="../web-client/assets/js/waves.js"></script>
-        <script src="../web-client/assets/js/wow.min.js"></script>
-        <script src="../web-client/assets/js/jquery.nicescroll.js"></script>
-        <script src="../web-client/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/detect.js"></script>
+        <script src="../assets/js/fastclick.js"></script>
+        <script src="../assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/js/jquery.blockUI.js"></script>
+        <script src="../assets/js/waves.js"></script>
+        <script src="../assets/js/wow.min.js"></script>
+        <script src="../assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/js/jquery.scrollTo.min.js"></script>
 
         <!-- App js -->
-        <script src="../web-client/assets/js/jquery.core.js"></script>
-        <script src="../web-client/assets/js/jquery.app.js"></script>
+        <script src="../assets/js/jquery.core.js"></script>
+        <script src="../assets/js/jquery.app.js"></script>
 	<script src="js/login.js"></script>
 	</body>
 </html>
