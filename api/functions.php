@@ -178,6 +178,12 @@ function startapi()
                 converturl($_GET['url']);
                 break;
 
+                case 'ripm3ulist':
+                header('Content-Type: text/plain');
+                    convertm3uurl($_GET['url']);
+                    break;
+
+
     case 'tvos':
     header('Content-Type: application/javascript');
         db_connect();
