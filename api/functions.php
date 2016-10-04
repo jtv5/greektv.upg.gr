@@ -358,7 +358,11 @@ function convertm3uurl($url)
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
     preg_match_all($re, $var, $matches);
     echo 'ok';
-     echo '<pre>';  print_r ($matches);echo '</pre>';
+  //   echo '<pre>';  print_r ($matches);echo '</pre>';
+  for ($i = 1; $i <= count($matches[1]); $i++) {
+    echo $matches[1][$i].' is '.$matches[2][$i];
+}
+
   //  $matches = $matches[2];
   //  foreach ($matches as $var) {
 
