@@ -357,9 +357,11 @@ function convertm3uurl($url,$type)
     $var = fread_url($url);
     echo $type;
   if ($type == 'hls') {
+    echo 'hls results<br />';
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
   else {
+    echo 'all results<br />';
     $re = '/.*,\s*(.*)\n(.*)\n/';
   }
     preg_match_all($re, $var, $matches);
