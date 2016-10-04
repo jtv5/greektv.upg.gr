@@ -432,7 +432,7 @@ class m3uParser {
 }
 
 # Initiate the m3u parser class using "Skillet.m3u"
-$m3uParser = new m3uParser("Skillet.m3u");
+//$m3uParser = new m3uParser("Skillet.m3u");
 
 # Debug/print all records (Song lengths, Song Titles, Song Locations)
 # Note: Each element in an array will be the same key across all three arrays
@@ -441,7 +441,7 @@ $m3uParser = new m3uParser("Skillet.m3u");
 # Output m3u information in a human-readable format
 # Acceptable parameter for 1st parameter: "songTitle" "songLocation" and "songLength"
 # Acceptable parameter for 2nd parameter: "asc" or "desc" - lowercase
-echo $m3uParser -> prettyOutput("songLength", "desc", true, "100%", 5, 5, 1, "center", "style=\"border: 1px solid #000;border-collapse: collapse;\"");
+//echo $m3uParser -> prettyOutput("songLength", "desc", true, "100%", 5, 5, 1, "center", "style=\"border: 1px solid #000;border-collapse: collapse;\"");
 
 # Search titles for (string)"STRING" or (array)array("string1", "string2", "string3", "etc")
 #print_r($m3uParser -> searchTitles(array("s", "k", "omg")));
