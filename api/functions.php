@@ -373,6 +373,7 @@ function converturl($url)
     preg_match_all("/a[\s]+[^>]*?href[\s]?=[\s\"\']+".
                   "(.*?)[\"\']+.*?>"."([^<]+|.*?)?<\/a>/",
                   $var, $matches);
+                  print_r($matches);
     $matches = $matches[1];
     $list = array();
     foreach ($matches as $var) {
