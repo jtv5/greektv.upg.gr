@@ -356,8 +356,11 @@ function is_url_exist($url)
 function convertm3uurl($url)
 {
     $var = fread_url($url);
-    preg_match_all("/a[\s]+[^>]*?href[\s]?=[\s\"\']+".
-                  "(.*?)[\"\']+.*?>"."([^<]+|.*?)?<\/a>/",
+
+//    $re = '/#(?s)(.*)",/mU';
+
+
+    preg_match_all('/#(?s)(.*)",/mU',
                   $var, $matches);
     $matches = $matches[1];
     $list = array();
