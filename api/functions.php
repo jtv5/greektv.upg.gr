@@ -352,11 +352,11 @@ function is_url_exist($url)
 }
 
 
-function convertm3uurl($url,$type)
+function convertm3uurl($url,$type2)
 {
     $var = fread_url($url);
-    echo $type;
-  if ($type == 'hls') {
+    echo $type2;
+  if ($type2 == 'hls') {
     echo 'hls results<br />';
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
