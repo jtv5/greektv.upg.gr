@@ -355,24 +355,11 @@ function is_url_exist($url)
 
 function convertm3uurl($url)
 {
+  $m3uParser = new m3uParser($url);
     $var = fread_url($url);
-
+echo $m3uParser -> prettyOutput("songLength", "desc", true, "100%", 5, 5, 1, "center", "style=\"border: 1px solid #000;border-collapse: collapse;\"");
 //    $re = '/#(?s)(.*)",/mU';
 
-
-    preg_match_all('/#(?s)(.*)",/mU',
-                  $var, $matches);
-    $matches = $matches[1];
-    $list = array();
-    foreach ($matches as $var) {
-      //  $link = $url.$var;
-        $dtitle = $var;
-        echo  $dtitle.'<br />';
-
-      //      echo  "<item>\r\n<title>".$dtitle."</title>\r\n<link>".$link."</link>\r\n<thumbnail></thumbnail>\r\n</item>\r\n\r\n";
-
-    //    echo '<a href="'.$sUrl.'" title="Download '.$dtitle.' via magnet link">'.$dtitle.'</a><br>';
-    }
 }
 
 
