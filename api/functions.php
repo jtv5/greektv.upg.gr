@@ -359,7 +359,7 @@ function convertm3uurl($url,$type)
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
   else {
-    $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+    $re = '/.*,\s*(.*)\n(.*)\n/';
   }
     preg_match_all($re, $var, $matches);
   //   echo '<pre>';  print_r ($matches);echo '</pre>';
