@@ -179,7 +179,7 @@ function startapi()
 
                 case 'ripm3ulist':
             //    header('Content-Type: text/plain');
-                    convertm3uurl($_GET['url'],$_GET['type']);
+                    convertm3uurl($_GET['url'],$_GET['type2']);
                     break;
 
 
