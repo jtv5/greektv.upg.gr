@@ -365,22 +365,12 @@ function convertm3uurl($url)
     $matches = $matches[1];
     $list = array();
     foreach ($matches as $var) {
-        $link = $url.$var;
+      //  $link = $url.$var;
         $dtitle = $var;
-        $dtitle = str_replace('+', ' ', $dtitle);
-        $dtitle = str_replace('.', ' ', $dtitle);
-        $dtitle = str_replace(' TehMovies com ', '', $dtitle);
-        $dtitle = str_replace('%5D', ']', $dtitle);
-        $dtitle = str_replace('%5B', '[', $dtitle);
-        $dtitle = str_replace('%28', '(', $dtitle);
-        $dtitle = str_replace('%29', ')', $dtitle);
-        $dtitle = str_replace('%26amp%3B', ' ', $dtitle);
-        $dtitle = str_replace('%40', '@', $dtitle);
-        $dtitle = str_replace('%2', '-', $dtitle);
-        $dtitle = substr($dtitle, 0, -3);
-        if ($dtitle != '') {
-            echo  "<item>\r\n<title>".$dtitle."</title>\r\n<link>".$link."</link>\r\n<thumbnail></thumbnail>\r\n</item>\r\n\r\n";
-        }
+        echo  .$dtitle."\r\n\r\n";
+
+      //      echo  "<item>\r\n<title>".$dtitle."</title>\r\n<link>".$link."</link>\r\n<thumbnail></thumbnail>\r\n</item>\r\n\r\n";
+
     //    echo '<a href="'.$sUrl.'" title="Download '.$dtitle.' via magnet link">'.$dtitle.'</a><br>';
     }
 }
