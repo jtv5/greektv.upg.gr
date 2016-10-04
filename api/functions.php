@@ -357,6 +357,7 @@ function convertm3uurl($url)
     $var = fread_url($url);
     $re = '/\#EXTINF:[^,]+,([^\n]+)\n(http:(.*?).m3u8)/';
     preg_match_all($re, $var, $matches);
+    print_r($matches);
     $matches = $matches[2];
     foreach ($matches as $var) {
 
@@ -373,7 +374,7 @@ function converturl($url)
     preg_match_all("/a[\s]+[^>]*?href[\s]?=[\s\"\']+".
                   "(.*?)[\"\']+.*?>"."([^<]+|.*?)?<\/a>/",
                   $var, $matches);
-                  print_r($matches);
+
     $matches = $matches[1];
     $list = array();
     foreach ($matches as $var) {
