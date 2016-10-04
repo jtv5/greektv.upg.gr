@@ -3,7 +3,6 @@
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
 $GLOBALS['cdn'] = 'http://greektv.upg.gr/img/';
-include('parser.php');
 function db_connect()
 {
     static $connection;
@@ -360,7 +359,7 @@ function convertm3uurl($url)
     $re = '/\#EXTINF:[^,]+,([^\n]+)\n(http:(.*?).m3u8)/';
     preg_match_all($re, $var, $matches);
     foreach ($matches as $var) {
-      echo $var[1].'<br />'; 
+      echo $var[1].'<br />';
 }
 
 }
