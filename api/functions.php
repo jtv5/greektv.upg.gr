@@ -360,7 +360,7 @@ function convertm3uurl($url)
     $re = '/\#EXTINF:[^,]+,([^\n]+)\n(http:(.*?).m3u8)/';
     preg_match_all($re, $var, $matches);
     foreach ($matches as $var) {
-      echo $var[1].'<br />';
+      echo $var[1].'<br />'; 
 }
 
 }
