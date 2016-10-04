@@ -367,7 +367,7 @@ function convertm3uurl($url)
     foreach ($matches as $var) {
       //  $link = $url.$var;
         $dtitle = $var;
-        echo  .$dtitle.'<br />';
+        echo  $dtitle.'<br />';
 
       //      echo  "<item>\r\n<title>".$dtitle."</title>\r\n<link>".$link."</link>\r\n<thumbnail></thumbnail>\r\n</item>\r\n\r\n";
 
