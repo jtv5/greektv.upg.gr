@@ -179,7 +179,7 @@ function startapi()
 
                 case 'ripm3ulist':
             //    header('Content-Type: text/plain');
-                    convertm3uurl($_GET['url']);
+                    convertm3uurl($_GET['url'],$_GET['type']);
                     break;
 
 
@@ -352,10 +352,15 @@ function is_url_exist($url)
 }
 
 
-function convertm3uurl($url)
+function convertm3uurl($url,$type)
 {
     $var = fread_url($url);
+  if ($type == 'hls') {
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+  }
+  else {
+    $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+  }
     preg_match_all($re, $var, $matches);
   //   echo '<pre>';  print_r ($matches);echo '</pre>';
   for ($i = 0; $i < count($matches[1]); $i++) {
