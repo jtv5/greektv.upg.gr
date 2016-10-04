@@ -355,7 +355,7 @@ function is_url_exist($url)
 function convertm3uurl($url)
 {
     $var = fread_url($url);
-    $re = '/\#EXTINF:[^,]+,([^\n]+)\n((=?)http:(.*?).m3u8)/';
+    $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
     preg_match_all($re, $var, $matches);
      echo '<pre>';  print_r ($matches);echo '</pre>';
   //  $matches = $matches[2];
