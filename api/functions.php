@@ -357,8 +357,11 @@ function convertm3uurl($url)
 {
   $m3uParser = new m3uParser($url);
     $var = fread_url($url);
-echo $m3uParser -> prettyOutput("songLength", "desc", true, "100%", 5, 5, 1, "center", "style=\"border: 1px solid #000;border-collapse: collapse;\"");
-//    $re = '/#(?s)(.*)",/mU';
+    $re = '/\#EXTINF:[^,]+,([^\n]+)\n(http:(.*?).m3u8)/';
+    preg_match_all($re, $var, $matches);
+    foreach ($matches as $var) {
+      echo $var[1].'<br />';
+}
 
 }
 
