@@ -3,7 +3,7 @@
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
 $GLOBALS['cdn'] = 'http://greektv.upg.gr/img/';
-
+include('parser.php');
 function db_connect()
 {
     static $connection;
