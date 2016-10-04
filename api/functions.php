@@ -355,19 +355,21 @@ function is_url_exist($url)
 function convertm3uurl($url,$type2)
 {
     $var = fread_url($url);
-    echo $type2;
   if ($type2 == 'hls') {
-    echo 'hls results<br />';
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
   else {
-    echo 'all results<br />';
     $re = '/.*,\s*(.*)\n(.*)\n/';
   }
     preg_match_all($re, $var, $matches);
   //   echo '<pre>';  print_r ($matches);echo '</pre>';
   for ($i = 0; $i < count($matches[1]); $i++) {
-    echo $matches[1][$i].' is '.$matches[2][$i].'<br />';
+
+    echo "<item>\r\n<title>".$matches[1][$i]."</title>\r\n<link>".$matches[2][$i]."</link>\r\n<thumbnail></thumbnail>\r\n</item>\r\n\r\n";
+  //      break;
+
+
+//    echo $matches[1][$i].' is '.$matches[2][$i].'<br />';
 }
 
   //  $matches = $matches[2];
