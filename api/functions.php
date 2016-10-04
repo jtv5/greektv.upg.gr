@@ -359,8 +359,8 @@ function convertm3uurl($url)
     preg_match_all($re, $var, $matches);
     echo 'ok';
   //   echo '<pre>';  print_r ($matches);echo '</pre>';
-  for ($i = 1; $i <= count($matches[1]); $i++) {
-    echo $matches[1][$i].' is '.$matches[2][$i];
+  for ($i = 0; $i <= count($matches[1]); $i++) {
+    echo $matches[1][$i].' is '.$matches[2][$i].'<br />';
 }
 
   //  $matches = $matches[2];
