@@ -360,7 +360,7 @@ function convertm3uurl($url)
     $matches = $matches[2];
     foreach ($matches as $var) {
 
-  echo $var.'\r\n';
+  echo $var.'<br />';
 
 }
 
