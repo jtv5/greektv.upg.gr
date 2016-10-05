@@ -377,6 +377,7 @@ function convertm3uurl($url,$type2)
 function enterdb($url,$type2)
 {
     $var = fread_url($url);
+    echo $var;
   if ($type2 == 'hls') {
   //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
     $re = '/(http:.*pg).*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
