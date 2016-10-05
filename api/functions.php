@@ -224,7 +224,7 @@ function startapi()
   //header('Content-Type: text');
      db_connect();
         echo "#EXTM3U\r\n";
-        echo db_select("select * from content order by ord desc", 'vlc');
+        echo db_select("select * from content where active = '1'  order by ord desc", 'vlc');
     break;
     case 'findactive':
          db_connect();
