@@ -341,8 +341,7 @@ function db_select($query, $type)
             break;
 
             case 'unijson':
-              $aaData[] = $row;
-            $dbres .= json_encode($aaData);
+        $dbres .= '<a href="'$row['streamurl']'"><li class="clearfix"><img src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail"><h2>'.$row['title'].'</h2><p class="desc">'.$row['description'].'</p><span class="price">'.$row['type'].'</span></li></a>';
                 break;
 
     case 'vlc':
