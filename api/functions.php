@@ -380,19 +380,19 @@ function enterdb($url,$type2)
   //  echo $var;
   if ($type2 == 'hls') {
   //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
-    $re = '/(http:.*pg).*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+    $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
   else {
   //  $re = '/.*,\s*(.*)\n(.*)\n/';
-    $re = '/(http:.*pg).*,\s*(.*)\n(.*)\n/';
+    $re = '/.*,\s*(.*)\n(.*)\n/';
   }
     preg_match_all($re, $var, $matches);
   //   echo '<pre>';  print_r ($matches);echo '</pre>';
   for ($i = 0; $i < count($matches[2]); $i++) {
 //echo 'channel : '.$matches[2][$i].'<br />';
 //echo 'url : '.$matches[3][$i].'<br />';
-$chan = $matches[2][$i];
-$uri = $matches[3][$i];
+$chan = $matches[1][$i];
+$uri = $matches[2][$i];
 $chan = str_replace(" BUP","",$chan);
 echo $chan.'<br />';
 db_connect();
