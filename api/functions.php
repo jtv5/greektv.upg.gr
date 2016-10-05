@@ -396,8 +396,19 @@ function enterdb($url,$type2)
 $chan = $matches[2][$i];
 $uri = $matches[3][$i];
 $chan = str_replace(" BUP","",$chan);
-$channame = 'oo';
-echo $chan.' matched to '.$channame.'<br />';
+
+db_connect();
+$query ="select id from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
+$result = db_query($query);
+if ($result === false) {
+    return false;
+}
+while ($row = mysqli_fetch_assoc($result)) {
+  $chanid = $row['channelname'];
+}
+
+
+echo $chan.' matched to '.$chanid.'<br />';
 //$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chan','$uri','$type2','robot')";
 //echo $sql.'<br />';
 //    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
