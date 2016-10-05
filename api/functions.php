@@ -228,8 +228,9 @@ function startapi()
     break;
     case 'findactive':
          db_connect();
-        echo db_select('select * from content  order by ord desc', 'findactive');
+        echo db_select('select * from streams  order by ord desc', 'findactive');
         break;
+
         case 'skaiurl':
         $url = "www.skai.gr/player/tvlive/";
         $ch = curl_init();
