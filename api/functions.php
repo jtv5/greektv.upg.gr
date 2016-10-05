@@ -224,7 +224,7 @@ function startapi()
   //header('Content-Type: text');
      db_connect();
         echo "#EXTM3U\r\n";
-        echo db_select("select * from content where active = '1'  order by ord desc", 'vlc');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'vlc');
     break;
     case 'findactive':
          db_connect();
