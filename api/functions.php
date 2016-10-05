@@ -214,7 +214,7 @@ function startapi()
         break;
 
         case 'unixml':
-            header("Content-Type: application/xml; charset=ISO-8859-1");
+            header("Content-Type: application/xml; charset=UTF-8");
             db_connect();
             echo '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>';
             echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'unixml');
@@ -319,7 +319,7 @@ function db_select($query, $type)
     $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'" active="'.$row['active'].'" genre1="'.$row['region'].'" ishd="'.$row['ishd'].'" ></item>';
         break;
         case 'unixml':
-        $dbres .= '<title id="'.$row['id'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'">'.$row['title'].'</title><description>'.$row['description'].'</description><link>'.$row['streamurl'].'</link><pubDate>'.date('r', time()).'</pubDate></item>';
+        $dbres .= '<item id="'.$row['id'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'"><title>'.$row['title'].'</title><description>'.$row['description'].'</description><link>'.$row['streamurl'].'</link><pubDate>'.date('r', time()).'</pubDate></item>';
             break;
     case 'vlc':
     $dbres .= "#EXTINF:0, logo=\"".$row['sd_image']."\",".$row['title']."\r\n".$row['streamurl']."\r\n";
