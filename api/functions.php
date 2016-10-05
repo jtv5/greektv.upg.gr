@@ -212,6 +212,14 @@ function startapi()
         echo db_select("select greekchannels.id, greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'plex');
         echo '</item></channel></orml>';
         break;
+
+        case 'unixml':
+            header('Content-Type: text/xml');
+            db_connect();
+            echo '<?xml version="1.0" encoding="UTF-8"?>';
+            echo db_select("select greekchannels.id, greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'unixml');
+            break;
+
     case 'all':
          db_connect();
         echo db_select('select * from greekchannels order by ord desc', 'all');
@@ -309,6 +317,9 @@ function db_select($query, $type)
     case 'plex':
     $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'" active="'.$row['active'].'" genre1="'.$row['region'].'" ishd="'.$row['ishd'].'" ></item>';
         break;
+        case 'unixml':
+        $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'" active="'.$row['active'].'" genre1="'.$row['region'].'"></item>';
+            break;
     case 'vlc':
     $dbres .= "#EXTINF:0, logo=\"".$row['sd_image']."\",".$row['title']."\r\n".$row['streamurl']."\r\n";
         break;
