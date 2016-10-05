@@ -209,12 +209,12 @@ function startapi()
         header('Content-Type: text/xml');
         db_connect();
         echo '<?xml version="1.0" encoding="UTF-8"?><orml version="1.2" xmlns="http://sourceforge.net/p/openrokn/home/ORML"><channel> <item type="poster" style="flat-episodic-16x9" title="GREEK TV" shortdesc="GreekTV" sdposterurl="pkg:/images/sdvideos.png" hdposterurl="pkg:/images/hdvideos.png">';
-        echo db_select("select * from content where type2 = 'tv' and active = '1'  order by ord desc", 'plex');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'plex');
         echo '</item></channel></orml>';
         break;
     case 'all':
          db_connect();
-        echo db_select('select * from content order by ord desc', 'all');
+        echo db_select('select * from greekchannels order by ord desc', 'all');
         break;
     case 'Select api response':
         echo '';
