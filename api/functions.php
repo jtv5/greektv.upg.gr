@@ -221,7 +221,7 @@ function startapi()
         break;
     case 'vlc':
   //  header('Content-Type: audio/mpegurl;');
-  header('Content-Type: text/xml');
+  header('Content-Type: text');
      db_connect();
         echo "#EXTM3U\r\n";
         echo db_select("select * from content where active = '1'  order by ord desc", 'vlc');
