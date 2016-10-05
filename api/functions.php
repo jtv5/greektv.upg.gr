@@ -1,7 +1,4 @@
 <?php
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
 $GLOBALS['cdn'] = 'http://greektv.upg.gr/img/';
 function db_connect()
 {
@@ -168,7 +165,7 @@ function startapi()
         case 'kodi':
         header('Content-Type: text/plain');
             db_connect();
-            echo db_select("select * from content where type2 = 'tv' and active = '1' and live_upg = 1 order by ord desc", 'roku');
+            echo db_select("select greekchannels.title,greekchannels.channelorder,greekchannels.sd_image,streams.streamurl from greekchannels JOIN streams on greekchannels.id = streams.channelid where greekchannels.type = 'tv' and streams.active = '1' order by greekchannels.channelorder desc", 'kodi');
         //    echo db_select("select * from content where type2 = 'tv' and active = '1' order by ord desc", 'roku');
             break;
 
