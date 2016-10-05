@@ -228,7 +228,7 @@ function startapi()
     break;
     case 'findactive':
          db_connect();
-        echo db_select('select * from streams  order by ord desc', 'findactive');
+        echo db_select('select * from streams', 'findactive');
         break;
 
         case 'skaiurl':
