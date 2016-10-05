@@ -40,13 +40,17 @@
 $(document).ready(function(){
   $.ajax({
       url: "http://greektv.upg.gr/api/?type=unijson",
-      success: function (data) { $('ul').append(data); },
+      success: function (data) {
+
+        $('ul').append(data);
+        $("a").on("click", function(e){
+          e.preventDefault();
+          alert('click');
+        });
+      },
       dataType: 'html'
   });
-	$("a").on("click", function(e){
-		e.preventDefault();
-    alert('click');
-	});
+
 });
 </script>
 </body>
