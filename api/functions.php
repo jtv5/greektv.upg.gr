@@ -397,6 +397,7 @@ $chan = str_replace(" BUP","",$chan);
 echo $chan.'<br />';
 db_connect();
 $query ="select id from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
+echo $query.'<br />';
 $result = db_query($query);
 if ($result === false) {
     return false;
