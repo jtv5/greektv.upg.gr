@@ -165,7 +165,7 @@ function startapi()
         case 'kodi':
         header('Content-Type: text/plain');
             db_connect();
-            echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.sd_image,streams.streamurl from greekchannels JOIN streams on greekchannels.id = streams.channelid where greekchannels.type = 'tv' and streams.active = '1' order by greekchannels.channel_order desc", 'kodi');
+            echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.sd_image,streams.streamurl from greekchannels JOIN streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'kodi');
         //    echo db_select("select * from content where type2 = 'tv' and active = '1' order by ord desc", 'roku');
             break;
 
