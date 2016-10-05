@@ -404,7 +404,7 @@ if ($result === false) {
     return false;
 }
 while ($row = mysqli_fetch_assoc($result)) {
-  $chanid = $row['channelname'];
+  $chanid = $row['id'];
 }
 
 
