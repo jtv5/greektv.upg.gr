@@ -328,7 +328,7 @@ function db_select($query, $type)
         <image>'.$GLOBALS['cdn'].$row['sd_image'].'</image>
         <imagehd>'.$GLOBALS['cdn'].$row['hd_image'].'</imagehd>
         <pubDate>'.date('r', time()).'</pubDate>
-        <guid>'.$row['id'].'</guid>
+        <guid isPermaLink="false">'.$row['id'].'</guid>
         </item>';
             break;
     case 'vlc':
