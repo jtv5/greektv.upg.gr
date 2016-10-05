@@ -64,6 +64,11 @@
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripm3ulist">http://greektv.upg.gr/api/?type=ripm3ulist&type2=all&url=</a></td>
                               <td>Convert m3u to kodi compatible xml feed. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
                           </tr>
+                          <tr>
+                              <td>enterdb</td>
+                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripm3ulist">http://greektv.upg.gr/api/?type=ripm3ulist&type2=all&url=</a></td>
+                              <td>Enter m3u streams into greektv by upg.gr!. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
+                          </tr>
                       </tbody>
                   </table>
                     </div>
