@@ -216,7 +216,7 @@ function startapi()
         case 'unixml':
             header("Content-Type: application/xml; charset=UTF-8");
             db_connect();
-            echo '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>GreekTV by upg.gr</title><link>http://greektv.upg.gr</link>';
+            echo '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>GreekTV by upg.gr</title><description>Greek TV video feed</description><link>http://greektv.upg.gr</link>';
             echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'unixml');
             echo '</channel></rss>';
             break;
