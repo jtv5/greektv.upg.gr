@@ -20,49 +20,49 @@
 
                       <tbody>
                           <tr>
-                              <td>ROKU</td>
+                              <td>roku</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=roku">http://greektv.upg.gr/api/?type=roku</a></td>
                               <td>https://my.roku.com/add/upggrtv</td>
                           </tr>
                           <tr>
-                              <td>TVOS</td>
+                              <td>tvos</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=tvos">http://greektv.upg.gr/api/?type=tvos</a></td>
                               <td>https://github.com/upggr/GreekTV-AppleTV (Υπαρχει και καποιος server side κωδικας)</td>
                           </tr>
                           <tr>
-                              <td>WEB</td>
+                              <td>web</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=web">http://greektv.upg.gr/api/?type=web</a></td>
                               <td>http://greektv.upg.gr/</td>
                           </tr>
                           <tr>
-                              <td>PLEX</td>
+                              <td>plex</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=plex">http://greektv.upg.gr/api/?type=plex</a></td>
                               <td>https://github.com/upggr/GreekTV.bundle</td>
                           </tr>
                           <tr>
-                              <td>KODI</td>
+                              <td>kodi</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=kodi">http://greektv.upg.gr/api/?type=kodi</a></td>
                               <td>(upg.gr inside Olympus addon) https://goo.gl/1tUYct</td>
                           </tr>
                           <tr>
-                              <td>VLC</td>
+                              <td>vlc</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=vlc">http://greektv.upg.gr/api/?type=vlc</a></td>
                               <td>Just a VLC playlist</td>
                           </tr>
                           <tr>
-                              <td>RIPURL</td>
+                              <td>ripurl</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripurl">http://greektv.upg.gr/api/?type=ripurl&url=xxx.com</a></td>
                               <td>Rips "index of" to kodi compatible xml. Needs a parameter url.</td>
                           </tr>
                           <tr>
-                              <td>Find active</td>
+                              <td>findactive</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=findactive">http://greektv.upg.gr/api/?type=findactive</a></td>
                               <td>Discard inactive streams</td>
                           </tr>
                           <tr>
-                              <td>Convert m3u to kodi compatible txt feed</td>
+                              <td>rimm3ulist</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripm3ulist">http://greektv.upg.gr/api/?type=ripm3ulist&type2=all&url=</a></td>
-                              <td>Grab a m3u list. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
+                              <td>Convert m3u to kodi compatible xml feed. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
                           </tr>
                       </tbody>
                   </table>
