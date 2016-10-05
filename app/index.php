@@ -100,21 +100,21 @@
 	</div>
 <script type="text/javascript">
 $(document).ready(function(){
-
-     $.getJSON('http://greektv.upg.gr/api/?type=unijson', function (data) {
-       console.log(data);
-       var items = data.items.map(function (item) {
-         return item.key + ': ' + item.value;
-       });
-
-       showData.empty();
-
-       if (items.length) {
-         var content = '<li>' + items.join('</li><li>') + '</li>';
-         var list = $('<ul />').html(content);
-         showData.append(list);
-       }
-     });
+  $.ajax({
+    type: 'GET',
+    url: 'http://greektv.upg.gr/api/?type=unijson',
+    data: data,
+    async: false,
+    beforeSend: function (xhr) {
+      if (xhr && xhr.overrideMimeType) {
+        xhr.overrideMimeType('application/json;charset=utf-8');
+      }
+    },
+    dataType: 'json',
+    success: function (data) {
+      console.log(data);
+    }
+  });
 
 
 	$("a").on("click", function(e){
