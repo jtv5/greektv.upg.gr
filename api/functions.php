@@ -409,6 +409,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 echo $chan.' matched to '.$chanid.'<br />';
 $sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chanid','$uri','$type2','robot')";
+$result = db_query($sql);
+if ($result === false) {
+    return false;
+}
 //echo $sql.'<br />';
 //    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
