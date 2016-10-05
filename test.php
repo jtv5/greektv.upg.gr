@@ -1,3 +1,7 @@
+<link href="//vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.12/video.js"></script>
+<script src="//cdn.viblast.com/vb/stable/viblast.js"></script>
+
 <video id="example_video_2" class="video-js vjs-default-skin"
   controls preload="auto" width="640" height="264"
   data-setup='{"techOrder": ["viblastflash", "html5"]}'
