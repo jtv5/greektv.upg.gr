@@ -320,7 +320,7 @@ function db_select($query, $type)
         break;
         case 'unixml':
         $dbres .= '
-        <item guid="'.$row['id'].'">
+        <item>
         <title>'.$row['title'].'</title>
         <description>'.$row['description'].'</description>
         <link>'.$row['streamurl'].'</link>
@@ -328,6 +328,7 @@ function db_select($query, $type)
         <image>'.$GLOBALS['cdn'].$row['sd_image'].'</image>
         <imagehd>'.$GLOBALS['cdn'].$row['hd_image'].'</imagehd>
         <pubDate>'.date('r', time()).'</pubDate>
+        <guid>'.$row['id'].'</guid>
         </item>';
             break;
     case 'vlc':
