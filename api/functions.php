@@ -342,7 +342,7 @@ function db_select($query, $type)
 
             case 'unijson':
         $dbres .= '
-        <a href="'$row['streamurl']'">
+        <a href="'.$row['streamurl'].'">
         <li class="clearfix">
         <img src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail">
         <h2>'.$row['title'].'</h2>
