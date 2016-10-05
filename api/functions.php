@@ -185,7 +185,7 @@ function startapi()
 
                                     case 'enterdb':
 
-                                        convertm3uurl($_GET['url'],$_GET['type2']);
+                                        enterdb($_GET['url'],$_GET['type2']);
                                         break;
 
 
