@@ -69,6 +69,7 @@
         <script type="application/javascript" src="xdk/ad/ad_events_data.js"></script>
         <script type="application/javascript" src="js/index_init_services.js"></script>
         <script type="application/javascript" src="xdk/ad/index_setup_services.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
     </head>
 
     <body ng-app="myApp">
@@ -84,10 +85,10 @@
                     <div class="widget-container content-area horiz-area wrapping-col left"></div>
                     <div class="widget-container content-area horiz-area wrapping-col right"></div>
                 </div>
-                <div class="upage-content ac0 content-area vertical-col left">
+                <div class="upage-content ac0 content-area vertical-col left" id="page_39_53">
                     <div class="list-group widget uib_w_2 d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" ng-controller="angular_controllers.uib_w_3.controller">
-                        <a class="list-group-item allow-badge widget uib_w_3" data-uib="twitter%20bootstrap/list_item" data-ver="1" data-sm="greektvrss" data-sc="multiple" data-rpath=".rss.channel.item[]" href="{{entry.link}}" ng-repeat="entry in entries"
-                        ng-click="select_entry($event, entry)" data-adidx="{{$index}}">
+                        <a class="list-group-item allow-badge widget uib_w_3" data-uib="twitter%20bootstrap/list_item" data-ver="1" data-sm="greektvrss" data-sc="multiple" data-rpath=".rss.channel.item[]" href="{{entry.link}}" ng-repeat="entry in entries" ng-click="select_entry($event, entry)"
+                        data-adidx="{{$index}}">
 
                             <h4 class="list-group-item-heading">{{entry.title}}</h4>
                             <p class="list-group-item-text">{{entry.category}}</p>
