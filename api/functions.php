@@ -33,7 +33,7 @@ function startapi()
     header('Content-Type: text/xml');
         db_connect();
         echo '<?xml version="1.0" encoding="UTF-8"?><orml version="1.2" xmlns="http://sourceforge.net/p/openrokn/home/ORML"><channel> <item type="poster" style="flat-episodic-16x9" title="GREEK TV" shortdesc="GreekTV" sdposterurl="pkg:/images/sdvideos.png" hdposterurl="pkg:/images/hdvideos.png">';
-        echo db_select("select * from content where type2 = 'tv' and active = '1' and live_upg = 1 order by ord desc", 'roku');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'tv' and streams.active = '1' order by greekchannels.channel_order desc", 'roku');
         echo '</item></channel></orml>';
         break;
 
@@ -292,7 +292,8 @@ function db_select($query, $type)
     while ($row = mysqli_fetch_assoc($result)) {
         switch ($_GET['type']) {
     case 'roku':
-    $dbres .= '<item type="'.$row['type'].'" title="'.$row['title'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sdposterurl'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hdposterurl'].'" genre1="'.$row['genre1'].'" url="'.$row['streamurl'].'" ishd="'.$row['ishd'].'" bitrate="'.$row['bitrate'].'" shortdesc="'.$row['description'].'" streamformat="'.$row['streamformat'].'" live="'.$row['live'].'" ></item>';
+    $dbres .= '<item type="'.$row['type'].'" title="'.$row['title'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" genre1="'.$row['region'].'" url="'.$row['streamurl'].'" ishd="'.$row['ishd'].'" bitrate="512" shortdesc="'.$row['description'].'" streamformat="'.$row['streamformat'].'" live="true" ></item>';
+
         break;
 
         case 'kodi':
