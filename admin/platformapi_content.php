@@ -66,7 +66,7 @@
                           </tr>
                           <tr>
                               <td>enterdb</td>
-                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripm3ulist">http://greektv.upg.gr/api/?type=ripm3ulist&type2=all&url=</a></td>
+                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=enterdb">http://greektv.upg.gr/api/?type=enterdb&type2=all&url=</a></td>
                               <td>Enter m3u streams into greektv by upg.gr!. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
                           </tr>
                       </tbody>
