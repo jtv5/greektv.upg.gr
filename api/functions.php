@@ -344,7 +344,7 @@ function db_select($query, $type)
         $dbres .= '
         <a href="'.$row['streamurl'].'">
         <li class="clearfix">
-        <img src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail">
+        <img width="70px" height="70px" src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail">
         <h2>'.$row['title'].'</h2>
         <p class="desc">'.$row['description'].'</p>
         <span class="price">'.$row['type'].'</span>
