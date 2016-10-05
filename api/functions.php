@@ -326,7 +326,7 @@ function db_select($query, $type)
         <link>'.$row['streamurl'].'</link>
         <category>'.$row['type'].'</category>
         <image>'.$GLOBALS['cdn'].$row['sd_image'].'</image>
-        <imagehd>'.$GLOBALS['cdn'].$row['hd_image'].'</image>
+        <imagehd>'.$GLOBALS['cdn'].$row['hd_image'].'</imagehd>
         <pubDate>'.date('r', time()).'</pubDate>
         </item>';
             break;
