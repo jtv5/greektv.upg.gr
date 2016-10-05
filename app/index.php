@@ -29,9 +29,8 @@
 	</div>
  <div class="push"></div>
   <footer class="footer">
-  	  <p>Write some footery stuff here</p>
-  	  <p>The kind that no ones cares about :D</p>
-  	  <p>The kind of text that is so damn long that your footer height changes on a smaller screen.</p>
+    <p>2016 &copy; upg.gr | Available in : <a href="https://my.roku.com/add/upggrtv" target="new">ROKU</a> - AppleTV - <a href="https://github.com/upggr/GreekTV.bundle" target="new">Plex</a> - <a href="http://greektv.upg.gr">Web</a> - iOS - <a href="http://greektv.upg.gr/api/?type=vlc" target="new">VLC</a> | Questions? Email me : <a href="mailto:info@upg.gr">info@upg.gr</a> | <a href="https://github.com/upggr" target="new">Github</a> | <a href="facebook.com/greektvroku" target="new">Facebook</a> | <a href="http://greektv.upg.gr/api/?type=all" target="new">Status</a></p>
+    <p>Disclaimer : GreekTV is not affiliated with any TV stations and is using publicly available streams as listed here : <a href="http://greektv.upg.gr/api/?type=web" target="_blank">list</a>. This is an <a href="https://github.com/upggr/greektv.upg.gr" target="_blank">opensource project</a> and we are not making any money of it! Service is provided for free as is. We are merely a webplayer playing public streams. All product names, logos, and brands are property of their respective owners. We are not affiliated with any other service apart from our free roku private channel (Some people might have forked our code or created plugins for different platforms using our API)</p>
   </footer>
 
 <script type="text/javascript">
