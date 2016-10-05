@@ -183,6 +183,12 @@ function startapi()
                     break;
 
 
+                                    case 'enterdb':
+                                  
+                                        convertm3uurl($_GET['url'],$_GET['type2']);
+                                        break;
+
+
     case 'tvos':
     header('Content-Type: application/javascript');
         db_connect();
@@ -368,19 +374,27 @@ function convertm3uurl($url,$type2)
   for ($i = 0; $i < count($matches[2]); $i++) {
 
     echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
-  //      break;
-
-
-//    echo $matches[1][$i].' is '.$matches[2][$i].'<br />';
+}
 }
 
-  //  $matches = $matches[2];
-  //  foreach ($matches as $var) {
-
-//  echo $var.'<br />';
-
-//}
-
+function enterdb($url,$type2)
+{
+    $var = fread_url($url);
+  if ($type2 == 'hls') {
+  //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+    $re = '/(http:.*ng).*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+  }
+  else {
+  //  $re = '/.*,\s*(.*)\n(.*)\n/';
+    $re = '/(http:.*ng).*,\s*(.*)\n(.*)\n/';
+  }
+    preg_match_all($re, $var, $matches);
+  //   echo '<pre>';  print_r ($matches);echo '</pre>';
+  for ($i = 0; $i < count($matches[2]); $i++) {
+echo 'channel : '.$matches[2][$i].'<br />';
+echo 'url : '.$matches[3][$i].'<br />';
+    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
+}
 }
 
 
