@@ -103,7 +103,7 @@ $(document).ready(function(){
   $.ajax({
     type: 'GET',
     url: 'http://greektv.upg.gr/api/?type=unijson',
-    data: data,
+    data: '',
     async: false,
     beforeSend: function (xhr) {
       if (xhr && xhr.overrideMimeType) {
