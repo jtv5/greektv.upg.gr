@@ -28,9 +28,11 @@
 		</div>
 	</div>
 
-  <div id="footer">
-      Sticky Footer
-  </div>
+  <footer class="footer">
+  	  <p>Write some footery stuff here</p>
+  	  <p>The kind that no ones cares about :D</p>
+  	  <p>The kind of text that is so damn long that your footer height changes on a smaller screen.</p>
+  </footer>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -43,41 +45,14 @@ $(document).ready(function(){
       dataType: 'html'
   });
 
+  $(window).resize(function(){
+			    var footerHeight = $('.footer').outerHeight();
+			    var stickFooterPush = $('.push').height(footerHeight);
 
-  $(window).bind("load", function() {
+    			$('.wrapper').css({'marginBottom':'-' + footerHeight + 'px'});
+		    });
 
-         var footerHeight = 0,
-             footerTop = 0,
-             $footer = $("#footer");
-
-         positionFooter();
-
-         function positionFooter() {
-
-                  footerHeight = $footer.height();
-                  footerTop = ($(window).scrollTop()+$(window).height()-footerHeight)+"px";
-
-                 if ( ($(document.body).height()+footerHeight) < $(window).height()) {
-                     $footer.css({
-                          position: "absolute"
-                     }).animate({
-                          top: footerTop
-                     })
-                 } else {
-                     $footer.css({
-                          position: "static"
-                     })
-                 }
-
-         }
-
-         $(window)
-                 .scroll(positionFooter)
-                 .resize(positionFooter)
-
-  });
-
-  
+    		$(window).resize();
 });
 </script>
 </body>
