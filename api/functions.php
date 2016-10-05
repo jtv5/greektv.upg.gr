@@ -394,6 +394,7 @@ function enterdb($url,$type2)
 $chan = $matches[1][$i];
 $uri = $matches[2][$i];
 $chan = str_replace(" BUP","",$chan);
+$chan = rtrim($chan);
 echo $chan.'<br />';
 db_connect();
 $query ="select id from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
