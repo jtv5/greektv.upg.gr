@@ -294,6 +294,7 @@ function db_select($query, $type)
         break;
 
         case 'kodi':
+        echo $query;
         $dbres .= "<item>\r\n<title>".$row['title']."</title>\r\n<link>".$row['streamurl']."</link>\r\n<thumbnail>".$GLOBALS['cdn'].$row['sdposterurl']."</thumbnail>\r\n</item>\r\n\r\n";
             break;
     case 'tvos':
