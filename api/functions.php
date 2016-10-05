@@ -379,11 +379,11 @@ function enterdb($url,$type2)
     $var = fread_url($url);
   if ($type2 == 'hls') {
   //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
-    $re = '/(http:.*ng).*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+    $re = '/(http:.*pg).*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
   else {
   //  $re = '/.*,\s*(.*)\n(.*)\n/';
-    $re = '/(http:.*ng).*,\s*(.*)\n(.*)\n/';
+    $re = '/(http:.*pg).*,\s*(.*)\n(.*)\n/';
   }
     preg_match_all($re, $var, $matches);
   //   echo '<pre>';  print_r ($matches);echo '</pre>';
