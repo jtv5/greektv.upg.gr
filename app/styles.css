@@ -114,6 +114,7 @@ header h1 { font-size: 2.4em; font-family: Tahoma, Arial, sans-serif; font-weigh
 /** clearfix **/
 .clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
 .clearfix { display: inline-block; }
-#footer { height: 30px; width:100%; background-color: black;}
+.footer { height: 30px; width:100%; 	background: #000;
+	color: #fff;}
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }

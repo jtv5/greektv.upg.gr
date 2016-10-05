@@ -27,7 +27,7 @@
 			</ul>
 		</div>
 	</div>
-
+ <div class="push"></div>
   <footer class="footer">
   	  <p>Write some footery stuff here</p>
   	  <p>The kind that no ones cares about :D</p>
@@ -49,7 +49,7 @@ $(document).ready(function(){
 			    var footerHeight = $('.footer').outerHeight();
 			    var stickFooterPush = $('.push').height(footerHeight);
 
-    			$('.wrapper').css({'marginBottom':'-' + footerHeight + 'px'});
+    			$('.view').css({'marginBottom':'-' + footerHeight + 'px'});
 		    });
 
     		$(window).resize();
