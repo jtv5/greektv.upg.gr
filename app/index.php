@@ -27,6 +27,9 @@
 			</ul>
 		</div>
 	</div>
+
+
+
 <script type="text/javascript">
 $(document).ready(function(){
   $.ajax({
@@ -34,10 +37,6 @@ $(document).ready(function(){
       success: function (data) {
 
         $('ul').append(data);
-        $("a").on("click", function(e){
-          e.preventDefault();
-          alert('click');
-        });
       },
       dataType: 'html'
   });
