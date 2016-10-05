@@ -320,7 +320,7 @@ function db_select($query, $type)
         break;
         case 'unixml':
         $dbres .= '
-        <item>
+        <item guid="'.$row['id'].'">
         <title>'.$row['title'].'</title>
         <description>'.$row['description'].'</description>
         <link>'.$row['streamurl'].'</link>
