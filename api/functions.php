@@ -399,7 +399,7 @@ $uri = $matches[3][$i];
 $channame = 'oo';
 echo $chan.' matched to '.$channame.'<br />';
 //$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chan','$uri','$type2','robot')";
-echo $sql.'<br />';
+//echo $sql.'<br />';
 //    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
 }
