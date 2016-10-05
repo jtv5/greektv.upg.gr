@@ -39,7 +39,7 @@ foreach ($xml->channel->item as $item) {
         $type = $item2->attributes()->streamformat;
         $desc = $item2->attributes()->genre1;
         echo "<li>
-	<a target='_new' href='http://greektv.upg.gr/upgplayer.html?m3u8=".$hlsurl.'&poster='.$imgurl.'&type='.$type.'&channel='.$title."&target='>
+	<a target='_new' href='http://greektv.upg.gr/upgplayer.html?m3u8=".$hlsurl.'&poster=img/'.$imgurl.'&type='.$type.'&channel='.$title."&target='>
 	<img src='".$imgurl."'>
 	<h3>".$title.'</h3>
 	<p>'.$desc.'</p>
