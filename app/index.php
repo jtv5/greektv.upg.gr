@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Simple Mobile Listview</title>
+  <title>GreekTV by UPG.GR</title>
   <meta name="author" content="Jake Rocheleau">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="HandheldFriendly" content="true">
@@ -19,7 +19,7 @@
 <body>
 	<div id="view">
 		<header>
-			<h1>Detail List UI</h1>
+			<h1>GreekTV by UPG.GR</h1>
 		</header>
 
 		<div id="container">
@@ -100,6 +100,23 @@
 	</div>
 <script type="text/javascript">
 $(document).ready(function(){
+
+     $.getJSON('http://greektv.upg.gr/api/?type=unijson', function (data) {
+       console.log(data);
+       var items = data.items.map(function (item) {
+         return item.key + ': ' + item.value;
+       });
+
+       showData.empty();
+
+       if (items.length) {
+         var content = '<li>' + items.join('</li><li>') + '</li>';
+         var list = $('<ul />').html(content);
+         showData.append(list);
+       }
+     });
+
+
 	$("a").on("click", function(e){
 		e.preventDefault();
 	});
