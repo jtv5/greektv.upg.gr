@@ -190,10 +190,10 @@ function startapi()
     header('Content-Type: application/javascript');
         db_connect();
         echo 'var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?><document><catalogTemplate><banner><title>Greek TV by UPG.GR</title></banner><list><section><listItemLockup><title>Greek TV</title><decorationLabel>Live</decorationLabel><relatedContent><grid><section>';
-        echo db_select("select * from content where type2 = 'tv' and active = '1'  order by ord desc", 'tvos');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'tvos');
         echo '</section></grid></relatedContent></listItemLockup></section>';
         echo '<section><listItemLockup><title>Greek Radio</title><decorationLabel>Live</decorationLabel><relatedContent><grid><section>';
-        echo db_select("select * from content where type2 = 'radio' and active = '1'  order by ord desc", 'tvos');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'radio' and streams.active = '1' order by greekchannels.channel_order desc", 'tvos');
         echo '</section></grid></relatedContent></listItemLockup></section>';
         echo '</list></catalogTemplate></document>`}';
         break;
@@ -301,16 +301,16 @@ function db_select($query, $type)
         $dbres .= "<item>\r\n<title>".$row['title']."</title>\r\n<link>".$row['streamurl']."</link>\r\n<thumbnail>".$GLOBALS['cdn'].$row['sd_image']."</thumbnail>\r\n</item>\r\n\r\n";
             break;
     case 'tvos':
-    $dbres .= '<lockup videoURL="'.$row['streamurl'].'"><img src="'.$GLOBALS['cdn'].$row['hdposterurl'].'" width="250" height="150" /></lockup>';
+    $dbres .= '<lockup videoURL="'.$row['streamurl'].'"><img src="'.$GLOBALS['cdn'].$row['hd_image'].'" width="250" height="150" /></lockup>';
         break;
     case 'web':
-    $dbres .= '<item url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sdposterurl'].'"  type="'.$row['type'].'"></item>';
+    $dbres .= '<item url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'"  type="'.$row['type'].'"></item>';
         break;
     case 'plex':
-    $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sdposterurl'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hdposterurl'].'" comments="'.$row['comments'].'" type="'.$row['type'].'" extra1="'.$row['extra1'].'" extra2="'.$row['extra2'].'" active="'.$row['active'].'" genre1="'.$row['genre1'].'" ishd="'.$row['ishd'].'" bitrate="'.$row['bitrate'].'" live="'.$row['live'].'" ></item>';
+    $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'" active="'.$row['active'].'" genre1="'.$row['region'].'" ishd="'.$row['ishd'].'" ></item>';
         break;
     case 'vlc':
-    $dbres .= "#EXTINF:0, logo=\"".$row['sdposterurl']."\",".$row['title']."\r\n".$row['streamurl']."\r\n";
+    $dbres .= "#EXTINF:0, logo=\"".$row['sd_image']."\",".$row['title']."\r\n".$row['streamurl']."\r\n";
         break;
     case 'findactive' :
     ini_set('default_socket_timeout', 2);
