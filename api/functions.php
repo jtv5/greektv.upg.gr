@@ -342,7 +342,7 @@ function db_select($query, $type)
 
             case 'unijson':
         $dbres .= '
-        <a href="http://greektv.upg.gr/upgplayer.html?m3u8='.$row['streamurl'].'&poster='.$row['hd_image'].'&type='.$row['type'].'&channel='.$row['title'].'">
+        <a href="http://greektv.upg.gr/upgplayer.html?m3u8='.$row['streamurl'].'&poster=img/'.$row['hd_image'].'&type='.$row['type'].'&channel='.$row['title'].'">
         <li class="clearfix">
         <img width="70px" height="70px" src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail">
         <h2>'.$row['title'].'</h2>
