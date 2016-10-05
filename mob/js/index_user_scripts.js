@@ -12,6 +12,7 @@
      /* listitem  {{entry.category}} */
     $(document).on("click", ".uib_w_3", function(evt)
     {
+      evt.preventDefault();
         playVideo()
         alert('test');
    //      return false;
