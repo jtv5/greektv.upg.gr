@@ -33,90 +33,16 @@
 						<span class="price">$2,650/month</span>
 				</li></a>
 
-				<!-- row 02 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/penthouse-with-bar.png" alt="Modern penthouse bar" class="thumbnail">
-					<h2>Modern Penthouse Highrise with Bar</h2>
-					<p class="desc">Rental located in New York City, NY. 1 bedroom 1 bath.</p>
-
-					<span class="price">$1,800/month</span>
-				</li></a>
-
-				<!-- row 03 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/single-room-loft.png" alt="An adventure room with sofa" class="thumbnail">
-					<h2>Single-Room 3rd Floor Rental</h2>
-					<p class="desc">Rental located in New York City, NY. 1 bedroom 2 baths.</p>
-
-					<span class="price">$1,350/month</span>
-				</li></a>
-
-				<!-- row 04 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/dining-room-duplex.png" alt="2nd story duplex apartment" class="thumbnail">
-					<h2>2nd Floor Duplex Apartment with Balcony</h2>
-					<p class="desc">Rental located in Madison, WI. 2 bedrooms 1 bath.</p>
-
-					<span class="price">$1,650/month</span>
-				</li></a>
-
-				<!-- row 05 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/yacht-style-bedroom.png" alt="unique yacht-style bedroom set" class="thumbnail">
-					<h2>Open Apartment with Yacht-Style Interior</h2>
-					<p class="desc">Rental located in Los Angeles, CA. 2 bedrooms 1 bath.</p>
-
-					<span class="price">$2,100/month</span>
-				</li></a>
-
-				<!-- row 06 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/kids-room-apartment.png" alt="big apartment with a kids room" class="thumbnail">
-					<h2>Large Apartment Space with Children's Bedroom</h2>
-					<p class="desc">Rental located in New Haven, CT. 3 bedrooms 1 bath.</p>
-
-					<span class="price">$2,850/month</span>
-				</li></a>
-
-				<!-- row 07 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/circular-apartment.png" alt="Open circular apartment complex" class="thumbnail">
-					<h2>Circular Living Room Space 1st Floor</h2>
-					<p class="desc">Rental located in Greensboro, NC. 2 bedrooms 1 bath.</p>
-
-					<span class="price">$1,890/month</span>
-				</li></a>
-
-				<!-- row 08 -->
-				<a href="#"><li class="clearfix">
-					<img src="images/beautiful-villa-ocean.png" alt="beautiful villa rental overlooking the ocean" class="thumbnail">
-					<h2>Beachfront Ocean Villa Rental</h2>
-					<p class="desc">Rental located in Naxos, Greece. 2 bedrooms 2 bath.</p>
-
-					<span class="price">$2,200/month</span>
-				</li></a>
 			</ul>
 		</div>
 	</div>
 <script type="text/javascript">
 $(document).ready(function(){
   $.ajax({
-    type: 'GET',
-    url: 'http://greektv.upg.gr/api/?type=unijson',
-    data: '',
-    async: false,
-    beforeSend: function (xhr) {
-      if (xhr && xhr.overrideMimeType) {
-        xhr.overrideMimeType('application/json;charset=utf-8');
-      }
-    },
-    dataType: 'json',
-    success: function (data) {
-      console.log(data);
-    }
+      url: "http://greektv.upg.gr/api/?type=unijson",
+      success: function (data) { $('ul').append(data); },
+      dataType: 'html'
   });
-
-
 	$("a").on("click", function(e){
 		e.preventDefault();
     alert('click');
