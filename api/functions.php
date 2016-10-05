@@ -223,7 +223,7 @@ function startapi()
   //  header('Content-Type: audio/mpegurl;');
   header('Content-Type: text/xml');
      db_connect();
-        echo '#EXTM3U\r\n';
+        echo "#EXTM3U\r\n";
         echo db_select("select * from content where active = '1'  order by ord desc", 'vlc');
     break;
     case 'findactive':
@@ -308,7 +308,7 @@ function db_select($query, $type)
     $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sdposterurl'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hdposterurl'].'" comments="'.$row['comments'].'" type="'.$row['type'].'" extra1="'.$row['extra1'].'" extra2="'.$row['extra2'].'" active="'.$row['active'].'" genre1="'.$row['genre1'].'" ishd="'.$row['ishd'].'" bitrate="'.$row['bitrate'].'" live="'.$row['live'].'" ></item>';
         break;
     case 'vlc':
-    $dbres .= '#EXTINF:0,'.$row['title'].'\r\n'.$row['streamurl'];
+    $dbres .= "#EXTINF:0,".$row['title']."\r\n".$row['streamurl'];
         break;
     case 'findactive' :
     ini_set('default_socket_timeout', 2);
