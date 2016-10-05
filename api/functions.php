@@ -395,10 +395,10 @@ $chan = $matches[1][$i];
 $uri = $matches[2][$i];
 $chan = str_replace(" BUP","",$chan);
 $chan = rtrim($chan);
-echo $chan.'<br />';
+//echo $chan.'<br />';
 db_connect();
 $query ="select id from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
-echo $query.'<br />';
+//echo $query.'<br />';
 $result = db_query($query);
 if ($result === false) {
     return false;
@@ -407,13 +407,14 @@ while ($row = mysqli_fetch_assoc($result)) {
   $chanid = $row['id'];
 }
 
-echo $chan.' matched to '.$chanid.'<br />';
+//echo $chan.' matched to '.$chanid.'<br />';
 $sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chanid','$uri','$type2','robot')";
+echo $sql.'<br />';
 $result = db_query($sql);
 if ($result === false) {
     return false;
 }
-//echo $sql.'<br />';
+
 //    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
 }
