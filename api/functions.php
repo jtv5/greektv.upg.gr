@@ -320,10 +320,13 @@ function db_select($query, $type)
         break;
         case 'unixml':
         $dbres .= '
-        <item id="'.$row['id'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'">
+        <item>
         <title>'.$row['title'].'</title>
         <description>'.$row['description'].'</description>
         <link>'.$row['streamurl'].'</link>
+        <category>'.$row['type'].'</category>
+        <image>'.$GLOBALS['cdn'].$row['sd_image'].'</image>
+        <imagehd>'.$GLOBALS['cdn'].$row['hd_image'].'</image>
         <pubDate>'.date('r', time()).'</pubDate>
         </item>';
             break;
