@@ -24,15 +24,6 @@
 
 		<div id="container">
 			<ul>
-				<!-- row 01 -->
-				<a href="#"><li class="clearfix">
-						<img src="images/modern-castle-kitchen.png" alt="thumb" class="thumbnail">
-						<h2>Full-Room Mansion with Open Kitchen</h2>
-						<p class="desc">Rental located in Pheonix, AZ. 2 bedrooms 1.5 baths. </p>
-
-						<span class="price">$2,650/month</span>
-				</li></a>
-
 			</ul>
 		</div>
 	</div>
