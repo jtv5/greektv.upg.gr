@@ -294,8 +294,8 @@ function db_select($query, $type)
         break;
 
         case 'kodi':
-      
-        $dbres .= "<item>\r\n<title>".$row['title']."</title>\r\n<link>".$row['streamurl']."</link>\r\n<thumbnail>".$GLOBALS['cdn'].$row['sdposterurl']."</thumbnail>\r\n</item>\r\n\r\n";
+
+        $dbres .= "<item>\r\n<title>".$row['title']."</title>\r\n<link>".$row['streamurl']."</link>\r\n<thumbnail>".$GLOBALS['cdn'].$row['sd_image']."</thumbnail>\r\n</item>\r\n\r\n";
             break;
     case 'tvos':
     $dbres .= '<lockup videoURL="'.$row['streamurl'].'"><img src="'.$GLOBALS['cdn'].$row['hdposterurl'].'" width="250" height="150" /></lockup>';
