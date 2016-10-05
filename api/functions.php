@@ -393,7 +393,9 @@ function enterdb($url,$type2)
   for ($i = 0; $i < count($matches[2]); $i++) {
 //echo 'channel : '.$matches[2][$i].'<br />';
 //echo 'url : '.$matches[3][$i].'<br />';
-$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$matches[2][$i]','$matches[3][$i]','$type2','robot')";
+$chan = $matches[2][$i];
+$uri = $matches[3][$i];
+$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chan','$uri','$type2','robot')";
 echo $sql.'<br />';
 //    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
