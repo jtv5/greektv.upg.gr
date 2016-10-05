@@ -51,13 +51,18 @@
                           </tr>
                           <tr>
                               <td>RIPURL</td>
-                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=roku">http://greektv.upg.gr/api/?type=roku&url=xxx.com</a></td>
+                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripurl">http://greektv.upg.gr/api/?type=ripurl&url=xxx.com</a></td>
                               <td>Rips "index of" to kodi compatible xml. Needs a parameter url.</td>
                           </tr>
                           <tr>
                               <td>Find active</td>
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=findactive">http://greektv.upg.gr/api/?type=findactive</a></td>
                               <td>Discard inactive streams</td>
+                          </tr>
+                          <tr>
+                              <td>Convert m3u to kodi compatible txt feed</td>
+                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=ripm3ulist">http://greektv.upg.gr/api/?type=ripm3ulist&type2=all&url=</a></td>
+                              <td>Grab a m3u list. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
                           </tr>
                       </tbody>
                   </table>
