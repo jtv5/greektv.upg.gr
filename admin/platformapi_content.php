@@ -69,6 +69,11 @@
                               <td><a target="_blank" href="http://greektv.upg.gr/api/?type=enterdb">http://greektv.upg.gr/api/?type=enterdb&type2=all&url=</a></td>
                               <td>Enter m3u streams into greektv by upg.gr!. Parameters : type2= (all - everything, hls - only m3u8), url= m3u url</td>
                           </tr>
+                          <tr>
+                              <td>unixml</td>
+                              <td><a target="_blank" href="http://greektv.upg.gr/api/?type=unixml">http://greektv.upg.gr/api/?type=unixml</a></td>
+                              <td>RSS format playlist for universal web app as a service</td>
+                          </tr>
                       </tbody>
                   </table>
                     </div>
