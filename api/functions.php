@@ -221,6 +221,13 @@ function startapi()
             echo '</channel></rss>';
             break;
 
+            case 'unijson':
+                header('Content-Type: application/json');
+                db_connect();
+                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'unijson');
+                break;
+
+
     case 'all':
          db_connect();
         echo db_select('select * from greekchannels order by ord desc', 'all');
@@ -297,6 +304,7 @@ function db_select($query, $type)
     if ($result === false) {
         return false;
     }
+    $aaData = array();
     $dbres = '';
     while ($row = mysqli_fetch_assoc($result)) {
         switch ($_GET['type']) {
@@ -331,6 +339,12 @@ function db_select($query, $type)
         <guid isPermaLink="false">'.$row['streamurl'].'</guid>
         </item>';
             break;
+
+            case 'unijson':
+              $aaData[] = $row;
+            $dbres .= json_encode($aaData);
+                break;
+
     case 'vlc':
     $dbres .= "#EXTINF:0, logo=\"".$row['sd_image']."\",".$row['title']."\r\n".$row['streamurl']."\r\n";
         break;
