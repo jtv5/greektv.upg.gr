@@ -395,7 +395,7 @@ function enterdb($url,$type2)
 //echo 'url : '.$matches[3][$i].'<br />';
 $chan = $matches[2][$i];
 $uri = $matches[3][$i];
-
+$chan = str_replace(" BUP","",$chan);
 $channame = 'oo';
 echo $chan.' matched to '.$channame.'<br />';
 //$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chan','$uri','$type2','robot')";
