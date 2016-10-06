@@ -528,7 +528,7 @@ function is_url_exist2($url)
     $handle = curl_init($url);
     curl_setopt($handle, CURLOPT_HEADER, true);
     curl_setopt($handle, CURLOPT_NOBODY, true);
-    curl_setopt($handle, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.4');
+    curl_setopt($handle, CURLOPT_USERAGENT, 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3B48b Safari/419.3');
     curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($handle, CURLOPT_TIMEOUT, 10);
     curl_setopt($handle, CURLOPT_ENCODING, 'gzip');
