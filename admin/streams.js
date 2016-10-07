@@ -97,7 +97,7 @@ $("#formadd").submit(function(e){
     var format = $('#field-format').val();
     var active = $('#field-active').val();
     var hd = $('#field-hd').val();
-    var user = 'info@upg.gr';
+    var user = 'user';
     var suburl = '../api/?type=addstream&channelid='+channelid+'&streamurl='+streamurl+'&streamformat='+format+'&active='+active+'&ishd='+hd+'&user='+user;
     console.log(suburl);
     location.href = suburl;
@@ -112,7 +112,7 @@ $("#formedit").submit(function(e){
     var format = $('#field-format-e').val();
     var active = $('#field-active-e').val();
     var hd = $('#field-hd-e').val();
-    var user = 'info@upg.gr';
+    var user = 'user';
     var suburl = '../api/?type=editstream&streamid='+streamid+'&channelid='+channelid+'&streamurl='+streamurl+'&streamformat='+format+'&active='+active+'&ishd='+hd+'&user='+user;
     console.log(suburl);
     location.href = suburl;
