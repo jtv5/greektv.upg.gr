@@ -103,7 +103,7 @@ function startapi()
               }
                     break;
 
-                    case 'editchannel':
+                    case 'editchannel1':
                     echo '?';
                   if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) ) {
                         db_connect();
@@ -128,6 +128,11 @@ function startapi()
                     echo '???????';
                   }
                         break;
+
+                        case 'editchannel':
+                        echo '?';
+  
+                            break;
 
                         case 'addchannel':
                         echo 'ok';
