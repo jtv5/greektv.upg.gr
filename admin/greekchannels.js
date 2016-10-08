@@ -98,7 +98,7 @@ jQuery(document).ready(function() {
       var hdimage = $('#field-hdimage').val();
       var order = $('#field-order').val();
 
-      var suburl = '../api/?type=addchannel&title='+title+'&region='+region+'&thetype='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+user;
+      var suburl = '../api/?type=addchannel&title='+title+'&region='+region+'&thetype='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order;
       console.log(suburl);
       location.href = suburl;
   });
