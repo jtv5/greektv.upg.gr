@@ -141,7 +141,7 @@ function startapi()
                             $hdimage = $_GET['hdimage'];
                             $order = $_GET['order'];
                             $query ="UPDATE greekchannels SET title = '$title', region = '$region',type = '$type',description = '$description',sd_image = '$sdimage',hd_image = '$hdimage',channel_order = '$order' where id = '$channelid'";
-                            echo $query;
+                        //    echo $query;
                             $result = db_query($query);
                             if ($result === false) {
                                 return false;
@@ -165,7 +165,7 @@ function startapi()
                             $hdimage = $_GET['hdimage'];
                             $order = $_GET['order'];
                             $query ="insert into greekchannels (title,region,type,description,sd_image,hd_image,channel_order) VALUES ('$title','$region','$type','$description','$sdimage','$hdimage','$order')";
-                            echo $query;
+                      //      echo $query;
                             $result = db_query($query);
                             if ($result === false) {
                                 return false;
