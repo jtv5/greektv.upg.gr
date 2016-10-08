@@ -69,23 +69,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                       <label for="field-sdimage" class="control-label">SD Image</label>
-                            <select id="field-sdimage" class="form-control">
-                                <option value="hls">hls</option>
-                                <option value="youtube">youtube</option>
-                                <option value="mp4">mp4</option>
-                                <option value="podcast">podcast</option>
-                                <option value="ustream">ustream</option>
-                                <option value="other">other</option>
-                            </select>
+                            <input type="text" class="form-control" id="field-sdimage">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                       <label for="field-hdimage" class="control-label">HD Image</label>
-                            <select id="field-hdimage" class="form-control">
-                                <option value="0">0</option>
-                                <option value="1" >1</option>
-                            </select>
+                            <input type="text" class="form-control" id="field-hdimage">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
