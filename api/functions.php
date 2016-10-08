@@ -104,7 +104,7 @@ function startapi()
                     break;
 
                     case 'editchannel':
-                  if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) & isset($_GET['user'])) {
+                  if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) ) {
                         db_connect();
                         $channelid = $_GET['channelid'];
                         $title = $_GET['title'];
@@ -114,8 +114,7 @@ function startapi()
                         $sdimage = $_GET['sdimage'];
                         $hdimage = $_GET['hdimage'];
                         $order = $_GET['order'];
-                        $user = $_GET['user'];
-                        $query ="UPDATE greekchannels SET title = '$title', region = '$region',type = '$type',description = '$description',sd_image = '$sdimage',hd_image = '$hdimage',channel_order = '$order' user = '$user' where id = '$channelid'";
+                        $query ="UPDATE greekchannels SET title = '$title', region = '$region',type = '$type',description = '$description',sd_image = '$sdimage',hd_image = '$hdimage',channel_order = '$order' where id = '$channelid'";
                   //      echo $query;
                         $result = db_query($query);
                         if ($result === false) {
@@ -128,7 +127,7 @@ function startapi()
                         break;
 
                         case 'addchannel':
-                      if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) & isset($_GET['user'])) {
+                      if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage'])) {
                             db_connect();
                             $channelid = $_GET['channelid'];
                             $title = $_GET['title'];
@@ -138,8 +137,7 @@ function startapi()
                             $sdimage = $_GET['sdimage'];
                             $hdimage = $_GET['hdimage'];
                             $order = $_GET['order'];
-                            $user = $_GET['user'];
-                            $query ="insert into greekchannels (title,region,type,description,sd_image,hd_image,channel_order,user) VALUES ('$title','$region','$type','$description','$sdimage','$hdimage','$order','$user')";
+                            $query ="insert into greekchannels (title,region,type,description,sd_image,hd_image,channel_order) VALUES ('$title','$region','$type','$description','$sdimage','$hdimage','$order')";
                         //    echo $query;
                             $result = db_query($query);
                             if ($result === false) {
