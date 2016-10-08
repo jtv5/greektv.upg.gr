@@ -62,6 +62,5 @@ var handleDataTableButtons = function () {
 TableManageButtons = function () {"use strict"; return { init: function () { handleDataTableButtons()  } }}();
 TableManageButtons.init();
 jQuery(document).ready(function() {
-console.log(name);
 
 });
