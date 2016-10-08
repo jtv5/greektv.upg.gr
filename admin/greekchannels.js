@@ -34,13 +34,8 @@ var handleDataTableButtons = function () {
         {
             "targets": [8],
             render: function ( row ) {
-              //with delete
-        //    return '<a onclick="return confirm(\'Are you sure you want to re-queueue this report?\');" title="Requeues the report - Report will be reprocessed when the importer runs again" href="../api/?type=re-process-report&report_id='+row.id+'&report_client='+theclientjs+'">Requeue</a> - <a onclick="return confirm(\'Are you sure you want to move this report to the unknown ones?\');" title="Moves the report to the unknown status and folder" href="../api/?type=move-to-unknown&report_id'+row.id+'=&report_client='+theclientjs+'">?</a> - <a onclick="return confirm(\'Are you sure you want to delete this report? This is irreversible!\'); title ="Deletes the report - FOREVER" href="../api/?type=delete-from-drive&report_id='+row.id+'&report_client='+theclientjs+'">Delete</a>';
-        //with no confirmation dialog
-  return '<a href="">Edit</a>';
+              return '<a href="#" class="formedit" channelid="'+row.id+'" title="'+row.title+'" region="'+row.region+'" type="'+row.type+'" description="'+row.description+'" sdimage="'+row.sd_image+'" hdimage="'+row.hd_image+'" order="'+row.order+'">Edit</a> - <a onclick="return confirm(\'Are you sure you want to delete this channel?\');" href="../api/?type=deletechannel&channelid='+row.id+'">Delete</a>';
 
-        //normal - no delete
-  //return '<a onclick="return confirm(\'Are you sure you want to re-queueue this report?\');" title="Requeues the report - Report will be reprocessed when the importer runs again" href="../api/?type=re-process-report&report_id='+row.id+'&report_client='+theclientjs+'">Requeue</a> - <a onclick="return confirm(\'Are you sure you want to move this report to the unknown ones?\');" title="Moves the report to the unknown status and folder" href="../api/?type=move-to-unknown&report_id'+row.id+'=&report_client='+theclientjs+'">?</a>';
           }
         } ],
 		"bProcessing": true,
