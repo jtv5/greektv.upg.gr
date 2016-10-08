@@ -91,13 +91,13 @@ jQuery(document).ready(function() {
   $("#formadd").submit(function(e){
       e.preventDefault();
 
-      var title = $('#field-title-e').val();
-      var region = $('#field-region-e').val();
-      var type = $('#field-type-e').val();
-      var description = $('#field-description-e').val();
-      var sdimage = $('#field-sdimage-e').val();
-      var hdimage = $('#field-hdimage-e').val();
-      var order = $('#field-order-e').val();
+      var title = $('#field-title').val();
+      var region = $('#field-region').val();
+      var type = $('#field-type').val();
+      var description = $('#field-description').val();
+      var sdimage = $('#field-sdimage').val();
+      var hdimage = $('#field-hdimage').val();
+      var order = $('#field-order').val();
       var user = 'user';
       var suburl = '../api/?type=addchannel&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user;
       console.log(suburl);
