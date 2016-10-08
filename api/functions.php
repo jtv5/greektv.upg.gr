@@ -190,7 +190,7 @@ function startapi()
                     break;
 
                     case 'deletechannel':
-          if (isset($_GET['streamid'])) {
+          if (isset($_GET['channelid'])) {
                         db_connect();
                         $channelid= $_GET['channelid'];
                         $query ="delete from greekchannels where id = '$channelid'";
@@ -199,7 +199,7 @@ function startapi()
                         if ($result === false) {
                             return false;
                         }
-              //      echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                    echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
                   }
                   else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';}
                         break;
