@@ -34,7 +34,7 @@ var handleDataTableButtons = function () {
         {
             "targets": [8],
             render: function ( row ) {
-              return '<a href="#" class="formedit" channelid="'+row.id+'" title="'+row.title+'" region="'+row.region+'" type="'+row.type+'" description="'+row.description+'" sdimage="'+row.sd_image+'" hdimage="'+row.hd_image+'" order="'+row.order+'">Edit</a> - <a onclick="return confirm(\'Are you sure you want to delete this channel?\');" href="../api/?type=deletechannel&channelid='+row.id+'">Delete</a>';
+              return '<a href="#" class="formedit" channelid="'+row.id+'" title="'+row.title+'" region="'+row.region+'" type="'+row.type+'" description="'+row.description+'" sdimage="'+row.sd_image+'" hdimage="'+row.hd_image+'" order="'+row.channel_order+'">Edit</a> - <a onclick="return confirm(\'Are you sure you want to delete this channel?\');" href="../api/?type=deletechannel&channelid='+row.id+'">Delete</a>';
 
           }
         } ],
