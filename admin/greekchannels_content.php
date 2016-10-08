@@ -24,6 +24,40 @@
                         </div>
                         <div class="modal-body">
                           <form id="formadd" action="">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                      <label for="field-title" class="control-label">Channel Title</label>
+                                        <input type="text" class="form-control" id="field-title">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                      <label for="field-region" class="control-label">Region</label>
+                            <select id="field-region" class="form-control">
+                              <option  value="Greece - Nationwide">Greece - Nationwide</option>
+                              <option  value="Greece - Local">Greece - Local</option>
+                              <option  value="Greece - WebTV">Greece - WebTV</option>
+                              <option  value="World - WebTV">World - WebTV</option>
+                              <option  value="Cyprus">Cyprus</option>
+                              <option  value="Cyprus - WebTV">Cyprus - WebTV</option>
+                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                      <label for="field-type" class="control-label">Type</label>
+                            <select id="field-type" class="form-control">
+                                <option  value="General">General</option>
+                                <option  value="News">News</option>
+                                <option  value="Music">Music</option>
+                            </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
                           <div class="row">
                               <div class="col-md-12">
                                   <div class="form-group">
