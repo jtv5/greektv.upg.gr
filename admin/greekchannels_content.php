@@ -80,8 +80,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                      <label for="field-hd" class="control-label">Order</label>
-                            <select id="field-hd" class="form-control">
+                                      <label for="field-order" class="control-label">Order</label>
+                            <select id="field-order" class="form-control">
                               <?php
                               for ($i = 1; $i <= 100; $i++) {echo '<option value="'.$i.'">'.$i.'</option>';}
 ?>
