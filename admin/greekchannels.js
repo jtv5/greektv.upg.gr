@@ -81,7 +81,7 @@ jQuery(document).ready(function() {
       var hdimage = $('#field-hdimage-e').val();
       var order = $('#field-order-e').val();
       var user = 'user';
-      var suburl = '../api/?type=editstream&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user;
+      var suburl = '../api/?type=editchannel&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user;
       console.log(suburl);
       location.href = suburl;
   });
