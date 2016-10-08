@@ -138,7 +138,7 @@ function startapi()
                             $hdimage = $_GET['hdimage'];
                             $order = $_GET['order'];
                             $query ="insert into greekchannels (title,region,type,description,sd_image,hd_image,channel_order) VALUES ('$title','$region','$type','$description','$sdimage','$hdimage','$order')";
-                        //    echo $query;
+                            echo $query;
                             $result = db_query($query);
                             if ($result === false) {
                                 return false;
