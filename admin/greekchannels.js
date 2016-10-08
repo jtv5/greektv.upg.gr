@@ -62,6 +62,7 @@ jQuery(document).ready(function() {
   $('#datatable-buttons').on('click', '.formedit', function(e){
     e.preventDefault();
        $('#edit-the-channel').modal('show');
+       $('#field-id-e').val($(this).attr('channelid'));
        $('#field-title-e').val($(this).attr('title'));
        $('#field-region-e').val($(this).attr('region'));
        $('#field-type-e').val($(this).attr('type'));
@@ -73,6 +74,7 @@ jQuery(document).ready(function() {
 
   $("#formedit").submit(function(e){
       e.preventDefault();
+      var channelid = $('#field-id-e').val();
       var title = $('#field-title-e').val();
       var region = $('#field-region-e').val();
       var type = $('#field-type-e').val();
@@ -81,7 +83,23 @@ jQuery(document).ready(function() {
       var hdimage = $('#field-hdimage-e').val();
       var order = $('#field-order-e').val();
       var user = 'user';
-      var suburl = '../api/?type=editchannel&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user;
+      var suburl = '../api/?type=editchannel&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user+'&channelid='+channelid;
+      console.log(suburl);
+      location.href = suburl;
+  });
+
+  $("#formadd").submit(function(e){
+      e.preventDefault();
+
+      var title = $('#field-title-e').val();
+      var region = $('#field-region-e').val();
+      var type = $('#field-type-e').val();
+      var description = $('#field-description-e').val();
+      var sdimage = $('#field-sdimage-e').val();
+      var hdimage = $('#field-hdimage-e').val();
+      var order = $('#field-order-e').val();
+      var user = 'user';
+      var suburl = '../api/?type=addchannel&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user;
       console.log(suburl);
       location.href = suburl;
   });
