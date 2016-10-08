@@ -58,4 +58,18 @@ TableManageButtons = function () {"use strict"; return { init: function () { han
 TableManageButtons.init();
 jQuery(document).ready(function() {
 
+
+  $('#datatable-buttons').on('click', '.formedit', function(e){
+    e.preventDefault();
+       $('#edit-the-channel').modal('show');
+       $('#field-title-e').val($(this).attr('title'));
+       $('#field-region-e').val($(this).attr('region'));
+       $('#field-type-e').val($(this).attr('type'));
+       $('#field-description-e').val($(this).attr('description'));
+       $('#field-sdimage-e').val($(this).attr('sdimage'));
+       $('#field-hdimage-e').val($(this).attr('hdimage'));
+       $('#field-order-e').val($(this).attr('order'));
+  });
+
+
 });
