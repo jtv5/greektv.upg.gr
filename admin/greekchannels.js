@@ -71,5 +71,20 @@ jQuery(document).ready(function() {
        $('#field-order-e').val($(this).attr('order'));
   });
 
+  $("#formedit").submit(function(e){
+      e.preventDefault();
+      var title = $('#field-title-e').val();
+      var region = $('#field-region-e').val();
+      var type = $('#field-type-e').val();
+      var description = $('#field-description-e').val();
+      var sdimage = $('#field-sdimage-e').val();
+      var hdimage = $('#field-hdimage-e').val();
+      var order = $('#field-order-e').val();
+      var user = 'user';
+      var suburl = '../api/?type=editstream&title='+title+'&region='+region+'&type='+type+'&description='+description+'&sdimage='+sdimage+'&hdimage='+hdimage+'&order='+order+'&user='+user;
+      console.log(suburl);
+      location.href = suburl;
+  });
+
 
 });
