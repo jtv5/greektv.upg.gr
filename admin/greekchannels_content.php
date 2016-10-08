@@ -93,7 +93,7 @@
                                       <label for="field-hd" class="control-label">Order</label>
                             <select id="field-hd" class="form-control">
                               <?php
-                              for ($i = 1; $i <= 100; $i++) {echo '<option value="'.$i.'">"'.$i.'"</option>';}
+                              for ($i = 1; $i <= 100; $i++) {echo '<option value="'.$i.'">'.$i.'</option>';}
 ?>
                             </select>
                                     </div>
