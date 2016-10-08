@@ -127,7 +127,28 @@ function startapi()
                   }
                         break;
 
-
+                        case 'addchannel':
+                      if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) & isset($_GET['user'])) {
+                            db_connect();
+                            $channelid = $_GET['channelid'];
+                            $title = $_GET['title'];
+                            $region = $_GET['region'];
+                            $type = $_GET['type'];
+                            $description = $_GET['description'];
+                            $sdimage = $_GET['sdimage'];
+                            $hdimage = $_GET['hdimage'];
+                            $order = $_GET['order'];
+                            $user = $_GET['user'];
+                            $query ="insert into greekchannels (title,region,type,description,sd_image,hd_image,channel_order,user) VALUES ('$title','$region','$type','$description','$sdimage','$hdimage','$order','$user')";
+                        //    echo $query;
+                            $result = db_query($query);
+                            if ($result === false) {
+                                return false;
+                            }
+                        echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                      }
+                      else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';}
+                            break;
 
                 case 'deletestream':
       if (isset($_GET['streamid'])) {
@@ -143,6 +164,21 @@ function startapi()
               }
               else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=streamurls" />';}
                     break;
+
+                    case 'deletechannel':
+          if (isset($_GET['streamid'])) {
+                        db_connect();
+                        $channelid= $_GET['channelid'];
+                        $query ="delete from greekchannels where id = '$channelid'";
+                    //    echo $query;
+                        $result = db_query($query);
+                        if ($result === false) {
+                            return false;
+                        }
+                    echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                  }
+                  else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';}
+                        break;
 
             case 'streams':
             $aaData = array();
