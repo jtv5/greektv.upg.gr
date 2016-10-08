@@ -127,6 +127,7 @@ function startapi()
                         break;
 
                         case 'addchannel':
+                        echo 'ok';
                       if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage'])) {
                             db_connect();
                             $channelid = $_GET['channelid'];
