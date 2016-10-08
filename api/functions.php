@@ -130,8 +130,8 @@ function startapi()
                         break;
 
                         case 'editchannel':
-                        echo '?';
-  
+                        echo '?----------';
+
                             break;
 
                         case 'addchannel':
