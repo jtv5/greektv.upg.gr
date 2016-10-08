@@ -49,9 +49,8 @@
                                     <div class="form-group">
                                       <label for="field-type" class="control-label">Type</label>
                             <select id="field-type" class="form-control">
-                                <option  value="General">General</option>
-                                <option  value="News">News</option>
-                                <option  value="Music">Music</option>
+                              <option  value="video">video</option>
+                              <option  value="audio">audio</option>
                             </select>
                                     </div>
                                 </div>
@@ -136,9 +135,8 @@
                                     <div class="form-group">
                                       <label for="field-type-e" class="control-label">Type</label>
                             <select id="field-type-e" class="form-control">
-                                <option  value="General">General</option>
-                                <option  value="News">News</option>
-                                <option  value="Music">Music</option>
+                                <option  value="video">video</option>
+                                <option  value="audio">audio</option>
                             </select>
                                     </div>
                                 </div>
