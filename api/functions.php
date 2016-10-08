@@ -155,7 +155,6 @@ function startapi()
                         case 'addchannel':
                       if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['thetype']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage'])) {
                             db_connect();
-                            $channelid = $_GET['channelid'];
                             $title = $_GET['title'];
                             $region = $_GET['region'];
                             $type = $_GET['thetype'];
@@ -169,7 +168,7 @@ function startapi()
                             if ($result === false) {
                                 return false;
                             }
-                  //      echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                        echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
                       }
                       else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';}
                             break;
