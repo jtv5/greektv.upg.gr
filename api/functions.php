@@ -199,7 +199,7 @@ function startapi()
                         if ($result === false) {
                             return false;
                         }
-                    echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+              //      echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
                   }
                   else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';}
                         break;
