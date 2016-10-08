@@ -92,6 +92,7 @@
 
                         </div>
                         <div class="modal-footer">
+
                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                             <button type="submit" value="Submit"  class="btn btn-info waves-effect waves-light">Add channel</button>
                         </div>
@@ -178,6 +179,7 @@
 
                         </div>
                         <div class="modal-footer">
+                          <input type="hidden" id="field-id-e" val="" >
                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                             <button type="submit" value="Submit"  class="btn btn-info waves-effect waves-light">Edit Channel</button>
                         </div>
