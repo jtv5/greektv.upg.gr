@@ -103,6 +103,31 @@ function startapi()
               }
                     break;
 
+                    case 'editchannel':
+                  if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) & isset($_GET['user'])) {
+                        db_connect();
+                        $channelid = $_GET['channelid'];
+                        $title = $_GET['title'];
+                        $region = $_GET['region'];
+                        $type = $_GET['type'];
+                        $description = $_GET['description'];
+                        $sdimage = $_GET['sdimage'];
+                        $hdimage = $_GET['hdimage'];
+                        $order = $_GET['order'];
+                        $user = $_GET['user'];
+                        $query ="UPDATE greekchannels SET title = '$title', region = '$region',type = '$type',description = '$description',sd_image = '$sdimage',hd_image = '$hdimage',channel_order = '$order' user = '$user' where id = '$channelid'";
+                  //      echo $query;
+                        $result = db_query($query);
+                        if ($result === false) {
+                            return false;
+                        }
+                    echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                  }
+                  else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                  }
+                        break;
+
+
 
                 case 'deletestream':
       if (isset($_GET['streamid'])) {
