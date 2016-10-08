@@ -49,7 +49,11 @@ var handleDataTableButtons = function () {
         buttons: [{extend: "copy", className: "btn-sm"}, {extend: "csv", className: "btn-sm"}, {
             extend: "excel",
             className: "btn-sm"
-        }, {extend: "pdf", className: "btn-sm"}, {extend: "print", className: "btn-sm"}
+        }, {extend: "pdf", className: "btn-sm"}, {extend: "print", className: "btn-sm"},
+        {text: 'Add a new channel',className: "btn-sm",action: function ( e, dt, node, config ) {
+          $('#add-the-channel').modal('show');
+          e.preventDefault();
+        }
 ],
         responsive: !0
     })
