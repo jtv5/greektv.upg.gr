@@ -53,7 +53,7 @@ var handleDataTableButtons = function () {
         {text: 'Add a new channel',className: "btn-sm",action: function ( e, dt, node, config ) {
           $('#add-the-channel').modal('show');
           e.preventDefault();
-        }
+        }}
 ],
         responsive: !0
     })
