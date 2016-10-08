@@ -104,6 +104,7 @@ function startapi()
                     break;
 
                     case 'editchannel':
+                    echo '?';
                   if (isset($_GET['title']) & isset($_GET['region']) & isset($_GET['type']) & isset($_GET['description']) & isset($_GET['sdimage']) & isset($_GET['sdimage']) & isset($_GET['hdimage']) ) {
                         db_connect();
                         $channelid = $_GET['channelid'];
@@ -121,8 +122,10 @@ function startapi()
                             return false;
                         }
                     echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                    echo '???';
                   }
                   else {echo '<meta http-equiv="refresh" content="0; url=/admin/?thepath=greekchannels" />';
+                    echo '???????';
                   }
                         break;
 
