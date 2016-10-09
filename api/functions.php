@@ -331,6 +331,12 @@ function startapi()
         echo db_select('select * from streams', 'findactive');
         break;
 
+        case 'removeinactive':
+             db_connect();
+            echo db_select('select * from streams where timesinactive > 10', 'removeinactive');
+            break;
+
+
         case 'skaiurl':
         $url = "www.skai.gr/player/tvlive/";
         $ch = curl_init();
@@ -459,6 +465,7 @@ function db_select($query, $type)
         //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
             $constquery = "delete from streams where id ='".$row['id']."'";
             echo $row['streamurl'].' has been inactive more than '.$row['timesinactive'].' times<br>';
+            echo $constquery.'<br />';
     //        db_query($constquery);
         } else {
           echo 'nothing found';
