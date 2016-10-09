@@ -534,8 +534,8 @@ function enterdb($url,$type2)
   }
     preg_match_all($re, $var, $matches);
   for ($i = 0; $i < count($matches[2]); $i++) {
-echo 'channel : '.$matches[2][$i].'<br />';
-echo 'url : '.$matches[3][$i].'<br />';
+echo 'channel : '.$matches[1][$i].'<br />';
+echo 'url : '.$matches[2][$i].'<br />';
 $chan = $matches[1][$i];
 $uri = $matches[2][$i];
 $chan = str_replace(" BUP","",$chan);
