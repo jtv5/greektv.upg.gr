@@ -552,7 +552,7 @@ if ($result === false) {
 }
 while ($row = mysqli_fetch_assoc($result)) {
   $upgchanid = $row['id'];
-  $upgchantitle = $row['id'];
+  $upgchantitle = $row['title'];
 }
 
 echo $chan.' was matched to '.$upgchantitle.' with id of '.$upgchanid.'<br />';
