@@ -554,12 +554,16 @@ while ($row = mysqli_fetch_assoc($result)) {
   $upgchanid = $row['id'];
   $upgchantitle = $row['title'];
 //  echo $chan.' was matched to '.$upgchantitle.' with id of '.$upgchanid.'<br />';
-  $sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$upgchanid','$uri','$type2','robot')";
-  echo $sql.'<br />';
+  $sql2 = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$upgchanid','$uri','$type2','robot')";
+  $result2 = db_query($sql2);
+  if ($result2 === false) {
+      return false;
+  }
+//  echo $sql.'<br />';
 }
 
 
-$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$upgchanid','$uri','$type2','robot')";
+//$sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$upgchanid','$uri','$type2','robot')";
 
 //$result = db_query($sql);
 //if ($result === false) {
