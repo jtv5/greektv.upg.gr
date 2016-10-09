@@ -526,20 +526,16 @@ function convertm3uurl($url,$type2)
 function enterdb($url,$type2)
 {
     $var = fread_url($url);
-  //  echo $var;
   if ($type2 == 'hls') {
-  //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
     $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
   }
   else {
-  //  $re = '/.*,\s*(.*)\n(.*)\n/';
     $re = '/.*,\s*(.*)\n(.*)\n/';
   }
     preg_match_all($re, $var, $matches);
-  //   echo '<pre>';  print_r ($matches);echo '</pre>';
   for ($i = 0; $i < count($matches[2]); $i++) {
-//echo 'channel : '.$matches[2][$i].'<br />';
-//echo 'url : '.$matches[3][$i].'<br />';
+echo 'channel : '.$matches[2][$i].'<br />';
+echo 'url : '.$matches[3][$i].'<br />';
 $chan = $matches[1][$i];
 $uri = $matches[2][$i];
 $chan = str_replace(" BUP","",$chan);
@@ -556,15 +552,13 @@ while ($row = mysqli_fetch_assoc($result)) {
   $chanid = $row['id'];
 }
 
-//echo $chan.' matched to '.$chanid.'<br />';
 $sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chanid','$uri','$type2','robot')";
 //echo $sql.'<br />';
-$result = db_query($sql);
-if ($result === false) {
-    return false;
-}
+//$result = db_query($sql);
+//if ($result === false) {
+//    return false;
+//}
 
-//    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
 }
 
