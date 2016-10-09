@@ -443,14 +443,14 @@ function db_select($query, $type)
     case 'findactive' :
     ini_set('default_socket_timeout', 2);
     if (is_url_exist($row['streamurl'])) {
-        $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
+    //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
         $constquery = "UPDATE streams SET active=1 where id ='".$row['id']."'";
         echo $row['streamurl'].'set to active<br>';
         db_query($constquery);
 
       //  if (strpos($row['youtubeurl'], 'youtu')  !== false) {  $real_url = shell_exec('livestreamer '.$row['youtubeurl'].' 480p --stream-url');$youtubeurlsquery = "UPDATE content SET streamurl='$real_url' where id ='".$row['id']."'";db_query($youtubeurlsquery);}
     } else {
-        $constquery = "UPDATE streams SET active=0 where id ='".$row['id']."'";
+        $constquery = "UPDATE streams SET active=0, timesinactive = timesinactive+1 where id ='".$row['id']."'";
         db_query($constquery);
     }
         break;
