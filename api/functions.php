@@ -333,7 +333,7 @@ function startapi()
 
         case 'removeinactive':
              db_connect();
-            echo db_select('select * from streams where timesinactive > 10', 'removeinactive');
+            echo db_select('select * from streams where timesinactive > 250', 'removeinactive');
             break;
 
 
@@ -461,7 +461,7 @@ function db_select($query, $type)
 
         case 'removeinactive' :
 
-        if ($row['timesinactive'] > 10) {
+        if ($row['timesinactive'] > 250) {
         //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
             $constquery = "delete from streams where id ='".$row['id']."'";
             echo $row['streamurl'].' has been inactive more than '.$row['timesinactive'].' times - deleting<br>';
