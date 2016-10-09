@@ -540,8 +540,8 @@ $chan = $matches[1][$i];
 $uri = $matches[2][$i];
 $chan = str_replace(" BUP","",$chan);
 $chan = rtrim($chan);
-echo $chan.'<br />';
-echo $uri.'<br />';
+//echo $chan.'<br />';
+//echo $uri.'<br />';
 
 db_connect();
 $query ="select id, title from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
