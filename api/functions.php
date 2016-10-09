@@ -464,9 +464,9 @@ function db_select($query, $type)
         if ($row['timesinactive'] > 10) {
         //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
             $constquery = "delete from streams where id ='".$row['id']."'";
-            echo $row['streamurl'].' has been inactive more than '.$row['timesinactive'].' times<br>';
-            echo $constquery.'<br />';
-    //        db_query($constquery);
+            echo $row['streamurl'].' has been inactive more than '.$row['timesinactive'].' times - deleting<br>';
+        //    echo $constquery.'<br />';
+            db_query($constquery);
         } else {
           echo 'nothing found';
         }
