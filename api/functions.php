@@ -544,16 +544,18 @@ echo $chan.'<br />';
 echo $uri.'<br />';
 
 db_connect();
-$query ="select id from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
+$query ="select id, title from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
 //echo $query.'<br />';
 $result = db_query($query);
 if ($result === false) {
     return false;
 }
 while ($row = mysqli_fetch_assoc($result)) {
-  $chanid = $row['id'];
+  $upgchanid = $row['id'];
+  $upgchantitle = $row['id'];
 }
 
+echo $chan.' was matched to '.$upgchantitle.' with id of '.$upgchanid.'<br />';
 $sql = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$chanid','$uri','$type2','robot')";
 //echo $sql.'<br />';
 //$result = db_query($sql);
