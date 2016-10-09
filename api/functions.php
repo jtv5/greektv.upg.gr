@@ -544,7 +544,7 @@ $chan = rtrim($chan);
 //echo $uri.'<br />';
 
 db_connect();
-$query ="select id, title from greekchannels WHERE title LIKE '%$chan%' LIMIT 1";
+$query ="select id, title from greekchannels WHERE title LIKE '$chan' LIMIT 1";
 //echo $query.'<br />';
 $result = db_query($query);
 if ($result === false) {
