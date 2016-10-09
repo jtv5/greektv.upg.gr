@@ -447,13 +447,25 @@ function db_select($query, $type)
         $constquery = "UPDATE streams SET active=1 where id ='".$row['id']."'";
         echo $row['streamurl'].'set to active<br>';
         db_query($constquery);
-
-      //  if (strpos($row['youtubeurl'], 'youtu')  !== false) {  $real_url = shell_exec('livestreamer '.$row['youtubeurl'].' 480p --stream-url');$youtubeurlsquery = "UPDATE content SET streamurl='$real_url' where id ='".$row['id']."'";db_query($youtubeurlsquery);}
     } else {
         $constquery = "UPDATE streams SET active=0, timesinactive = timesinactive+1 where id ='".$row['id']."'";
         db_query($constquery);
     }
         break;
+
+        case 'removeinactive' :
+
+        if ($row['timesinactive'] > 10) {
+        //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
+            $constquery = "delete from streams where id ='".$row['id']."'";
+            echo $row['streamurl'].' has been inactive more than '.$row['timesinactive'].' times<br>';
+    //        db_query($constquery);
+        } else {
+          echo 'nothing found';
+        }
+            break;
+
+
     case 'all':
     $dbres .= $row['title'].' - '.$row['active'].'<br>';
         break;
