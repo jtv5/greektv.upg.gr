@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-migrate-3.0.0.js"></script>
   <script type="text/javascript" src="retina.js"></script>
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,10 +28,8 @@
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
   console.log(m3u8+poster+title);
-  jQuery.each( jQuery.browser, function( i, val ) {
-  $( "<div>" + i + " : <span>" + val + "</span>" )
-  .appendTo( document.body );
-});
+  var userAgent = window.navigator.userAgent;
+  console.log(userAgent);
   </script>
 
 
