@@ -24,25 +24,24 @@
   var vars = {};
   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
   if(vars[key]){if(vars[key] instanceof Array){vars[key].push(value);}else{vars[key] = [vars[key], value];}}else{vars[key] = value;}});return vars;}
+var vid = document.createElement('video');
+
+$( document ).ready(function() {
   var m3u8 = getUrlVars()["m3u8"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-//  console.log(m3u8+poster+title);
-  var userAgent = window.navigator.userAgent;
-  //console.log(userAgent);
-var vid = document.createElement('video');
-if(vid.canPlayType('application/vnd.apple.mpegurl') === "probably" || vid.canPlayType('application/vnd.apple.mpegurl') === "maybe"){
-    console.log('will play it')
-    $("#videoHolder").html(
-    '<video width="640" height="264" autoplay>' +
-        '<source src="'+m3u8+'" type="video/mp4"></source>' +
-    '</video>');
-}
-else{
-  console.log('will not play it')
-}
+  if(vid.canPlayType('application/vnd.apple.mpegurl') === "probably" || vid.canPlayType('application/vnd.apple.mpegurl') === "maybe"){
+      console.log('will play it')
+      $("#videoHolder").html(
+      '<video width="640" height="264" autoplay>' +
+          '<source src="'+m3u8+'" type="video/mp4"></source>' +
+      '</video>');
+  }
+  else{
+    console.log('will not play it')
+  }
 
-
+});
   </script>
 
   <div id="videoHolder">
