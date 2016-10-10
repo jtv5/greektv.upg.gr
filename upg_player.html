@@ -61,10 +61,7 @@ $( document ).ready(function() {
   }
   else{
     console.log('will not play hls native, will use hls.js')
-    $("#videoHolder").html(
-    '<video width="640" height="264" poster="/'+poster+'" controls autoplay class="fullscreen-bg__video"> ' +
-    '</video>');
-   var video = document.getElementById('videoHolder');
+   var video = document.getElementById('upgvideoplayer');
    var hls = new Hls();
    hls.loadSource(m3u8);
    hls.attachMedia(video);
