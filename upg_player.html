@@ -52,7 +52,7 @@ $( document ).ready(function() {
   if(vid.canPlayType('application/vnd.apple.mpegurl') === "probably" || vid.canPlayType('application/vnd.apple.mpegurl') === "maybe"){
       console.log('will play it')
       $("#videoHolder").html(
-      '<video width="640" height="264" poster="/img/'+poster+'" controls autoplay> class="fullscreen-bg__video"' +
+      '<video width="640" height="264" poster="/'+poster+'" controls autoplay> class="fullscreen-bg__video"' +
           '<source src="'+m3u8+'" type="video/mp4"></source>' +
       '</video>');
   }
