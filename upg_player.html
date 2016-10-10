@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
   <script type="text/javascript" src="retina.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/3.6.0/videojs-contrib-hls.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
 
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -62,11 +62,17 @@ $( document ).ready(function() {
       '</video>');
   }
   else{
-    console.log('will not play it')
+    console.log('will not play hls native, will use hls.js')
     $("#videoHolder").html(
     '<video width="640" height="264" poster="/'+poster+'" controls autoplay class="fullscreen-bg__video"> ' +
-        '<source src="'+m3u8+'" type="video/mp4"></source>' +
+        '<source src="" type="video/mp4"></source>' +
     '</video>');
+    var video = document.getElementById('video');
+   var hls = new Hls();
+   hls.loadSource(m3u8);
+   hls.attachMedia(video);
+   hls.on(Hls.Events.MANIFEST_PARSED,function() {
+     video.play();
   }
 
 });
