@@ -66,7 +66,7 @@ $( document ).ready(function() {
     $("#videoHolder").html(
     '<video width="640" height="264" poster="/'+poster+'" controls autoplay class="fullscreen-bg__video"> ' +
     '</video>');
-   var video = document.getElementById('video');
+   var video = document.getElementById('videoHolder');
    var hls = new Hls();
    hls.loadSource(m3u8);
    hls.attachMedia(video);
