@@ -11,38 +11,14 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
   <script type="text/javascript" src="retina.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
-
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 <![endif]-->
-<style>
-
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
-    background-color:black;
-
-}
-
-.fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
+<style>.fullscreen-bg {position: fixed;top: 0;right: 0;bottom: 0;left: 0;overflow: hidden;z-index: -100;background-color:black;}.fullscreen-bg__video {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}</style>
 </head>
 
 <body>
-
-
   <script>
   function getUrlVars() {
   var vars = {};
@@ -66,13 +42,9 @@ $( document ).ready(function() {
    hls.loadSource(m3u8);
    hls.attachMedia(video);
    hls.on(Hls.Events.MANIFEST_PARSED,function() {
-     video.play();
- });
-  }
-
-});
+  video.play();
+ });}});
   </script>
-
   <div id="videoHolder" class="fullscreen-bg">
     <video id="upgvideoplayer" width="640" height="264" poster="" controls autoplay class="fullscreen-bg__video"> <source src="" type="video/mp4"></source></video>
   </div>
