@@ -65,7 +65,6 @@ $( document ).ready(function() {
     console.log('will not play hls native, will use hls.js')
     $("#videoHolder").html(
     '<video width="640" height="264" poster="/'+poster+'" controls autoplay class="fullscreen-bg__video"> ' +
-        '<source src="" type="video/mp4"></source>' +
     '</video>');
    var video = document.getElementById('video');
    var hls = new Hls();
