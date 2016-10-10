@@ -58,6 +58,10 @@ $( document ).ready(function() {
   }
   else{
     console.log('will not play it')
+    $("#videoHolder").html(
+    '<video width="640" height="264" poster="/img/'+poster+'" controls autoplay> class="fullscreen-bg__video"' +
+        '<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4"></source>' +
+    '</video>');
   }
 
 });
