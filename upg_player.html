@@ -33,22 +33,19 @@
 var vid = document.createElement('video');
 if(vid.canPlayType('application/vnd.apple.mpegurl') === "probably" || vid.canPlayType('application/vnd.apple.mpegurl') === "maybe"){
     console.log('will play it')
+    $("#videoHolder").html(
+    '<video width="640" height="264" autoplay>' +
+        '<source src="'+m3u8+'" type="video/mp4"></source>' +
+    '</video>');
 }
 else{
   console.log('will not play it')
 }
 
 
-  if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1)) {
-   console.log('safari');
-
-}
-else {
-   console.log('other');
-}
-
   </script>
 
-
+  <div id="videoHolder">
+  </div>
 </body>
 </html>
