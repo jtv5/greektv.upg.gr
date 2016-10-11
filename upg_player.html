@@ -30,7 +30,7 @@ $( document ).ready(function() {
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
   if(vid.canPlayType('application/vnd.apple.mpegurl') === "probably" || vid.canPlayType('application/vnd.apple.mpegurl') === "maybe"){
-      console.log('will play it')
+      console.log('will play it natively as you re on ipad,iphone or safari')
       document.getElementById('upgvideoplayer').setAttribute('poster',poster);
       document.getElementById('upgvideoplayer').setAttribute('src',m3u8);
   }
@@ -45,7 +45,7 @@ $( document ).ready(function() {
  });}});
   </script>
   <div id="videoHolder" class="fullscreen-bg">
-    <video id="upgvideoplayer" width="640" height="264" poster="" controls autoplay class="fullscreen-bg__video"> <source src="" type="video/mp4"></source></video>
+    <video id="upgvideoplayer" width="640" height="264" poster="" controls autoplay class="fullscreen-bg__video"></video>
   </div>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
