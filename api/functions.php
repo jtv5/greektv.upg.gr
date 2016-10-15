@@ -441,11 +441,11 @@ function db_select($query, $type)
     case 'roku-nationwide':
     $dbres .= '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
                 <title>'.$row['title'].'</title>
-                <description>'.$row['Description'].'</description>
+                <description>'.$row['description'].'</description>
                 <streamFormat>'.$row['streamformat'].'</streamFormat>
                 <switchingStrategy>full-adaptation</switchingStrategy>
                 <media>
-                    <streamFormat>'.$row['Format'].'</streamFormat>
+                    <streamFormat>'.$row['streamformat'].'</streamFormat>
                     <streamQuality>SD</streamQuality>
                     <streamBitrate>0</streamBitrate>
                     <streamUrl>'.$row['streamurl'].'/streamUrl>
