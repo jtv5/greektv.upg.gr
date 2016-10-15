@@ -66,7 +66,7 @@ function startapi()
                 db_connect();
                 echo '<?xml version="1.0" encoding="UTF-8"?><categories>';
                 echo '<category title="Nationwide" description="Live TV channels broadcasting nationwide" sd_img="pkg:/images/mm_icon_focus_sd-248x140.png" hd_img="pkg:/images/mm_icon_focus_hd-366x210.png">
-        <feed title="Nationwide" description="Testing 1, 2, 3" sd_img="pkg:/images/mm_icon_focus_sd-248x140.png" hd_img="pkg:/images/mm_icon_focus_hd-366x210.png"><feed title="HLS Test Feed" description="Testing 1, 2, 3" sd_img="pkg:/images/mm_icon_focus_sd-248x140.png" hd_img="pkg:/images/mm_icon_focus_hd-366x210.png">';
+        <feed title="Nationwide" description="Testing 1, 2, 3" sd_img="pkg:/images/mm_icon_focus_sd-248x140.png" hd_img="pkg:/images/mm_icon_focus_hd-366x210.png">';
               echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'roku-nationwide');
               echo '</feed></category>';
                 echo '</categories>';
