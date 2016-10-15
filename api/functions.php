@@ -72,10 +72,6 @@ function startapi()
 
                 db_connect();
                 echo '<?xml version="1.0" encoding="UTF-8"?><categories>';
-        $result = db_query($query);
-        if ($result === false) {
-            return false;
-        }
               $cat1q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat1' order by greekchannels.channel_order desc";
                 $cat2q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat2' order by greekchannels.channel_order desc";
                   $cat3q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat3' order by greekchannels.channel_order desc";
