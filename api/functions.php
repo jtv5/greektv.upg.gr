@@ -448,7 +448,7 @@ function db_select($query, $type)
                     <streamFormat>'.$row['streamformat'].'</streamFormat>
                     <streamQuality>SD</streamQuality>
                     <streamBitrate>0</streamBitrate>
-                    <streamUrl>'.$row['streamurl'].'/streamUrl>
+                    <streamUrl>'.$row['streamurl'].'</streamUrl>
                 </media>
             </item>';
     break;
