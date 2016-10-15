@@ -111,7 +111,7 @@ function startapi()
                           return false;
                       }
 
-                      echo '<category title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1hd.'">
+                      echo '<category title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1ihd.'">
                     <feed title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1hd.'">';
 
                       while ($row = mysqli_fetch_assoc($result1)) {
@@ -130,7 +130,7 @@ function startapi()
                             }
               echo '</feed></category>';
 
-              echo '<category title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2hd.'">
+              echo '<category title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2ihd.'">
             <feed title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2hd.'">';
 
               while ($row = mysqli_fetch_assoc($result2)) {
