@@ -67,7 +67,7 @@ function startapi()
                 echo '<?xml version="1.0" encoding="UTF-8"?><categories>';
                 echo '<category title="Nationwide" description="Live TV channels broadcasting nationwide" sd_img="pkg:/images/mm_icon_focus_sd-248x140.png" hd_img="pkg:/images/mm_icon_focus_hd-366x210.png">
         <feed title="Nationwide" description="Testing 1, 2, 3" sd_img="pkg:/images/mm_icon_focus_sd-248x140.png" hd_img="pkg:/images/mm_icon_focus_hd-366x210.png">';
-              echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'roku-nationwide');
+              echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'roku_nationwide');
               echo '</feed></category>';
                 echo '</categories>';
                 break;
@@ -438,17 +438,15 @@ function db_select($query, $type)
     $dbres .= '<item type="'.$row['type'].'" title="'.$row['title'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" genre1="'.$row['region'].'" url="'.$row['streamurl'].'" ishd="'.$row['ishd'].'" bitrate="512" shortdesc="'.$row['description'].'" streamformat="'.$row['streamformat'].'" live="true" ></item>';
     break;
 
-    case 'roku-nationwide':
-    $dbres .= '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
-                <title>'.$row['title'].'</title>
-                <description>'.$row['description'].'</description>
-                <streamFormat>'.$row['streamformat'].'</streamFormat>
+    case 'roku_nationwide':
+    $dbres .= '<item>
+
                 <switchingStrategy>full-adaptation</switchingStrategy>
                 <media>
-                    <streamFormat>'.$row['streamformat'].'</streamFormat>
+
                     <streamQuality>SD</streamQuality>
                     <streamBitrate>0</streamBitrate>
-                    <streamUrl>'.$row['streamurl'].'/streamUrl>
+
                 </media>
             </item>';
     break;
