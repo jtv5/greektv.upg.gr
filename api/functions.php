@@ -450,7 +450,7 @@ function db_select($query, $type)
                     <streamBitrate>0</streamBitrate>
                     <streamUrl>'.$row['streamurl'].'/streamUrl>
                 </media>
-            </item>'
+            </item>';
     break;
 
 
