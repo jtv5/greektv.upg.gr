@@ -37,9 +37,9 @@
                                       <label for="field-region" class="control-label">Region</label>
                             <select id="field-region" class="form-control">
                               <option  value="Nationwide">Nationwide</option>
-                              <option  value="Greece - Local">Local</option>
-                              <option  value="Greece - WebTV">WebTV</option>
-                              <option  value="World - WebTV">World</option>
+                              <option  value="Local">Local</option>
+                              <option  value="WebTV">WebTV</option>
+                              <option  value="World">World</option>
                               <option  value="Cyprus">Cyprus</option>
                             </select>
                                     </div>
@@ -122,9 +122,9 @@
                                       <label for="field-region-e" class="control-label">Region</label>
                             <select id="field-region-e" class="form-control">
                               <option  value="Nationwide">Nationwide</option>
-                              <option  value="Greece - Local">Local</option>
-                              <option  value="Greece - WebTV">WebTV</option>
-                              <option  value="World - WebTV">World</option>
+                              <option  value="Local">Local</option>
+                              <option  value="WebTV">WebTV</option>
+                              <option  value="World">World</option>
                               <option  value="Cyprus">Cyprus</option>
                             </select>
                                     </div>
