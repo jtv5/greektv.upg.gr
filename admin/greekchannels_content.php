@@ -121,12 +121,11 @@
                                     <div class="form-group">
                                       <label for="field-region-e" class="control-label">Region</label>
                             <select id="field-region-e" class="form-control">
-                              <option  value="Greece - Nationwide">Greece - Nationwide</option>
-                              <option  value="Greece - Local">Greece - Local</option>
-                              <option  value="Greece - WebTV">Greece - WebTV</option>
-                              <option  value="World - WebTV">World - WebTV</option>
+                              <option  value="Nationwide">Nationwide</option>
+                              <option  value="Greece - Local">Local</option>
+                              <option  value="Greece - WebTV">WebTV</option>
+                              <option  value="World - WebTV">World</option>
                               <option  value="Cyprus">Cyprus</option>
-                              <option  value="Cyprus - WebTV">Cyprus - WebTV</option>
                             </select>
                                     </div>
                                 </div>
