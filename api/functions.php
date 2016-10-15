@@ -112,7 +112,7 @@ function startapi()
                       }
 
                       echo '<category title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1ihd.'">
-                    <feed title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1hd.'">';
+                    <feed title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1ihd.'">';
 
                       while ($row = mysqli_fetch_assoc($result1)) {
                     echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
@@ -131,7 +131,7 @@ function startapi()
               echo '</feed></category>';
 
               echo '<category title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2ihd.'">
-            <feed title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2hd.'">';
+            <feed title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2ihd.'">';
 
               while ($row = mysqli_fetch_assoc($result2)) {
             echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
