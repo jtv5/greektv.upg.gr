@@ -65,16 +65,14 @@ function startapi()
             header('Content-Type: text/xml');
                 db_connect();
                 echo '<?xml version="1.0" encoding="UTF-8"?><categories>';
-              $cats ="select distinct greekchannels.region from greekchannels";
+              $cats ="select distinct greekchannels.region,regions.cathdimage,regions.catsdimage,regions.catdesc from greekchannels inner join regions on greekchannels.region = regions.catname";
                       $resultcat = db_query($cats);
                       if ($resultcat === false) {
                           return false;
                       }
-
-
   while ($row = mysqli_fetch_assoc($resultcat)) {
-    echo '<category title="'.$row['region'].'" description="'.$row['region'].'" sd_img="pkg:" hd_img="">
-  <feed title="'.$row['region'].'" description="'.$row['region'].'" sd_img="pkg:" hd_img="">';
+    echo '<category title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="pkg:'.$GLOBALS['cdn'].$row['cathdimage'].'" hd_img="pkg:'.$GLOBALS['cdn'].$row['catsdimage'].'">
+  <feed title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="pkg:'.$GLOBALS['cdn'].$row['cathdimage'].'" hd_img="pkg:'.$GLOBALS['cdn'].$row['catsdimage'].'">';
   $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' order by greekchannels.channel_order desc";
           $result = db_query($query);
           if ($result === false) {
