@@ -63,77 +63,24 @@ function startapi()
 
             case 'rokuxml':
             header('Content-Type: text/xml');
-            $cat1='Nationwide';
-            $cat2='Local';
-            $cat3='WebTV';
-            $cat4='World';
-            $cat5='Cyprus';
-            $cat1d='Channels Broadcasting in Greece - Nationwide';
-            $cat2d='Channels Broadcasting in Greece - Locally';
-            $cat3d='Channels from Greece Broadcasting only via the web';
-            $cat4d='Greek Channels from around the world';
-            $cat5d='Cypriot Channels - from Cyprus or the web';
-            $cat1isd='pkg:/images/mm_icon_focus_sd-248x140.png';
-            $cat2isd='pkg:/images/mm_icon_focus_sd-248x140.png';
-            $cat3isd='pkg:/images/mm_icon_focus_sd-248x140.png';
-            $cat4isd='pkg:/images/mm_icon_focus_sd-248x140.png';
-            $cat5isd='pkg:/images/mm_icon_focus_sd-248x140.png';
-            $cat1ihd='pkg:/images/mm_icon_focus_hd-366x210.png';
-            $cat2ihd='pkg:/images/mm_icon_focus_hd-366x210.png';
-            $cat3ihd='pkg:/images/mm_icon_focus_hd-366x210.png';
-            $cat4ihd='pkg:/images/mm_icon_focus_hd-366x210.png';
-            $cat5ihd='pkg:/images/mm_icon_focus_hd-366x210.png';
                 db_connect();
                 echo '<?xml version="1.0" encoding="UTF-8"?><categories>';
-              $cat1q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat1' order by greekchannels.channel_order desc";
-                $cat2q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat2' order by greekchannels.channel_order desc";
-                  $cat3q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat3' order by greekchannels.channel_order desc";
-                    $cat4q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat4' order by greekchannels.channel_order desc";
-                      $cat5q = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '$cat5' order by greekchannels.channel_order desc";
-                      $result1 = db_query($cat1q);
-                      if ($result1 === false) {
-                          return false;
-                      }
-                      $result2 = db_query($cat2q);
-                      if ($result2 === false) {
-                          return false;
-                      }
-                      $result3 = db_query($cat3q);
-                      if ($result3 === false) {
-                          return false;
-                      }
-                      $result4 = db_query($cat4q);
-                      if ($result4 === false) {
-                          return false;
-                      }
-                      $result5 = db_query($cat5q);
-                      if ($result5 === false) {
+              $cats ="select distinct greekchannels.region from greekchannels"
+                      $resultcat = db_query($cats);
+                      if ($resultcat === false) {
                           return false;
                       }
 
-                      echo '<category title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1ihd.'">
-                    <feed title="'.$cat1.'" description="'.$cat1d.'" sd_img="pkg:'.$cat1isd.'" hd_img="'.$cat1ihd.'">';
 
-                      while ($row = mysqli_fetch_assoc($result1)) {
-                    echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
-                                  <title>'.$row['title'].'</title>
-                                  <description>'.$row['description'].'</description>
-                                  <streamFormat>'.$row['streamformat'].'</streamFormat>
-                                  <switchingStrategy>full-adaptation</switchingStrategy>
-                                  <media>
-                                      <streamFormat>'.$row['streamformat'].'</streamFormat>
-                                      <streamQuality>SD</streamQuality>
-                                      <streamBitrate>0</streamBitrate>
-                                      <streamUrl>'.$row['streamurl'].'</streamUrl>
-                                  </media>
-                              </item>';
-                            }
-              echo '</feed></category>';
-
-              echo '<category title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2ihd.'">
-            <feed title="'.$cat2.'" description="'.$cat2d.'" sd_img="pkg:'.$cat2isd.'" hd_img="'.$cat2ihd.'">';
-
-              while ($row = mysqli_fetch_assoc($result2)) {
+  while ($row = mysqli_fetch_assoc($resultcat)) {
+    echo '<category title="'.$row['region'].'" description="'.$row['region'].'" sd_img="pkg:" hd_img="">
+  <feed title="'.$row['region'].'" description="'.$row['region'].'" sd_img="pkg:" hd_img="">';
+  $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' order by greekchannels.channel_order desc";
+          $result = db_query($query);
+          if ($result === false) {
+              return false;
+          }
+          while ($row = mysqli_fetch_assoc($result1)) {
             echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
                           <title>'.$row['title'].'</title>
                           <description>'.$row['description'].'</description>
@@ -146,66 +93,9 @@ function startapi()
                               <streamUrl>'.$row['streamurl'].'</streamUrl>
                           </media>
                       </item>';
-                    }
-      echo '</feed></category>';
-
-      echo '<category title="'.$cat3.'" description="'.$cat3d.'" sd_img="pkg:'.$cat3isd.'" hd_img="'.$cat3ihd.'">
-    <feed title="'.$cat3.'" description="'.$cat3d.'" sd_img="pkg:'.$cat3isd.'" hd_img="'.$cat3ihd.'">';
-
-      while ($row = mysqli_fetch_assoc($result3)) {
-    echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
-                  <title>'.$row['title'].'</title>
-                  <description>'.$row['description'].'</description>
-                  <streamFormat>'.$row['streamformat'].'</streamFormat>
-                  <switchingStrategy>full-adaptation</switchingStrategy>
-                  <media>
-                      <streamFormat>'.$row['streamformat'].'</streamFormat>
-                      <streamQuality>SD</streamQuality>
-                      <streamBitrate>0</streamBitrate>
-                      <streamUrl>'.$row['streamurl'].'</streamUrl>
-                  </media>
-              </item>';
-            }
-echo '</feed></category>';
-
-echo '<category title="'.$cat4.'" description="'.$cat4d.'" sd_img="pkg:'.$cat4isd.'" hd_img="'.$cat4ihd.'">
-<feed title="'.$cat4.'" description="'.$cat4d.'" sd_img="pkg:'.$cat4isd.'" hd_img="'.$cat4ihd.'">';
-
-while ($row = mysqli_fetch_assoc($result4)) {
-echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
-            <title>'.$row['title'].'</title>
-            <description>'.$row['description'].'</description>
-            <streamFormat>'.$row['streamformat'].'</streamFormat>
-            <switchingStrategy>full-adaptation</switchingStrategy>
-            <media>
-                <streamFormat>'.$row['streamformat'].'</streamFormat>
-                <streamQuality>SD</streamQuality>
-                <streamBitrate>0</streamBitrate>
-                <streamUrl>'.$row['streamurl'].'</streamUrl>
-            </media>
-        </item>';
-      }
-echo '</feed></category>';
-
-echo '<category title="'.$cat5.'" description="'.$cat5d.'" sd_img="pkg:'.$cat5isd.'" hd_img="'.$cat5ihd.'">
-<feed title="'.$cat5.'" description="'.$cat5d.'" sd_img="pkg:'.$cat5isd.'" hd_img="'.$cat5ihd.'">';
-
-while ($row = mysqli_fetch_assoc($result5)) {
-echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
-            <title>'.$row['title'].'</title>
-            <description>'.$row['description'].'</description>
-            <streamFormat>'.$row['streamformat'].'</streamFormat>
-            <switchingStrategy>full-adaptation</switchingStrategy>
-            <media>
-                <streamFormat>'.$row['streamformat'].'</streamFormat>
-                <streamQuality>SD</streamQuality>
-                <streamBitrate>0</streamBitrate>
-                <streamUrl>'.$row['streamurl'].'</streamUrl>
-            </media>
-        </item>';
-      }
-echo '</feed></category>';
-
+          }
+          echo '</feed></category>';
+  }
                 echo '</categories>';
                 break;
 
