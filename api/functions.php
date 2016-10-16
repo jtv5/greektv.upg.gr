@@ -80,7 +80,7 @@ function startapi()
           if ($result === false) {
               return false;
           }
-          while ($row = mysqli_fetch_assoc($result1)) {
+          while ($row = mysqli_fetch_assoc($result)) {
             echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
                           <title>'.$row['title'].'</title>
                           <description>'.$row['description'].'</description>
