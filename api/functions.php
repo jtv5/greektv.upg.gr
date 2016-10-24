@@ -104,8 +104,13 @@ function startapi()
                 $moviesArray = array();
                 array_push($headerarray, array('providerName' => 'upggr', 'lastUpdated' => '2015-11-11T22:21:37+00:00','language' => 'en' ));
 
-            //        db_connect();
-
+                    db_connect();
+                    $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' order by greekchannels.channel_order desc";
+                     $result = db_query($query);
+                    if ($result === false) {return false;}
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      $moviesArray[] =  $row;
+                    }
           //          echo '<?xml version="1.0" encoding="UTF-8"<categories>';
           //        $cats ="select distinct greekchannels.region,regions.cathdimage,regions.catsdimage,regions.catdesc from greekchannels inner join regions on greekchannels.region = regions.catname";
           //                $resultcat = db_query($cats);
