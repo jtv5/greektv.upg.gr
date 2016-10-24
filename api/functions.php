@@ -105,7 +105,7 @@ function startapi()
                 array_push($headerarray, array('providerName' => 'upggr', 'lastUpdated' => '2015-11-11T22:21:37+00:00','language' => 'en' ));
 
                     db_connect();
-                    $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' order by greekchannels.channel_order desc";
+                    $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc";
                      $result = db_query($query);
                     if ($result === false) {return false;}
                     while ($row = mysqli_fetch_assoc($result)) {
