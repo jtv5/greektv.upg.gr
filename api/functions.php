@@ -97,6 +97,51 @@ function startapi()
                 echo '</categories>';
                 break;
 
+                case 'rokuxml2':
+                header('Content-Type: application/json');
+                $emparray = array();
+                $headerarray = array();
+                $moviesArray = array();
+                array_push($headerarray, array('providerName' => 'upggr', 'lastUpdated' => '2015-11-11T22:21:37+00:00','language' => 'en' ));
+
+            //        db_connect();
+
+          //          echo '<?xml version="1.0" encoding="UTF-8"<categories>';
+          //        $cats ="select distinct greekchannels.region,regions.cathdimage,regions.catsdimage,regions.catdesc from greekchannels inner join regions on greekchannels.region = regions.catname";
+          //                $resultcat = db_query($cats);
+        //                  if ($resultcat === false) {
+        //                      return false;
+  //                        }
+//      while ($row = mysqli_fetch_assoc($resultcat)) {
+//        echo '<category title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">
+//      <feed title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">';
+//      $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' order by greekchannels.channel_order desc";
+//              $result = db_query($query);
+//              if ($result === false) {
+//                  return false;
+  //            }
+  //            while ($row = mysqli_fetch_assoc($result)) {
+  //              echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
+    //                          <title>'.$row['title'].'</title>
+      //                        <description>'.$row['description'].'</description>
+        //                      <streamFormat>'.$row['streamformat'].'</streamFormat>
+          //                    <switchingStrategy>full-adaptation</switchingStrategy>
+            //                  <media>
+            //                      <streamFormat>'.$row['streamformat'].'</streamFormat>
+            //                      <streamQuality>SD</streamQuality>
+            //                      <streamBitrate>0</streamBitrate>
+            //                      <streamUrl>'.$row['streamurl'].'</streamUrl>
+            //                  </media>
+            //              </item>';
+          //    }
+        //      echo '</feed></category>';
+  //    }
+    //                echo '</categories>';
+    $response_movies = array('movies' => $moviesArray);
+    $merger = array_merge($headerarray, $response_movies);
+                 echo json_encode($merger);
+                    break;
+
                 case 'greekchannels':
                 $aaData = array();
                 header('Content-Type: application/json');
