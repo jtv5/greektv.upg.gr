@@ -123,6 +123,7 @@ function startapi()
                      $result = db_query($query);
                     if ($result === false) {return false;}
                     while ($row = mysqli_fetch_assoc($result)) {
+            //          $row[$url] = 
                       $moviesArray[] =  $row;
                     }
           //          echo '<?xml version="1.0" encoding="UTF-8"<categories>';
