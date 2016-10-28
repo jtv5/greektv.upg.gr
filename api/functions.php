@@ -126,6 +126,8 @@ function startapi()
             //          $row[$url] =
                       $moviesArray[] =  $row;
                     }
+
+
           //          echo '<?xml version="1.0" encoding="UTF-8"<categories>';
           //        $cats ="select distinct greekchannels.region,regions.cathdimage,regions.catsdimage,regions.catdesc from greekchannels inner join regions on greekchannels.region = regions.catname";
           //                $resultcat = db_query($cats);
@@ -159,7 +161,10 @@ function startapi()
     //                echo '</categories>';
     $response_movies = array('movies' => $moviesArray);
     $merger = array_merge($headerarray, $response_movies);
-                 echo json_encode($merger);
+    echo '<pre>';
+print_r($merger);
+    echo '</pre>';
+            //     echo json_encode($merger);
                     break;
 
                 case 'greekchannels':
