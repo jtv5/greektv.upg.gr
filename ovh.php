@@ -32,8 +32,9 @@ function doMagic($url)
   $html = curl_exec($curl);
   echo 'Curl error: '. curl_error($curl);
   $info = curl_getinfo($curl);
+  echo '<pre>';
   print_r($info['request_header']);
-
+  echo '</pre>';
   curl_close($curl);
 
   echo $html;
