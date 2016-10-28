@@ -29,8 +29,6 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
   print_r($info['request_header']);
   echo '</pre>';
 
-$strHeaders = curl_exec($curl);
-echo $strHeaders;
   curl_close($curl);
 
   echo $html;
@@ -38,6 +36,6 @@ echo $strHeaders;
 ?>
 
 <?php
-$url="http://teste.mybeststream.xyz/pt/alphacyprus295/index.m3u8";
+$url="http://teste.mybeststream.xyz/pt/alphacyprus295/4309.ts";
 doMagic($url)
  ?>
