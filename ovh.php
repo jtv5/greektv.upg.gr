@@ -49,6 +49,6 @@ var_dump($cookies);
 ?>
 
 <?php
-$url="http://teste.mybeststream.xyz/pt/alphacyprus295/index.m3u8";
+$url="http://teste.mybeststream.xyz/pt/alphacyprus295/index.m3u8/?";
 doMagic($url)
  ?>
