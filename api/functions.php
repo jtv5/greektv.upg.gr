@@ -128,6 +128,7 @@ function startapi()
             $moviesArray[$movieIndex]['id'] =$row['id'];
                 $moviesArray[$movieIndex]['title'] =$row['title'];
                 $moviesArray[$movieIndex]['content'] ='content';
+                  $moviesArray[$movieIndex]['content']['videos']['url'] =$row['url'];
                 $moviesArray[$movieIndex]['genres'] ='genres';
                 $moviesArray[$movieIndex]['thumbnail'] =$row['thumbnail'];
                 $moviesArray[$movieIndex]['releasedate'] ='2016-01-01';
