@@ -20,7 +20,7 @@ function doMagic($url)
   curl_setopt($curl, CURLOPT_TIMEOUT, 30);
   curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
   curl_setopt($curl, CURLINFO_HEADER_OUT, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 
   $html = curl_exec($curl);
   //echo 'Curl error: '. curl_error($curl);
@@ -51,6 +51,6 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 ?>
 
 <?php
-$url="http://teste.mybeststream.xyz/pt/alphacyprus295/index.m3u8/?";
+$url="http://teste.mybeststream.xyz/pt/alphacyprus295/index.m3u8";
 doMagic($url)
  ?>
