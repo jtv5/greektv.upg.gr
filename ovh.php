@@ -35,14 +35,15 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
   // get cookies
   $cookies = array();
   preg_match_all('/Set-Cookie:(?<cookie>\s{0,}.*)$/im', $content, $cookies);
-
+  echo '<pre>';
   print_r($cookies['cookie']); // show harvested cookies
-
+  echo '</pre>';
   // basic parsing of cookie strings (just an example)
   $cookieParts = array();
   preg_match_all('/Set-Cookie:\s{0,}(?P<name>[^=]*)=(?P<value>[^;]*).*?expires=(?P<expires>[^;]*).*?path=(?P<path>[^;]*).*?domain=(?P<domain>[^\s;]*).*?$/im', $content, $cookieParts);
+  echo '<pre>';
   print_r($cookieParts);
-
+  echo '</pre>';
 
   curl_close($curl);
 
