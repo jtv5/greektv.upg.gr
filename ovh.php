@@ -28,6 +28,20 @@ function doMagic($url)
   echo '<pre>';
   print_r($info['request_header']);
   echo '</pre>';
+
+
+  $result = curl_exec($curl);
+// get cookie
+// multi-cookie variant contributed by @Combuster in comments
+preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
+$cookies = array();
+foreach($matches[1] as $item) {
+    parse_str($item, $cookie);
+    $cookies = array_merge($cookies, $cookie);
+}
+var_dump($cookies);
+
+
   curl_close($curl);
 
   echo $html;
