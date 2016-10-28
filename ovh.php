@@ -20,7 +20,7 @@ function doMagic($url)
   curl_setopt($curl, CURLOPT_TIMEOUT, 30);
   curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
   curl_setopt($curl, CURLINFO_HEADER_OUT, true);
-
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
   $html = curl_exec($curl);
   //echo 'Curl error: '. curl_error($curl);
@@ -30,16 +30,18 @@ function doMagic($url)
   echo '</pre>';
 
 
-  $result = curl_exec($curl);
-// get cookie
-// multi-cookie variant contributed by @Combuster in comments
-preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
-$cookies = array();
-foreach($matches[1] as $item) {
-    parse_str($item, $cookie);
-    $cookies = array_merge($cookies, $cookie);
-}
-var_dump($cookies);
+  $content = curl_exec($curl);
+
+  // get cookies
+  $cookies = array();
+  preg_match_all('/Set-Cookie:(?<cookie>\s{0,}.*)$/im', $content, $cookies);
+
+  print_r($cookies['cookie']); // show harvested cookies
+
+  // basic parsing of cookie strings (just an example)
+  $cookieParts = array();
+  preg_match_all('/Set-Cookie:\s{0,}(?P<name>[^=]*)=(?P<value>[^;]*).*?expires=(?P<expires>[^;]*).*?path=(?P<path>[^;]*).*?domain=(?P<domain>[^\s;]*).*?$/im', $content, $cookieParts);
+  print_r($cookieParts);
 
 
   curl_close($curl);
