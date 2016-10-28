@@ -725,7 +725,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 //  if ($result2 === false) {
 //      return false;
 //  }
-  echo $sql.'<br />';
+  echo $sql2.'<br />';
 }
 
 
