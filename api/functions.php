@@ -704,6 +704,12 @@ function enterdb($url,$type2)
 //echo 'url : '.$matches[2][$i].'<br />';
 $chan = $matches[1][$i];
 $uri = $matches[2][$i];
+$chan = str_replace(" BUP 1","",$chan);
+$chan = str_replace(" BUP 2","",$chan);
+$chan = str_replace(" BUP 3","",$chan);
+$chan = str_replace(" BUP 4","",$chan);
+$chan = str_replace(" BUP 5","",$chan);
+$chan = str_replace(" BUP 6","",$chan);
 $chan = str_replace(" BUP","",$chan);
 $chan = rtrim($chan);
 //echo $chan.'<br />';
