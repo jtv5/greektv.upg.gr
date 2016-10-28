@@ -29,8 +29,8 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
   print_r($info['request_header']);
   echo '</pre>';
 
-echo curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
+$strHeaders = curl_exec($curl);
+echo $strHeaders;
   curl_close($curl);
 
   echo $html;
