@@ -123,7 +123,7 @@ function startapi()
                      $result = db_query($query);
                     if ($result === false) {return false;}
                     while ($row = mysqli_fetch_assoc($result)) {
-            //          $row[$url] = 
+            //          $row[$url] =
                       $moviesArray[] =  $row;
                     }
           //          echo '<?xml version="1.0" encoding="UTF-8"<categories>';
@@ -388,6 +388,11 @@ function startapi()
                 header('Content-Type: text/plain');
                     convertm3uurl($_GET['url'],$_GET['type2']);
                     break;
+
+                    case 'ripm3ulist2':
+                    header('Content-Type: text/plain');
+                        convertm3uurl2($_GET['url'],$_GET['type2']);
+                        break;
 
 
                                     case 'enterdb':
@@ -665,6 +670,25 @@ function convertm3uurl($url,$type2)
 }
 }
 
+function convertm3uurl2($url,$type2)
+{
+    $var = fread_url($url);
+  if ($type2 == 'hls') {
+  //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+    $re = '/(http:.*ng).*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
+  }
+  else {
+  //  $re = '/.*,\s*(.*)\n(.*)\n/';
+    $re = '/(http:.*ng).*,\s*(.*)\n(.*)\n/';
+  }
+    preg_match_all($re, $var, $matches);
+  //   echo '<pre>';  print_r ($matches);echo '</pre>';
+  for ($i = 0; $i < count($matches[2]); $i++) {
+
+    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
+}
+}
+
 function enterdb($url,$type2)
 {
     $var = fread_url($url);
@@ -697,11 +721,11 @@ while ($row = mysqli_fetch_assoc($result)) {
   $upgchantitle = $row['title'];
 //  echo $chan.' was matched to '.$upgchantitle.' with id of '.$upgchanid.'<br />';
   $sql2 = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$upgchanid','$uri','$type2','robot')";
-  $result2 = db_query($sql2);
-  if ($result2 === false) {
-      return false;
-  }
-//  echo $sql.'<br />';
+//  $result2 = db_query($sql2);
+//  if ($result2 === false) {
+//      return false;
+//  }
+  echo $sql.'<br />';
 }
 
 
