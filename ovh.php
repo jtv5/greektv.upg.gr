@@ -11,13 +11,13 @@ function doMagic($url)
   $header[] = "Accept-Language: en-US,en;q=0.8,el;q=0.6,fr;q=0.4,ru;q=0.2";
   $header[] = "Pragma: ";
   $header[] = "If-None-Match: 5813d625-2fe";
+  $header[] = "Origin: http://mybeststream.xyz";
 
 
 
   curl_setopt($curl, CURLOPT_URL, $url);
   curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36
 ");
-  curl_setopt($curl,CURLOPT_HTTPHEADER,array('Origin: http://mybeststream.xyz'));
   curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
   curl_setopt($curl, CURLOPT_REFERER, "http://teste.mybeststream.xyz/");
   curl_setopt($curl, CURLOPT_ENCODING, "gzip, deflate, sdch");
