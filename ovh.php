@@ -12,6 +12,7 @@ function doMagic($url)
   $header[] = "Pragma: ";
   $header[] = "If-None-Match: 5813d625-2fe";
   $header[] = "Origin: http://mybeststream.xyz";
+  $header[] = "DNT: 1";
 
 
 
