@@ -4,12 +4,8 @@ function doMagic($url)
   $curl = curl_init();
 
   $header[0] = "Accept: */*";
-  $header[] = "Cache-Control: max-age=0";
   $header[] = "Connection: keep-alive";
-  $header[] = "Keep-Alive: 300";
-  $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
   $header[] = "Accept-Language: en-US,en;q=0.8,el;q=0.6,fr;q=0.4,ru;q=0.2";
-  $header[] = "Pragma: ";
   $header[] = 'If-None-Match: "5813d625-2fe"';
   $header[] = "Origin: http://mybeststream.xyz";
   $header[] = "DNT: 1";
@@ -20,7 +16,6 @@ function doMagic($url)
   curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
   curl_setopt($curl, CURLOPT_REFERER, "http://mybeststream.xyz/t.html");
   curl_setopt($curl, CURLOPT_ENCODING, "gzip, deflate, sdch");
-  //curl_setopt($curl, CURLOPT_AUTOREFERER, true);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($curl, CURLOPT_TIMEOUT, 30);
   curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
