@@ -21,9 +21,13 @@ function doMagic($url)
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($curl, CURLOPT_TIMEOUT, 30);
   curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
+  $info = curl_getinfo($ch);
+  print_r($info['request_header']);
 
   $html = curl_exec($curl);
   echo 'Curl error: '. curl_error($curl);
+
+
   curl_close($curl);
 
   echo $html;
