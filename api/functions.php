@@ -125,7 +125,15 @@ function startapi()
                     while ($row = mysqli_fetch_assoc($result)) {
             //          $row[$url] =
             $movieIndex = $row['id'];
+            $moviesArray[$movieIndex]['id'] =$row['id'];
                 $moviesArray[$movieIndex]['title'] =$row['title'];
+                $moviesArray[$movieIndex]['content'] ='content';
+                $moviesArray[$movieIndex]['genres'] ='genres';
+                $moviesArray[$movieIndex]['thumbnail'] =$row['thumbnail'];
+                $moviesArray[$movieIndex]['releasedate'] ='2016-01-01';
+                $moviesArray[$movieIndex]['shortdescription'] =$row['shortdescription'];
+                $moviesArray[$movieIndex]['longDescription'] =$row['shortdescription'];
+                $moviesArray[$movieIndex]['tags'] = 'tags';
           //  $moviesArray['title'] =  $row['title'];
               //        $moviesArray[] =  $row;
                     }
