@@ -136,7 +136,6 @@ function startapi()
                 $moviesArray[$movieIndex]['releasedate'] ='2016-01-01';
                 $moviesArray[$movieIndex]['shortdescription'] =$row['shortdescription'];
                 $moviesArray[$movieIndex]['longDescription'] =$row['shortdescription'];
-                $moviesArray[$movieIndex]['tags'] = 'tags';
           //  $moviesArray['title'] =  $row['title'];
               //        $moviesArray[] =  $row;
                     }
@@ -174,7 +173,7 @@ function startapi()
   //    }
     //                echo '</categories>';
     $response_movies = array('movies' => $moviesArray);
-    $merger = array_merge($headerarray, $response_movies);
+    $merger = array_merge($headerarray, $moviesArray);
   //  $merger = array_values($merger);
     echo '<pre>';
 print_r($merger);
