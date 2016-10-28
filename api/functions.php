@@ -161,7 +161,7 @@ function startapi()
     //                echo '</categories>';
     $response_movies = array('movies' => $moviesArray);
     $merger = array_merge($headerarray, $response_movies);
-    $merger = array_values($merger);
+  //  $merger = array_values($merger);
     echo '<pre>';
 print_r($merger);
     echo '</pre>';
