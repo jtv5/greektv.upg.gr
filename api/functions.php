@@ -124,7 +124,8 @@ function startapi()
                     if ($result === false) {return false;}
                     while ($row = mysqli_fetch_assoc($result)) {
             //          $row[$url] =
-                      $moviesArray[] =  $row;
+            $moviesArray['title'] =  $row['title'];
+              //        $moviesArray[] =  $row;
                     }
 
 
