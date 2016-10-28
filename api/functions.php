@@ -711,7 +711,7 @@ $chan = rtrim($chan);
 
 db_connect();
 $query ="select id, title from greekchannels WHERE title LIKE '$chan' LIMIT 1";
-echo $query.'<br />';
+//echo $query.'<br />';
 $result = db_query($query);
 if ($result === false) {
     return false;
@@ -725,7 +725,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 //  if ($result2 === false) {
 //      return false;
 //  }
-  echo $sql2.'<br />';
+//  echo $sql2.'<br />';
 }
 
 
