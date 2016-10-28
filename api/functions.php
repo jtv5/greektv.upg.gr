@@ -130,7 +130,7 @@ function startapi()
         //        $moviesArray[$movieIndex]['content'] ='content';
                 $moviesArray[$movieIndex]['content']['videos']['url'] =$row['url'];
                 $moviesArray[$movieIndex]['content']['videos']['quality'] ='HD';
-                $moviesArray[$movieIndex]['content']['videos']['videotype'] =$row['streamformat'];
+                $moviesArray[$movieIndex]['content']['videos']['videotype'] =$row['hls'];
                 $moviesArray[$movieIndex]['genres'] ='genres';
                 $moviesArray[$movieIndex]['thumbnail'] =$row['thumbnail'];
                 $moviesArray[$movieIndex]['releasedate'] ='2016-01-01';
