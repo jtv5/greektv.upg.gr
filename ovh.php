@@ -21,7 +21,7 @@ function doMagic($url)
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($curl, CURLOPT_TIMEOUT, 30);
   curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
-  $info = curl_getinfo($ch);
+  $info = curl_getinfo($curl);
   print_r($info['request_header']);
 
   $html = curl_exec($curl);
