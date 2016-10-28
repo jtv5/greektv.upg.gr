@@ -719,7 +719,7 @@ if ($result === false) {
 while ($row = mysqli_fetch_assoc($result)) {
   $upgchanid = $row['id'];
   $upgchantitle = $row['title'];
-//  echo $chan.' was matched to '.$upgchantitle.' with id of '.$upgchanid.'<br />';
+  echo $chan.' was matched to '.$upgchantitle.' with id of '.$upgchanid.'<br />';
   $sql2 = "INSERT IGNORE INTO streams (channelid,streamurl,streamformat,user) VALUES ('$upgchanid','$uri','$type2','robot')";
 //  $result2 = db_query($sql2);
 //  if ($result2 === false) {
