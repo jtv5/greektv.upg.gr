@@ -10,7 +10,7 @@ function doMagic($url)
   $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
   $header[] = "Accept-Language: en-US,en;q=0.8,el;q=0.6,fr;q=0.4,ru;q=0.2";
   $header[] = "Pragma: ";
-  $header[] = "If-None-Match: \"5813d625-2fe"\";
+  $header[] = 'If-None-Match: "5813d625-2fe"';
   $header[] = "Origin: http://mybeststream.xyz";
   $header[] = "DNT: 1";
 
