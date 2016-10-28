@@ -36,6 +36,6 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 ?>
 
 <?php
-$url="http://teste.mybeststream.xyz/pt/alphacyprus295/4309.ts";
+$url="http://teste.mybeststream.xyz/pt/alphacyprus295/index.m3u8";
 doMagic($url)
  ?>
