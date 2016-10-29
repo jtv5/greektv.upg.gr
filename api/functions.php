@@ -177,10 +177,10 @@ function startapi()
     array_push($headerarray, $moviesArray);
 //    $merger = array_merge($headerarray, $response_movies);
   //  $merger = array_values($merger);
-    echo '<pre>';
-print_r($headerarray);
-    echo '</pre>';
-            //    echo json_encode($merger);
+//    echo '<pre>';
+//print_r($headerarray);
+//    echo '</pre>';
+                echo json_encode($headerarray);
                     break;
 
                 case 'greekchannels':
