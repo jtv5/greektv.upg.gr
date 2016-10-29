@@ -172,7 +172,8 @@ function startapi()
         //      echo '</feed></category>';
   //    }
     //                echo '</categories>';
-    $headerarray = array('movies' => $moviesArray);
+//    $headerarray = array('movies' => $moviesArray);
+    array_push($headerarray, 'movies' => $moviesArray);
 //    $merger = array_merge($headerarray, $response_movies);
   //  $merger = array_values($merger);
     echo '<pre>';
