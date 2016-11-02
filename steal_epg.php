@@ -23,14 +23,10 @@ First name:<br><input type="text" name="curdate2" value="2016-11-03 05:00:00"><b
   curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookie.txt');
   curl_setopt($ch, CURLOPT_COOKIEFILE, 'cookie.txt');
   curl_setopt($ch, CURLOPT_USERAGENT, USER_AGENT);
-      define('Regional','Regional');
-      define('curdate1','2016-11-02 06:00:00');
-      define('curdate2','2016-11-03 05:00:00');
-      define('COOKIE_FILE', '/tmp/cookie.txt');
       $post_data = array(
-          'Regional' => Regional,
-          'curdate1' => curdate1,
-          'curdate2' => curdate2
+          'Regional' => 'Regional',
+          'curdate1' => 'curdate1',
+          'curdate2' => 'curdate2'
       );
       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
       $postResult1 = curl_exec($ch);
