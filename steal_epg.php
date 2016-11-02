@@ -23,9 +23,9 @@ First name:<br><input type="text" name="curdate2" value="2016-11-03 05:00:00"><b
   curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookie.txt');
   curl_setopt($ch, CURLOPT_COOKIEFILE, 'cookie.txt');
   curl_setopt($ch, CURLOPT_USERAGENT, USER_AGENT);
-      define('Regional','Claire Baines');
-      define('curdate1','PZ Cussons');
-      define('curdate2','Tw26pz13');
+      define('Regional','Regional');
+      define('curdate1','2016-11-02 06:00:00');
+      define('curdate2','2016-11-03 05:00:00');
       define('COOKIE_FILE', '/tmp/cookie.txt');
       $post_data = array(
           'Regional' => Regional,
