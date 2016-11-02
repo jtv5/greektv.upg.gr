@@ -1,3 +1,6 @@
+<head>
+    <meta charset="utf-8"/>
+    </head>
 <form action="http://www.digea.gr/ajax_epg.php" method="post">
   Tab:<br><input type="text" name="tab" value="Regional"><br>
 Last name:<br><input type="text" name="curdate1" value="2016-11-02 06:00:00"><br>
