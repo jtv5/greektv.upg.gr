@@ -15,7 +15,7 @@ First name:<br><input type="text" name="curdate2" value="2016-11-03 05:00:00"><b
   define('USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36');
 
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, 'http://greektv.upg.gr/myip.php');
+  curl_setopt($ch, CURLOPT_URL, 'http://www.digea.gr/ajax_epg.php');
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -33,8 +33,6 @@ First name:<br><input type="text" name="curdate2" value="2016-11-03 05:00:00"><b
           'curdate2' => curdate2
       );
       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
-      curl_setopt($ch, CURLOPT_URL, 'http://www.digea.gr/ajax_epg.php');
-      curl_setopt($ch, CURLOPT_POST, 0);
       $postResult1 = curl_exec($ch);
     echo $postResult1;
 ?>
