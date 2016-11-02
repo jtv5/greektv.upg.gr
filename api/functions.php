@@ -615,7 +615,7 @@ function db_select($query, $type)
     $dbres .= "#EXTINF:0, logo=\"".$row['sd_image']."\",".$row['title']."\r\n".$row['streamurl']."\r\n";
         break;
     case 'findactive' :
-    ini_set('default_socket_timeout', 2);
+    ini_set('default_socket_timeout', 10);
     if (is_url_exist($row['streamurl'])) {
     //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
         $constquery = "UPDATE streams SET active=1,timesinactive = timesinactive-1 where id ='".$row['id']."'";
