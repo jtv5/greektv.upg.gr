@@ -1,5 +1,5 @@
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="ISO-8859-1"/>
     </head>
 <form action="http://www.digea.gr/ajax_epg.php" method="post">
   Tab:<br><input type="text" name="tab" value="Regional"><br>
