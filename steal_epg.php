@@ -34,5 +34,5 @@ First name:<br><input type="text" name="curdate2" value="2016-11-03 05:00:00"><b
       );
       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
       $postResult1 = curl_exec($ch);
-    echo $postResult1;
+    echo utf8_decode($postResult1);
 ?>
