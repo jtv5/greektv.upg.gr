@@ -519,7 +519,7 @@ header("Location: $theurl");
 break;
 
 case 'pi1':
-$url = "rtmp://94.23.218.186/samiaki/samiaki";
+$url = "rtmp://37.48.118.105:1935/ionian/rpi";
 header("Location: $url");
 break;
 
