@@ -518,6 +518,11 @@ $theurl = 'https://www.youtube.com/watch?v='.$matches[1];
 header("Location: $theurl");
 break;
 
+case 'pi1':
+$url = "rtmp://r.demo.flowplayer.netdna-cdn.com/play";
+header("Location: $url");
+break;
+
 
 }
     } else {
