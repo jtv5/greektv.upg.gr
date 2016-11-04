@@ -519,7 +519,7 @@ header("Location: $theurl");
 break;
 
 case 'pi1':
-$url = "rtmp://r.demo.flowplayer.netdna-cdn.com/play";
+$url = "rtmp://94.23.218.186/samiaki/samiaki";
 header("Location: $url");
 break;
 
