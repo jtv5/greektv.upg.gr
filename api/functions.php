@@ -460,7 +460,7 @@ function startapi()
             case 'unijson':
                 header('Content-Type: application/json');
                 db_connect();
-                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'unijson');
+                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1'  AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'unijson');
                 break;
 
 
