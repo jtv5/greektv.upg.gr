@@ -460,7 +460,7 @@ function startapi()
             case 'unijson':
                 header('Content-Type: application/json');
                 db_connect();
-                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'unijson');
+                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'unijson');
                 break;
 
 
@@ -605,7 +605,7 @@ function db_select($query, $type)
 
             case 'unijson':
         $dbres .= '
-        <a href="/upg_player.html?m3u8='.$row['streamurl'].'&poster=img/'.$row['hd_image'].'&type='.$row['type'].'&channel='.$row['title'].'">
+        <a href="/upg_player.html?m3u8='.$row['streamurl'].'&poster=img/'.$row['sd_image'].'&type='.$row['type'].'&channel='.$row['title'].'">
         <li class="clearfix">
         <img width="70px" height="70px" src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail">
         <h2>'.$row['title'].'</h2>
