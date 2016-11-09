@@ -31,7 +31,7 @@ $( document ).ready(function() {
   var m3u8 = getUrlVars()["m3u8"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-  $('#upgvideoplayer video source').attr('src', m3u8);
+  $('#videoHolder video source').attr('src', m3u8);
   vid = $(".videoHolder").flowplayer(
 		{"live":"true","rtmp":"","adaptiveRatio":true,"embed":false}	);
 //$("#upgvideoplayer video")[0].play();
