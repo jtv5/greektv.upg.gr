@@ -32,12 +32,14 @@ $( document ).ready(function() {
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
   $('#upgvideoplayer video source').attr('src', m3u8);
+  vid = $(".videoHolder").flowplayer(
+		{"live":"true","rtmp":"","adaptiveRatio":true,"embed":false}	);
 //$("#upgvideoplayer video")[0].play();
 });
   </script>
 
 
-  <div id="videoHolder" style="background-image:url();" class="flowplayer-video fullscreen-bg playful no-background" >
+  <div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background" >
 	<video id="upgvideoplayer" width="640" height="264" poster="" class="fullscreen-bg__video" autoplay preload="auto">
 		<source type="application/x-mpegurl" src="">	</video>
 </div>
