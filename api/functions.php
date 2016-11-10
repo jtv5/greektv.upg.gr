@@ -419,7 +419,7 @@ function startapi()
                                     case 'enterdb':
 
                                         enterdb($_GET['url'],$_GET['type2']);
-                                        break;
+                                        break; 
 
 
     case 'tvos':
