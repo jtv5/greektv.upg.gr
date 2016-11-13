@@ -419,7 +419,7 @@ function startapi()
                                     case 'enterdb':
 
                                         enterdb($_GET['url'],$_GET['type2']);
-                                        break; 
+                                        break;
 
 
     case 'tvos':
@@ -607,7 +607,7 @@ function db_select($query, $type)
         $dbres .= '
         <a href="/upg_player.html?m3u8='.$row['streamurl'].'&poster=img/'.$row['sd_image'].'&type='.$row['type'].'&channel='.$row['title'].'">
         <li class="clearfix">
-        <img width="70px" height="70px" src="'.$GLOBALS['cdn'].$row['sd_image'].'" alt="'.$row['description'].'" class="thumbnail">
+        <img width="70px" height="70px" src="'.$GLOBALS['cdn'].$row['hd_image'].'" alt="'.$row['description'].'" class="thumbnail">
         <h2>'.$row['title'].'</h2>
         <p class="desc">'.$row['description'].'</p>
         <span class="price">'.$row['type'].'</span>
