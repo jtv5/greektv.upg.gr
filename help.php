@@ -98,7 +98,7 @@
 <script>
 $( document ).ready(function(){
 $('.entry').on('input', function() {
-  console.log($('.entry').value);
+  console.log($('.entry').val);
 })
 });
 </script>
