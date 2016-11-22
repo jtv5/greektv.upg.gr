@@ -2,7 +2,7 @@
 <style type="text/css">
 .form-style-6{
   font: 95% Arial, Helvetica, sans-serif;
-  max-width: 400px;
+  max-width: 800px;
   margin: 10px auto;
   padding: 16px;
   background: #F7F7F7;
