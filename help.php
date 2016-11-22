@@ -125,7 +125,17 @@ console.log(theport);
 console.log(theapplication);
 console.log(thestream);
 $('#result').empty();
-$('#result').append('<b>HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/playlist.m3u8');
+$('#result').append('<b>MPEG-DASH</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/manifest.mpd');
+$('#result').append('<br />');
+$('#result').append('<b>Apple HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/playlist.m3u8');
+$('#result').append('<br />');
+$('#result').append('<b>Adobe RTMP</b> : rtmp://'+thehost+'/'+theapplication+'/'+thestream);
+$('#result').append('<br />');
+$('#result').append('<b>Adobe HDS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/manifest.f4m');
+$('#result').append('<br />');
+$('#result').append('<b>Microsoft Smooth Streaming</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/Manifest');
+$('#result').append('<br />');
+$('#result').append('<b>Mobile Android</b> : rtsp://'+thehost+':'+theport+'/'+theapplication+'/'+thestream);
 $('#result').append('<br />');
 }
 
