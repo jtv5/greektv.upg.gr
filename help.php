@@ -118,8 +118,8 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   let m;
   while ((m = regex.exec(therest)) !== null) {
 //console.log(`Found match, group ${groupIndex}: ${match}`);
-theapplication = match[0];
-thestream = match[1];
+theapplication = m[0];
+thestream = m[1];
 
   }
 }
