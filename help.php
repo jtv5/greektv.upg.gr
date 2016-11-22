@@ -80,12 +80,14 @@
 </style>
 
 </head>
+<body>
+
+
 <div class="form-style-6">
 <h1>Video grabber</h1>
 <form>
-<input type="text" name="field1" placeholder="Your Name" />
-<input type="email" name="field2" placeholder="Email Address" />
-<textarea name="field3" placeholder="Type your Message"></textarea>
+<input type="text" name="field1" placeholder="enter your stream link" />
 <input type="submit" value="Send" />
 </form>
 </div>
+</body>
