@@ -88,11 +88,10 @@
 <form>
 <input type="text" class="entry" name="field1" placeholder="enter your stream link" />
 </form>
+<div id="result"></div>
 </div>
 
-<div id="result">
-
-</div>
+<div id="result"></div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script>
@@ -125,7 +124,8 @@ console.log(thehost);
 console.log(theport);
 console.log(theapplication);
 console.log(thestream);
-$('#result').append(thehost+theport+theapplication+thestream)
+$('#result').empty;
+$('#result').append(thehost+theport+theapplication+thestream);
 }
 
 
