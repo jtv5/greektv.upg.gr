@@ -116,11 +116,13 @@ therest = a.pathname;
 if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   const regex = /([^/]*)/[^/]*?/g;
   let m;
-  if ((m = regex.exec(therest)) !== null) {
-    theapplication = m[2];
-    thestream = m[3];
+  while ((m = regex.exec(therest)) !== null) {
+    if (m.index === regex.lastIndex) {  regex.lastIndex++;  }
+    m.forEach((match, groupIndex) => {
+      theapplication = m[2];
+      thestream = m[3];
+ });
   }
-//  thestream =
 }
 
 console.log(thehost);
