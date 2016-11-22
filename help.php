@@ -117,15 +117,10 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   const regex = /([^/]*)\/[^/]*?/g;
   let m;
   while ((m = regex.exec(therest)) !== null) {
-    if (m.index === regex.lastIndex) {regex.lastIndex++;}
-    m.forEach((match, groupIndex) => {
-      if (groupIndex == 1){
 //console.log(`Found match, group ${groupIndex}: ${match}`);
-theapplication = match;
-thestream = match;
-}
+theapplication = match[0];
+thestream = match[1];
 
- });
   }
 }
 
