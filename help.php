@@ -119,8 +119,8 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
 m = therest.match(regex);
 //console.log(`Found match, group ${groupIndex}: ${match}`);
 console.log(m);
-theapplication = m[0];
-thestream = m[1];
+theapplication = m[1];
+thestream = m[2];
 
 
 }
