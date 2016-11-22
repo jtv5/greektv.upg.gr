@@ -125,6 +125,7 @@ console.log(thehost);
 console.log(theport);
 console.log(theapplication);
 console.log(thestream);
+$('#result').append(thehost+theport+theapplication+thestream)
 }
 
 
