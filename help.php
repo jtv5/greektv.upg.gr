@@ -104,6 +104,7 @@ var theport
 var therest
 var theapplication
 var thestream
+var plname
 theval = theval.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 if (theval.substring(theval.length -4) == 'm3u8' && theval.substring(0,4) == 'http') {
   console.log('found m3u8 link');
@@ -112,13 +113,9 @@ a.href = theval;
 thehost = a.hostname;
 theport = a.port;
 therest = a.pathname;
-if (therest.substring(therest.length -13) == 'playlist.m3u8'){
-  const regex = /([^/]*)\/[^/]*?/g;
-  let m;
-m = therest.match(regex);
-theapplication = m[1].replace('/','');
-thestream = m[2].replace('/','');
-}
+
+if (therest.substring(therest.length -13) == 'playlist.m3u8'){plname = 'playlist';const regex = /([^/]*)\/[^/]*?/g;let m;m = therest.match(regex);theapplication = m[1].replace('/','');thestream = m[2].replace('/','');}
+else if (therest.substring(therest.length -13) == 'master.m3u8'){plname = 'master';const regex = /([^/]*)\/[^/]*?/g;let m;m = therest.match(regex);theapplication = m[1].replace('/','');thestream = m[2].replace('/','');}
 
 console.log(thehost);
 console.log(theport);
@@ -127,7 +124,7 @@ console.log(thestream);
 $('#result').empty();
 $('#result').append('<b>MPEG-DASH</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/manifest.mpd');
 $('#result').append('<br />');
-$('#result').append('<b>Apple HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/playlist.m3u8');
+$('#result').append('<b>Apple HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/'+plname+'.m3u8');
 $('#result').append('<br />');
 $('#result').append('<b>Adobe RTMP</b> : rtmp://'+thehost+'/'+theapplication+'/'+thestream);
 $('#result').append('<br />');
