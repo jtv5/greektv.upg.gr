@@ -122,7 +122,7 @@ console.log(theport);
 console.log(theapplication);
 console.log(thestream);
 $('#result').empty();
-if (thehost != 'undefined' && thehost != 'undefined' && theport != 'undefined' && theapplication != 'undefined' && thestream != 'undefined' && plname != 'undefined') {
+if (typeof thehost !== 'undefined' && typeof thehost !== 'undefined' && typeof theport !== 'undefined' && typeof theapplication !== 'undefined' && typeof thestream !== 'undefined' && typeof plname !== 'undefined') {
 $('#result').append('<b>MPEG-DASH</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/manifest.mpd');
 $('#result').append('<br />');
 $('#result').append('<b>Apple HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/'+plname+'.m3u8');
