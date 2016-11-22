@@ -116,7 +116,7 @@ therest = a.pathname;
 if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   const regex = /([^/]*)\/[^/]*?/g;
   let m;
-m = regex.exec(therest)[1];
+m = therest.match(regex);
 //console.log(`Found match, group ${groupIndex}: ${match}`);
 console.log(m);
 theapplication = m[0];
