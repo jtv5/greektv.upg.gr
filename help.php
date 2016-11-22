@@ -118,7 +118,7 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   let m;
 m = regex.exec(therest)
 //console.log(`Found match, group ${groupIndex}: ${match}`);
-alert(m);
+console.log(m);
 theapplication = m[0];
 thestream = m[1];
 
