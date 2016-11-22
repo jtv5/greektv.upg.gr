@@ -102,6 +102,7 @@ $('.entry').on('input', function() {
 var theval = $('.entry').val();
 var thehost
 var theport
+var therest
 var theapplication
 var thestream
 theval = theval.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
@@ -111,10 +112,23 @@ var a = document.createElement('a');
 a.href = theval;
 thehost = a.hostname;
 theport = a.port;
-theapplication = a.pathname;
+therest = a.pathname;
+if (therest.substring(therest.length -13) == 'playlist.m3u8'){
+  theapplication = a.pathname;
+  const regex = /^\/([a-z]+)\/.*/;
+  let m;
+  if ((m = regex.exec(therest)) !== null) {
+      m.forEach((match, groupIndex) => {
+          console.log(`Found match, group ${groupIndex}: ${match}`);
+      });
+  }
+//  thestream = 
+}
+
 console.log(thehost);
 console.log(theport);
 console.log(theapplication);
+console.log(thestream);
 }
 
 
