@@ -96,10 +96,10 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script>
-$(document).ready(function() {
+$( document ).ready(function(){
 $('.entry').change(function() {
   console.log($('.entry').value);
-)}
+})
 });
 </script>
 </body>
