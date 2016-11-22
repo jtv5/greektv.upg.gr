@@ -118,9 +118,8 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   let m;
   while ((m = regex.exec(therest)) !== null) {
     if (m.index === regex.lastIndex) {regex.lastIndex++;}
-    m.forEach((match) => {
+    m.forEach((match, groupIndex) => {
 console.log(`Found match, group ${groupIndex}: ${match}`);
-
       theapplication = m[0];
       thestream = m[1];
  });
