@@ -120,7 +120,7 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
     if (m.index === regex.lastIndex) {regex.lastIndex++;}
 
 //console.log(m);
-      theapplication = m[0];
+      theapplication = m[0].1;
       thestream = m[1];
 
   }
