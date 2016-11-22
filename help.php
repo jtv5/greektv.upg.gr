@@ -97,9 +97,9 @@
 
 <script>
 $(document).ready(function() {
-$('.entry').change(function) {
+$('.entry').change(function() {
   console.log($('.entry').value);
-}
+)}
 });
 </script>
 </body>
