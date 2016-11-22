@@ -86,8 +86,20 @@
 <div class="form-style-6">
 <h1>Video grabber</h1>
 <form>
-<input type="text" name="field1" placeholder="enter your stream link" />
-<input type="submit" value="Send" />
+<input type="text" class="entry" name="field1" placeholder="enter your stream link" />
 </form>
 </div>
+
+<div id="result">
+
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script>
+$(document).ready(function() {
+$('.entry').change(function) {
+  console.log($('.entry').value)
+}
+});
+</script>
 </body>
