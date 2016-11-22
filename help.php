@@ -100,8 +100,19 @@ $( document ).ready(function(){
 $('.entry').on('input', function() {
 //  console.log($('.entry').val());
 var theval = $('.entry').val();
+var thehost
+var theport
+var theapplication
+var thestream
 theval = theval.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-if (theval.substring(theval.length -4) == 'm3u8' && theval.substring(0,4) == 'http') {console.log('found m3u8 link');}
+if (theval.substring(theval.length -4) == 'm3u8' && theval.substring(0,4) == 'http') {
+  console.log('found m3u8 link');
+var a = document.createElement('a');
+a.href = theval;
+console.log(a.hostname);
+}
+
+
 })
 });
 </script>
