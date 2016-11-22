@@ -125,7 +125,8 @@ console.log(theport);
 console.log(theapplication);
 console.log(thestream);
 $('#result').empty();
-$('#result').append(thehost+theport+theapplication+thestream);
+$('#result').append('<b>HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/playlist.m3u8');
+$('#result').append('<br />');
 }
 
 
