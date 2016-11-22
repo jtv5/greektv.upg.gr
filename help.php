@@ -100,7 +100,7 @@ $( document ).ready(function(){
 $('.entry').on('input', function() {
 //  console.log($('.entry').val());
 var theval = $('.entry').val();
-if (theval.substring(theval.length -4) == 'm3u8' && theval.substring(4) == 'http') {console.log('found m3u8 link');}
+if (theval.substring(theval.length -4) == 'm3u8' && theval.substring(0,4) == 'http') {console.log('found m3u8 link');}
 })
 });
 </script>
