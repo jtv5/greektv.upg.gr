@@ -117,8 +117,8 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   const regex = /([^/]*)\/[^/]*?/g;
   let m;
 m = therest.match(regex);
-theapplication = str_replace('/','',m[1]);
-thestream = str_replace('/','',m[2]);
+theapplication = m[1].replace('/','');
+thestream = m[2].replace('/','');
 }
 
 console.log(thehost);
