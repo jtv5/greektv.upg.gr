@@ -114,11 +114,11 @@ thehost = a.hostname;
 theport = a.port;
 therest = a.pathname;
 if (therest.substring(therest.length -13) == 'playlist.m3u8'){
-
-  const regex = /^\/([a-z]+)\/.*/;
+  const regex = /([^/]*)/[^/]*?/g;
   let m;
   if ((m = regex.exec(therest)) !== null) {
-    theapplication = m[1];
+    theapplication = m[2];
+    thestream = m[3];
   }
 //  thestream =
 }
