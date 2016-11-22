@@ -119,9 +119,8 @@ if (therest.substring(therest.length -13) == 'playlist.m3u8'){
   while ((m = regex.exec(therest)) !== null) {
     if (m.index === regex.lastIndex) {regex.lastIndex++;}
     m.forEach((match, groupIndex) => {
-console.log(`Found match, group ${groupIndex}: ${match}`);
-      theapplication = m[2];
-      thestream = m[3];
+      theapplication = m[0];
+      thestream = m[1];
  });
   }
 }
