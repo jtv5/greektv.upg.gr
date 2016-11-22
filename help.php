@@ -116,6 +116,7 @@ therest = a.pathname;
 
 if (therest.substring(therest.length -13) == 'playlist.m3u8'){plname = 'playlist';const regex = /([^/]*)\/[^/]*?/g;let m;m = therest.match(regex);theapplication = m[1].replace('/','');thestream = m[2].replace('/','');}
 else if (therest.substring(therest.length -11) == 'master.m3u8'){plname = 'master';const regex = /([^/]*)\/[^/]*?/g;let m;m = therest.match(regex);theapplication = m[1].replace('/','');thestream = m[2].replace('/','');}
+else if (therest.substring(therest.length -4) == 'm3u8'){plname = 'master';const regex = /([^/]*)\/[^/]*?/g;let m;m = therest.match(regex);theapplication = m[1].replace('/','');thestream = m[2].replace('/','');}
 
 console.log(thehost);
 console.log(theport);
