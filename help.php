@@ -97,7 +97,7 @@
 
 <script>
 $( document ).ready(function(){
-$('.entry').change(function() {
+$('.entry').on('input', function() {
   console.log($('.entry').value);
 })
 });
