@@ -122,6 +122,7 @@ console.log(theport);
 console.log(theapplication);
 console.log(thestream);
 $('#result').empty();
+if (thehost != '' && thehost != '' && theport != '' && theapplication != '' && thestream != '' && plname != '') {
 $('#result').append('<b>MPEG-DASH</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/manifest.mpd');
 $('#result').append('<br />');
 $('#result').append('<b>Apple HLS</b> : http://'+thehost+':'+theport+'/'+theapplication+'/'+thestream+'/'+plname+'.m3u8');
@@ -134,6 +135,7 @@ $('#result').append('<b>Microsoft Smooth Streaming</b> : http://'+thehost+':'+th
 $('#result').append('<br />');
 $('#result').append('<b>Mobile Android</b> : rtsp://'+thehost+':'+theport+'/'+theapplication+'/'+thestream);
 $('#result').append('<br />');
+}
 }
 
 
