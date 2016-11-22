@@ -98,8 +98,9 @@
 <script>
 $( document ).ready(function(){
 $('.entry').on('input', function() {
-  console.log($('.entry').val());
-//  alert($('.entry').val);
+//  console.log($('.entry').val());
+var theval = $('.entry').val();
+if (theval == '123') {console.log('found it');}
 })
 });
 </script>
