@@ -66,7 +66,7 @@ function startapi()
   while ($row = mysqli_fetch_assoc($resultcat)) {
     echo '<category title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">
   <feed title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">';
-  $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc";
+  $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%'  and streams.private != 1 order by greekchannels.channel_order desc";
           $result = db_query($query);
           if ($result === false) {
               return false;
@@ -89,6 +89,44 @@ function startapi()
   }
                 echo '</categories>';
                 break;
+
+
+                case 'rokuxmlprivate':
+                header('Content-Type: text/xml');
+                    db_connect();
+                    echo '<?xml version="1.0" encoding="UTF-8"?><categories>';
+                  $cats ="select distinct greekchannels.region,regions.cathdimage,regions.catsdimage,regions.catdesc from greekchannels inner join regions on greekchannels.region = regions.catname";
+                          $resultcat = db_query($cats);
+                          if ($resultcat === false) {
+                              return false;
+                          }
+                while ($row = mysqli_fetch_assoc($resultcat)) {
+                echo '<category title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">
+                <feed title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">';
+                $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc";
+                $result = db_query($query);
+                if ($result === false) {
+                  return false;
+                }
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
+                              <title>'.$row['title'].'</title>
+                              <description>'.$row['description'].'</description>
+                              <streamFormat>'.$row['streamformat'].'</streamFormat>
+                              <switchingStrategy>full-adaptation</switchingStrategy>
+                              <media>
+                                  <streamFormat>'.$row['streamformat'].'</streamFormat>
+                                  <streamQuality>SD</streamQuality>
+                                  <streamBitrate>0</streamBitrate>
+                                  <streamUrl>'.$row['streamurl'].'</streamUrl>
+                              </media>
+                          </item>';
+                }
+                echo '</feed></category>';
+                }
+                    echo '</categories>';
+                    break;
+
 
                 case 'greekchannels':
                 $aaData = array();
@@ -328,44 +366,44 @@ function startapi()
                                         break;
 
 
-    case 'tvos':
+case 'tvos':
     header('Content-Type: application/javascript');
         db_connect();
         echo 'var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?><document><catalogTemplate><banner><title>Greek TV by UPG.GR</title></banner><list><section><listItemLockup><title>Greek TV</title><decorationLabel>Live</decorationLabel><relatedContent><grid><section>';
-        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'tvos');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%'  and streams.private != 1 order by greekchannels.channel_order desc", 'tvos');
         echo '</section></grid></relatedContent></listItemLockup></section>';
         echo '<section><listItemLockup><title>Greek Radio</title><decorationLabel>Live</decorationLabel><relatedContent><grid><section>';
-        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'radio' and streams.active = '1' order by greekchannels.channel_order desc", 'tvos');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'radio' and streams.active = '1'  and streams.private != 1 order by greekchannels.channel_order desc", 'tvos');
         echo '</section></grid></relatedContent></listItemLockup></section>';
         echo '</list></catalogTemplate></document>`}';
         break;
-    case 'web':
+case 'web':
         header('Content-Type: text/xml');
         db_connect();
         echo '<?xml version="1.0" encoding="UTF-8"?><orml version="1.2" xmlns="http://sourceforge.net/p/openrokn/home/ORML"><channel> <item type="poster" style="flat-episodic-16x9" title="GREEK TV" shortdesc="GreekTV" sdposterurl="pkg:/images/sdvideos.png" hdposterurl="pkg:/images/hdvideos.png">';
-        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'web');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%'  and streams.private != 1 order by greekchannels.channel_order desc", 'web');
         echo '</item></channel></orml>';
         break;
-    case 'plex':
+case 'plex':
         header('Content-Type: text/xml');
         db_connect();
         echo '<?xml version="1.0" encoding="UTF-8"?><orml version="1.2" xmlns="http://sourceforge.net/p/openrokn/home/ORML"><channel> <item type="poster" style="flat-episodic-16x9" title="GREEK TV" shortdesc="GreekTV" sdposterurl="pkg:/images/sdvideos.png" hdposterurl="pkg:/images/hdvideos.png">';
-        echo db_select("select greekchannels.id, greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'plex');
+        echo db_select("select greekchannels.id, greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1'  and streams.private != 1 order by greekchannels.channel_order desc", 'plex');
         echo '</item></channel></orml>';
         break;
 
-        case 'unixml':
+case 'unixml':
             header("Content-Type: application/xml; charset=UTF-8");
             db_connect();
             echo '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>GreekTV by upg.gr</title><description>Greek TV video feed</description><link>http://greektv.upg.gr</link>';
-            echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'unixml');
+            echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1'  and streams.private != 1 order by greekchannels.channel_order desc", 'unixml');
             echo '</channel></rss>';
             break;
 
-            case 'unijson':
+case 'unijson':
                 header('Content-Type: application/json');
                 db_connect();
-                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1'  AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'unijson');
+                echo db_select("select greekchannels.id,greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1'  AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%'  and streams.private != 1 order by greekchannels.channel_order desc", 'unijson');
                 break;
 
 
