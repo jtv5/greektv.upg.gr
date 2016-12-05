@@ -29,13 +29,6 @@ function startapi()
 {
     if (isset($_GET['type'])) {
         switch ($_GET['type']) {
-    case 'roku':
-    header('Content-Type: text/xml');
-        db_connect();
-        echo '<?xml version="1.0" encoding="UTF-8"?><orml version="1.2" xmlns="http://sourceforge.net/p/openrokn/home/ORML"><channel> <item type="poster" style="flat-episodic-16x9" title="GREEK TV" shortdesc="GreekTV" sdposterurl="pkg:/images/sdvideos.png" hdposterurl="pkg:/images/hdvideos.png">';
-        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'roku');
-        echo '</item></channel></orml>';
-        break;
 
         case 'greekchannels':
         $aaData = array();
@@ -96,51 +89,6 @@ function startapi()
   }
                 echo '</categories>';
                 break;
-
-                case 'rokuxml2':
-                header('Content-Type: application/json');
-                $emparray = array();
-                $headerarray = array();
-                $moviesArray = array();
-                array_push($headerarray, array('providerName' => 'upggr', 'lastUpdated' => '2015-11-11T22:21:37+00:00','language' => 'en' ));
-
-                    db_connect();
-                    $query = "SELECT
-                    greekchannels.id AS id,
-                    greekchannels.title AS title,
-                    greekchannels.description AS shortdescription,
-                    greekchannels.hd_image AS thumbnail,
-                    greekchannels.region AS tags,
-                    greekchannels.type,streams.streamurl AS url,
-                    streams.streamformat AS hls,
-                    streams.ishd AS quality
-                    FROM greekchannels
-                    JOIN streams on greekchannels.id = streams.channelid
-                    WHERE
-                    greekchannels.type = 'video'
-                    and streams.active = '1'
-                    order by greekchannels.channel_order desc";
-                     $result = db_query($query);
-                    if ($result === false) {return false;}
-                    while ($row = mysqli_fetch_assoc($result)) {
-            //          $row[$url] =
-            $movieIndex = $row['id'];
-            $moviesArray[$movieIndex]['id'] =$row['id'];
-                $moviesArray[$movieIndex]['title'] =$row['title'];
-        //        $moviesArray[$movieIndex]['content'] ='content';
-                $moviesArray[$movieIndex]['content']['videos']['url'] =$row['url'];
-                $moviesArray[$movieIndex]['content']['videos']['quality'] ='HD';
-                $moviesArray[$movieIndex]['content']['videos']['videotype'] =$row['hls'];
-                $moviesArray[$movieIndex]['genres'] = 'special';
-                $moviesArray[$movieIndex]['thumbnail'] =$GLOBALS['cdn'].$row['thumbnail'];
-                $moviesArray[$movieIndex]['releasedate'] ='2016-01-01';
-                $moviesArray[$movieIndex]['shortdescription'] =$row['shortdescription'];
-                    }
-
-    array_push($headerarray, $moviesArray);
-
-                echo json_encode($headerarray);
-                    break;
 
                 case 'greekchannels':
                 $aaData = array();
@@ -395,7 +343,6 @@ function startapi()
         header('Content-Type: text/xml');
         db_connect();
         echo '<?xml version="1.0" encoding="UTF-8"?><orml version="1.2" xmlns="http://sourceforge.net/p/openrokn/home/ORML"><channel> <item type="poster" style="flat-episodic-16x9" title="GREEK TV" shortdesc="GreekTV" sdposterurl="pkg:/images/sdvideos.png" hdposterurl="pkg:/images/hdvideos.png">';
-      //  echo db_select("select * from content where type2 = 'tv' and active = '1'  order by ord desc", 'roku');
         echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where streams.active = '1' and greekchannels.region = '".$row['region']."' AND streams.streamurl NOT LIKE '%galanos%' AND streams.streamurl NOT LIKE '%greekelite%' order by greekchannels.channel_order desc", 'web');
         echo '</item></channel></orml>';
         break;
@@ -487,7 +434,6 @@ break;
         echo "<form>
 	<select name='type' onchange='this.form.submit()'>
 		<option selected>Select api response</option>
-		<option>roku</option>
   		<option>tvos</option>
   		<option>web</option>
 		<option>plex</option>
@@ -513,9 +459,7 @@ function db_select($query, $type)
     $dbres = '';
     while ($row = mysqli_fetch_assoc($result)) {
         switch ($_GET['type']) {
-    case 'roku':
-    $dbres .= '<item type="'.$row['type'].'" title="'.$row['title'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" genre1="'.$row['region'].'" url="'.$row['streamurl'].'" ishd="'.$row['ishd'].'" bitrate="512" shortdesc="'.$row['description'].'" streamformat="'.$row['streamformat'].'" live="true" ></item>';
-    break;
+
 
     case 'rokuxml':
     $dbres .= '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
@@ -535,7 +479,6 @@ function db_select($query, $type)
 
 
         case 'kodi':
-
         $dbres .= "<item>\r\n<title>".$row['title']."</title>\r\n<link>".$row['streamurl']."</link>\r\n<thumbnail>".$GLOBALS['cdn'].$row['sd_image']."</thumbnail>\r\n</item>\r\n\r\n";
             break;
     case 'tvos':
@@ -547,7 +490,7 @@ function db_select($query, $type)
     case 'plex':
     $dbres .= '<item id="'.$row['id'].'" url="'.$row['streamurl'].'" title="'.$row['title'].'" shortdesc="'.$row['description'].'" sdposterurl="'.$GLOBALS['cdn'].$row['sd_image'].'" hdposterurl="'.$GLOBALS['cdn'].$row['hd_image'].'" type="'.$row['type'].'" active="'.$row['active'].'" genre1="'.$row['region'].'" ishd="'.$row['ishd'].'" ></item>';
         break;
-        case 'unixml':
+    case 'unixml':
         $dbres .= '
         <item>
         <title>'.$row['title'].'</title>
