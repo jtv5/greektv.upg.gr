@@ -135,51 +135,10 @@ function startapi()
                 $moviesArray[$movieIndex]['thumbnail'] =$GLOBALS['cdn'].$row['thumbnail'];
                 $moviesArray[$movieIndex]['releasedate'] ='2016-01-01';
                 $moviesArray[$movieIndex]['shortdescription'] =$row['shortdescription'];
-                $moviesArray[$movieIndex]['longDescription'] =$row['shortdescription'];
-          //  $moviesArray['title'] =  $row['title'];
-              //        $moviesArray[] =  $row;
                     }
 
-
-          //          echo '<?xml version="1.0" encoding="UTF-8"<categories>';
-          //        $cats ="select distinct greekchannels.region,regions.cathdimage,regions.catsdimage,regions.catdesc from greekchannels inner join regions on greekchannels.region = regions.catname";
-          //                $resultcat = db_query($cats);
-        //                  if ($resultcat === false) {
-        //                      return false;
-  //                        }
-//      while ($row = mysqli_fetch_assoc($resultcat)) {
-//        echo '<category title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">
-//      <feed title="'.$row['region'].'" description="'.$row['catdesc'].'" sd_img="'.$GLOBALS['cdn'].'images/'.$row['cathdimage'].'" hd_img="'.$GLOBALS['cdn'].'images/'.$row['catsdimage'].'">';
-//      $query = "select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and greekchannels.region = '".$row['region']."' order by greekchannels.channel_order desc";
-//              $result = db_query($query);
-//              if ($result === false) {
-//                  return false;
-  //            }
-  //            while ($row = mysqli_fetch_assoc($result)) {
-  //              echo '<item sdImg="'.$GLOBALS['cdn'].$row['sd_image'].'" hdImg="'.$GLOBALS['cdn'].$row['hd_image'].'">
-    //                          <title>'.$row['title'].'</title>
-      //                        <description>'.$row['description'].'</description>
-        //                      <streamFormat>'.$row['streamformat'].'</streamFormat>
-          //                    <switchingStrategy>full-adaptation</switchingStrategy>
-            //                  <media>
-            //                      <streamFormat>'.$row['streamformat'].'</streamFormat>
-            //                      <streamQuality>SD</streamQuality>
-            //                      <streamBitrate>0</streamBitrate>
-            //                      <streamUrl>'.$row['streamurl'].'</streamUrl>
-            //                  </media>
-            //              </item>';
-          //    }
-        //      echo '</feed></category>';
-  //    }
-    //                echo '</categories>';
-  //  $moviesArray = array('movies' => $moviesArray);
-//$headerarray[0] = $moviesArray;
     array_push($headerarray, $moviesArray);
-//    $merger = array_merge($headerarray, $response_movies);
-  //  $merger = array_values($merger);
-//    echo '<pre>';
-//print_r($headerarray);
-//    echo '</pre>';
+
                 echo json_encode($headerarray);
                     break;
 
@@ -396,8 +355,7 @@ function startapi()
         case 'kodi':
         header('Content-Type: text/plain');
             db_connect();
-            echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.sd_image,streams.streamurl from greekchannels JOIN streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'kodi');
-        //    echo db_select("select * from content where type2 = 'tv' and active = '1' order by ord desc", 'roku');
+            echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.sd_image,streams.streamurl from greekchannels JOIN streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and streams.private != 1 order by greekchannels.channel_order desc", 'kodi');
             break;
 
             case 'ripurl':
@@ -476,16 +434,16 @@ function startapi()
   //header('Content-Type: text');
      db_connect();
         echo "#EXTM3U\r\n";
-        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' order by greekchannels.channel_order desc", 'vlc');
+        echo db_select("select greekchannels.title,greekchannels.channel_order,greekchannels.description,greekchannels.sd_image,greekchannels.hd_image,greekchannels.region,greekchannels.type,streams.streamurl,streams.streamformat,streams.active,streams.ishd from greekchannels join streams on greekchannels.id = streams.channelid where greekchannels.type = 'video' and streams.active = '1' and streams.private != 1 order by greekchannels.channel_order desc", 'vlc');
     break;
     case 'findactive':
          db_connect();
-        echo db_select('select * from streams', 'findactive');
+        echo db_select('select * from streams WHERE streams.private != 1 ', 'findactive');
         break;
 
         case 'removeinactive':
              db_connect();
-            echo db_select('select * from streams where timesinactive > 250', 'removeinactive');
+            echo db_select('select * from streams where timesinactive > 250 and streams.private != 1', 'removeinactive');
             break;
 
 
