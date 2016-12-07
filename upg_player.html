@@ -42,8 +42,9 @@ else if (livestream) {console.log('livestream');append_livestream(livestream);}
 else if (vimeo) {console.log('vimeo');append_vimeo(vimeo);}
 
 function appendflowplayer() {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>');
   vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>');
+
 }
 function append_youtube(youtube) {
   youtube = youtube.replace("watch?v=", "v/");
