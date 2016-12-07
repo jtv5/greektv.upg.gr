@@ -29,7 +29,12 @@ $( document ).ready(function() {
   var m3u8 = getUrlVars()["m3u8"];
   var rtmp = getUrlVars()["rtmp"];
   var youtube = getUrlVars()["youtube"];
-  var dailymotion = getUrlVars()["dailymotion"];
+  var dailymotionURL = getUrlVars()["dailymotion"];
+		var dailymotionID = (m =dailymotionURL.match(new RegExp("\/video\/([^_?#]+).*?"))) ? m[1] : void 0;
+		var dailymotionEmbed = "&lt;iframe src='http://www.dailymotion.com/embed/video/" + dailymotionID + "' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;";
+		var dailymotionpreview = "<iframe src='http://www.dailymotion.com/embed/video/" + dailymotionID + "'  frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>";
+
+
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
 if (rtmp) {console.log('rtmp');appendflowplayer();$('#videoHolder video source').attr('src', rtmp);}
@@ -47,7 +52,7 @@ function append_youtube(youtube) {
 }
 
 function append_dailymotion(dailymotion) {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class="embed-container"><iframe src="'+dailymotion+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class="embed-container"><iframe src="http://www.dailymotion.com/embed/video/'+dailymotionID+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
 }
 
 });
