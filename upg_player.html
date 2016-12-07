@@ -40,7 +40,7 @@ function appendflowplayer() {
   vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
 }
 function appendyoutubeframe(youtube) {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><iframe id="video" src="'+youtube+'&autoplay=1" frameborder="0" allowfullscreen></iframe></div>')
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><iframe id="video" src="'+youtube+'&autoplay=1" frameborder="0" allowfullscreen style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe></div>')
 }
 });
   </script>
