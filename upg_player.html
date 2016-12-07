@@ -33,10 +33,11 @@ $( document ).ready(function() {
   var title = getUrlVars()["channel"];
 if (rtmp) {console.log('rtmp');appendflowplayer();$('#videoHolder video source').attr('src', rtmp);}
 else if (m3u8) {console.log('m3u8');appendflowplayer();$('#videoHolder video source').attr('src', m3u8);}
-  vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
+else if (youtube) {console.log('youtube');appendyoutubeframe(youtube);}  
 
 function appendflowplayer() {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>')
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>');
+  vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
 }
 function appendyoutubeframe(youtube) {
   $(".upgvid").empty().append('<iframe id="video" width="420" height="315" src="'+youtube+'" frameborder="0" allowfullscreen></iframe>')
