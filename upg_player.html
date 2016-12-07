@@ -32,7 +32,7 @@ $( document ).ready(function() {
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
 if (rtmp) {$('#videoHolder video source').attr('src', rtmp);}
-else if (m3u8) {$('#videoHolder video source').attr('src', m3u8);}
+elseif (m3u8) {$('#videoHolder video source').attr('src', m3u8);}
 //  vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
 
 });
