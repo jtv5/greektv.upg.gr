@@ -36,11 +36,11 @@ else if (m3u8) {console.log('m3u8');appendflowplayer();$('#videoHolder video sou
   vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
 
 function appendflowplayer() {
-  $(".videoHolder").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>')
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>')
 }
 });
   </script>
-<div id="upgvid"></div>
+<div class="upgvid"></div>
 <script>
 
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
