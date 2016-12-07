@@ -33,7 +33,7 @@ $( document ).ready(function() {
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
 if (rtmp != '' || rtmp != null ) {
-  console.log('rtmp does not exist')
+  console.log('rtmp does not exist'+rtmp)
     $('#videoHolder video source').attr('src', rtmp);
 }
 else {
