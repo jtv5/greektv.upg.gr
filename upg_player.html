@@ -33,10 +33,11 @@ $( document ).ready(function() {
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
 if (rtmp != '' || !!rtmp ) {
-  conslo.log('rtmp does not exist')
+  console.log('rtmp does not exist')
     $('#videoHolder video source').attr('src', rtmp);
 }
 else {
+  console.log('will play m3u8')
   $('#videoHolder video source').attr('src', m3u8);
 }
   vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
