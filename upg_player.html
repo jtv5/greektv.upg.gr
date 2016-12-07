@@ -14,7 +14,7 @@
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
 <script type='text/javascript' src='//releases.flowplayer.org/6.0.5/flowplayer.min.js?ver=2.0.1'></script>
 <script type='text/javascript' src='https://code.jquery.com/jquery-migrate-3.0.0.min.js?ver=3.0.0'></script>
-
+<script src='/sites/all/modules/custom/sixflags_flowplayer/flowplayer/javascript/youtube-5.2.js'></script>
   <script>(function(){function t(e){this.path=e;var t=this.path.split("."),n=t.slice(0,t.length-1).join("."),r=t[t.length-1];this.at_2x_path=n+"@2x."+r}function n(e){this.el=e,this.path=new t(this.el.getAttribute("src"));var n=this;this.path.check_2x_variant(function(e){e&&n.swap()})}var e=typeof exports=="undefined"?window:exports;e.RetinaImagePath=t,t.confirmed_paths=[],t.prototype.is_external=function(){return!!this.path.match(/^https?\:/i)&&!this.path.match("//"+document.domain)},t.prototype.check_2x_variant=function(e){var n,r=this;if(this.is_external())return e(!1);if(this.at_2x_path in t.confirmed_paths)return e(!0);n=new XMLHttpRequest,n.open("HEAD",this.at_2x_path),n.onreadystatechange=function(){return n.readyState!=4?e(!1):n.status>=200&&n.status<=399?(t.confirmed_paths.push(r.at_2x_path),e(!0)):e(!1)},n.send()},e.RetinaImage=n,n.prototype.swap=function(e){function n(){t.el.complete?(t.el.setAttribute("width",t.el.offsetWidth),t.el.setAttribute("height",t.el.offsetHeight),t.el.setAttribute("src",e)):setTimeout(n,5)}typeof e=="undefined"&&(e=this.path.at_2x_path);var t=this;n()},e.devicePixelRatio>1&&(window.onload=function(){var e=document.getElementsByTagName("img"),t=[],r,i;for(r=0;r<e.length;r++)i=e[r],t.push(new n(i))})})();</script>
 <style>.fullscreen-bg {position: fixed;top: 0;right: 0;bottom: 0;left: 0;overflow: hidden;z-index: -100;background-color:black;}.fullscreen-bg__video {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}</style>
 </head>
@@ -31,20 +31,23 @@ $( document ).ready(function() {
   var rtmp = getUrlVars()["rtmp"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-if (rtmp) {$('#videoHolder video source').attr('src', rtmp);} else {$('#videoHolder video source').attr('src', m3u8);}
-  vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
-
+if
+(rtmp) {$('#videoHolder video source').attr('src', rtmp);}
+else if
+(m3u8) {$('#videoHolder video source').attr('src', m3u8);}
+else if
+(youtube) {
+$('#videoHolder video source').attr('src', m3u8);}
+//  vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
 });
+
   </script>
-
-
   <div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background" >
 	<video id="upgvideoplayer" width="640" height="264" poster="" class="fullscreen-bg__video" autoplay preload="auto">
 		<source type="application/x-mpegurl" src="">	</video>
 </div>
 
 <script>
-
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -52,7 +55,6 @@ if (rtmp) {$('#videoHolder video source').attr('src', rtmp);} else {$('#videoHol
 
     ga('create', 'UA-57648878-32', 'auto');
     ga('send', 'pageview');
-
   </script>
 </body>
 
