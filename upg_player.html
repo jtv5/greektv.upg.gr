@@ -34,7 +34,7 @@ $( document ).ready(function() {
   var title = getUrlVars()["channel"];
   $('#videoHolder video source').attr('src', m3u8);
   vid = $(".videoHolder").flowplayer(
-		{"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":false}	);
+		{"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
 //$("#upgvideoplayer video")[0].play();
 });
   </script>
