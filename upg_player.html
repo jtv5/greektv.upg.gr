@@ -28,6 +28,7 @@
 $( document ).ready(function() {
   var m3u8 = getUrlVars()["m3u8"];
   var rtmp = getUrlVars()["rtmp"];
+  var youtube = getUrlVars()["youtube"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
 if (rtmp) {console.log('rtmp');appendflowplayer();$('#videoHolder video source').attr('src', rtmp);}
@@ -37,20 +38,25 @@ else if (m3u8) {console.log('m3u8');appendflowplayer();$('#videoHolder video sou
 function appendflowplayer() {
   $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src=""></video></div>')
 }
+function appendyoutubeframe(youtube) {
+  $(".upgvid").empty().append('<iframe id="video" width="420" height="315" src="'+youtube+'" frameborder="0" allowfullscreen></iframe>')
+}
 });
   </script>
 <div class="upgvid"></div>
 
-// start greektv.upg.gr analytics
+
 <script>
+// start greektv.upg.gr analytics
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-57648878-32', 'auto');
     ga('send', 'pageview');
+      // end greektv.upg.gr analytics
   </script>
-  // end greektv.upg.gr analytics
+
 </body>
 
 </html>
