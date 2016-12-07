@@ -31,8 +31,8 @@ $( document ).ready(function() {
   var rtmp = getUrlVars()["rtmp"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-if (rtmp) {$('#videoHolder video source').attr('src', rtmp);}
-elseif (m3u8) {$('#videoHolder video source').attr('src', m3u8);}
+if (rtmp) {console.log('rtmp');$('#videoHolder video source').attr('src', rtmp);}
+elseif (m3u8) {console.log('m3u8');$('#videoHolder video source').attr('src', m3u8);}
 //  vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
 
 });
