@@ -29,6 +29,7 @@
 $( document ).ready(function() {
   var m3u8 = getUrlVars()["m3u8"];
   var rtmp = getUrlVars()["rtmp"];
+  console.log(rtmp);
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
   $('#videoHolder video source').attr('src', m3u8);
