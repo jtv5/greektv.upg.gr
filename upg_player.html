@@ -29,6 +29,7 @@ $( document ).ready(function() {
   var m3u8 = getUrlVars()["m3u8"];
   var rtmp = getUrlVars()["rtmp"];
   var youtube = getUrlVars()["youtube"].replace("watch?v=", "v/");
+  var dailymotion = getUrlVars()["dailymotion"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
 if (rtmp) {console.log('rtmp');appendflowplayer();$('#videoHolder video source').attr('src', rtmp);}
@@ -40,7 +41,7 @@ function appendflowplayer() {
   vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
 }
 function appendyoutubeframe(youtube) {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><iframe id="video" src="'+youtube+'&autoplay=1" frameborder="0" allowfullscreen style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe></div>')
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class="embed-container"><iframe src="'+youtube+'&autoplay=1" frameborder="0" allowfullscreen></iframe></div></div>')
 }
 });
   </script>
