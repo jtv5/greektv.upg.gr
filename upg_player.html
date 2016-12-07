@@ -33,7 +33,8 @@ $( document ).ready(function() {
   var title = getUrlVars()["channel"];
 if (getUrlVars()["rtmp"]) {$('#videoHolder video source').attr('src', getUrlVars()["rtmp"]);}
 else if (getUrlVars()["m3u8"]) {$('#videoHolder video source').attr('src', getUrlVars()["m3u8"]);}
-  vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
+
+//vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
 
 });
   </script>
