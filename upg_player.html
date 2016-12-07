@@ -32,14 +32,7 @@ $( document ).ready(function() {
 //  console.log(rtmp);
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-if (rtmp) {
-  console.log('rtmp exists '+rtmp)
-    $('#videoHolder video source').attr('src', rtmp);
-}
-else {
-  console.log('will play m3u8')
-  $('#videoHolder video source').attr('src', m3u8);
-}
+if (rtmp) {$('#videoHolder video source').attr('src', rtmp);} else {$('#videoHolder video source').attr('src', m3u8);}
   vid = $(".videoHolder").flowplayer({"live":"true","rtmp":rtmp,"adaptiveRatio":true,"embed":true}	);
   //  console.log(vid);
 //$("#upgvideoplayer video")[0].play();
