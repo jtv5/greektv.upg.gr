@@ -41,7 +41,7 @@ $( document ).ready(function() {
 
 var play = getUrlVars()["play"];
 var title = getUrlVars()["channel"];
-$(document).prop('title', 'Greek TV by upg.gr' + title);
+$(document).prop('title', 'Greek TV by upg.gr - ' + title);
 function loadIframe(iframeName, url) {
     var $iframe = $('#' + iframeName);
     if ( $iframe.length ) {
