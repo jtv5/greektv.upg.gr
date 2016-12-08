@@ -42,20 +42,8 @@ else if (play.indexOf('livestream.com') > -1) {append_livestream(play);}
 else if (play.indexOf('dailymotion') > -1) {append_dailymotion(play);}
 else if (play.indexOf('vimeo') > -1) {append_vimeo(play);}
 }
-//  var m3u8 = getUrlVars()["m3u8"];
-//  var rtmp = getUrlVars()["rtmp"];
-//  var youtube = getUrlVars()["youtube"];
-//  var livestream = getUrlVars()["livestream"];
-//  var vimeo = getUrlVars()["vimeo"];
-//  var dailymotion = getUrlVars()["dailymotion"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-//if (rtmp) {console.log('rtmp');append_rtmp(rtmp);}
-//else if (m3u8) {console.log('m3u8');append_m3u8(m3u8);}
-//else if (youtube) {console.log('youtube');append_youtube(youtube);}
-//else if (dailymotion) {console.log('dailymotion');append_dailymotion(dailymotion);}
-//else if (livestream) {console.log('livestream');append_livestream(livestream);}
-//else if (vimeo) {console.log('vimeo');append_vimeo(vimeo);}
 
 function append_rtmp(play) {
   $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src="'+play+'"></video></div>');
@@ -89,7 +77,7 @@ function append_vimeo(play) {
 });
   </script>
 <div class="upgvid"></div>
-
+<div class="upgads"><img src="https://storage.googleapis.com/support-kms-prod/SNP_BBFA15D142E88EAB62B5C247174644F87043_2922338_en_v2" /></div>
 </body>
 
 </html>
