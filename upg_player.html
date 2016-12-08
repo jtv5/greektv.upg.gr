@@ -33,7 +33,7 @@
   if(vars[key]){if(vars[key] instanceof Array){vars[key].push(value);}else{vars[key] = [vars[key], value];}}else{vars[key] = value;}});return vars;}
 
 $( document ).ready(function() {
-  $(".upgads").css({"position":"fixed","bottom":"0","margin":"0","text-align":"center","display":"inline-block"});
+  $(".upgads").css({"bottom":"0","margin":"auto","text-align":"center","display":"inline-block"});
 
 var play = getUrlVars()["play"];
 if (play) {
