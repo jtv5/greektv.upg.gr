@@ -31,7 +31,7 @@
 
 $( document ).ready(function() {
   $(".upgads").css({"position":"fixed","bottom":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
-  $(".upgads2").css({"position":"fixed","top":"0","margin":"0","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
+  $(".upgads2").css({"position":"fixed","top":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
 //  $(".iframediv").css({"position":"fixed","50%":"0","margin-top":"-50px","margin-left":"-100px","text-align":"center"});
 
 var play = getUrlVars()["play"];
@@ -63,7 +63,6 @@ loadIframe('iframe1', 'upg_player.html?play='+play);
       document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
   }());
   </script>
-  <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
     <!-- UPG.GR ADVERTS -->
   </div>
 
@@ -82,9 +81,11 @@ loadIframe('iframe1', 'upg_player.html?play='+play);
     document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
 }());
 </script>
-<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+
   <!-- UPG.GR ADVERTS -->
 </div>
+
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 </body>
 
 </html>
