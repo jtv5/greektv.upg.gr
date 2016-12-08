@@ -35,53 +35,55 @@
 $( document ).ready(function() {
   var play = getUrlVars()["play"];
 if (play) {
-if (play.indexOf('m3u8') > -1) {console.log('this is m3u8')}
-else if (play.indexOf('rtmp') > -1) {console.log('this is rtmp')}
+if (play.indexOf('m3u8') > -1) {append_m3u8(play);}
+else if (play.indexOf('rtmp') > -1) {append_rtmp(play);}
+else if (play.indexOf('youtube') > -1) {append_youtube(play);}
+else if (play.indexOf('livestream.com') > -1) {append_livestream(play);}
+else if (play.indexOf('dailymotion') > -1) {append_dailymotion(play);}
+else if (play.indexOf('vimeo') > -1) {append_vimeo(play);}
 }
-  var m3u8 = getUrlVars()["m3u8"];
-  var rtmp = getUrlVars()["rtmp"];
-  var youtube = getUrlVars()["youtube"];
-  var livestream = getUrlVars()["livestream"];
-  var vimeo = getUrlVars()["vimeo"];
-  var dailymotion = getUrlVars()["dailymotion"];
+//  var m3u8 = getUrlVars()["m3u8"];
+//  var rtmp = getUrlVars()["rtmp"];
+//  var youtube = getUrlVars()["youtube"];
+//  var livestream = getUrlVars()["livestream"];
+//  var vimeo = getUrlVars()["vimeo"];
+//  var dailymotion = getUrlVars()["dailymotion"];
   var poster = getUrlVars()["poster"];
   var title = getUrlVars()["channel"];
-if (rtmp) {console.log('rtmp');append_rtmp(rtmp);}
-else if (m3u8) {console.log('m3u8');append_m3u8(m3u8);}
-else if (youtube) {console.log('youtube');append_youtube(youtube);}
-else if (dailymotion) {console.log('dailymotion');append_dailymotion(dailymotion);}
-else if (livestream) {console.log('livestream');append_livestream(livestream);}
-else if (vimeo) {console.log('vimeo');append_vimeo(vimeo);}
+//if (rtmp) {console.log('rtmp');append_rtmp(rtmp);}
+//else if (m3u8) {console.log('m3u8');append_m3u8(m3u8);}
+//else if (youtube) {console.log('youtube');append_youtube(youtube);}
+//else if (dailymotion) {console.log('dailymotion');append_dailymotion(dailymotion);}
+//else if (livestream) {console.log('livestream');append_livestream(livestream);}
+//else if (vimeo) {console.log('vimeo');append_vimeo(vimeo);}
 
-function append_rtmp(rtmp) {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src="'+rtmp+'"></video></div>');
+function append_rtmp(play) {
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src="'+play+'"></video></div>');
   vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
 }
 
-function append_m3u8(m3u8) {
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src="'+m3u8+'"></video></div>');
+function append_m3u8(play) {
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" autoplay preload="auto"><source type="application/x-mpegurl" src="'+play+'"></video></div>');
   vid = $(".videoHolder").flowplayer({"live":"true","adaptiveRatio":true}	);
 }
 
-function append_youtube(youtube) {
-  youtube = youtube.replace("watch?v=", "v/");
-  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="'+youtube+'&autoplay=1" frameborder="0" allowfullscreen></iframe></div></div>')
+function append_youtube(play) {
+  play = play.replace("watch?v=", "v/");
+  $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="'+play+'&autoplay=1" frameborder="0" allowfullscreen></iframe></div></div>')
 }
 
-function append_dailymotion(dailymotion) {
-  var dailymotionID = (m =dailymotion.match(new RegExp("\/video\/([^_?#]+).*?"))) ? m[1] : void 0;
+function append_dailymotion(play) {
+  var dailymotionID = (m =play.match(new RegExp("\/video\/([^_?#]+).*?"))) ? m[1] : void 0;
   $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://www.dailymotion.com/embed/video/'+dailymotionID+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
 }
 
-function append_livestream(livestream) {
-  var livestreamID = livestream.substr(livestream.lastIndexOf('/') + 1);
-  console.log(livestreamID);
+function append_livestream(play) {
+  var livestreamID = play.substr(play.lastIndexOf('/') + 1);
   $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://cdn.livestream.com/embed/'+livestreamID+'?autoplay=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
 }
 
-function append_vimeo(vimeo) {
-  var vimeoID = vimeo.substr(vimeo.lastIndexOf('/') + 1);
-  console.log(vimeoID);
+function append_vimeo(play) {
+  var vimeoID = play.substr(play.lastIndexOf('/') + 1);
   $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://player.vimeo.com/video/'+vimeoID+'?autoplay=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
 }
 });
