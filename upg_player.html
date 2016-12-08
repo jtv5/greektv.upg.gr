@@ -33,7 +33,9 @@
   if(vars[key]){if(vars[key] instanceof Array){vars[key].push(value);}else{vars[key] = [vars[key], value];}}else{vars[key] = value;}});return vars;}
 
 $( document ).ready(function() {
-  var play = getUrlVars()["play"];
+  $(".upgads").css({"position":"fixed","bottom":"0"});
+
+var play = getUrlVars()["play"];
 if (play) {
 if (play.indexOf('m3u8') > -1) {append_m3u8(play);}
 else if (play.indexOf('rtmp') > -1) {append_rtmp(play);}
@@ -74,9 +76,6 @@ function append_vimeo(play) {
   var vimeoID = play.substr(play.lastIndexOf('/') + 1);
   $(".upgvid").empty().append('<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://player.vimeo.com/video/'+vimeoID+'?autoplay=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
 }
-
-$(".upgads").css("position","fixed");
-$(".upgads").css("bottom","0");
 
 });
   </script>
