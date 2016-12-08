@@ -31,7 +31,7 @@
 
 $( document ).ready(function() {
   $(".upgads").css({"position":"fixed","bottom":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
-  $(".upgads2").css({"position":"fixed","bottom":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
+  $(".upgads2").css({"position":"fixed","top":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
 
 var play = getUrlVars()["play"];
 
@@ -43,7 +43,7 @@ function loadIframe(iframeName, url) {
     }
     return true;
 }
-loadIframe('iframe1', 'upg_player.html/?play='+play);
+loadIframe('iframe1', 'upg_player.html?play='+play);
 
 });
   </script>
