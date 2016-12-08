@@ -31,8 +31,10 @@
 
 $( document ).ready(function() {
   $(".upgads").css({"position":"fixed","bottom":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
+  $(".upgads2").css({"position":"fixed","bottom":"0","margin":"0","text-align":"center","display":"inline-block","left":"50%","transform":"translate(-50%, 0)"});
 
 var play = getUrlVars()["play"];
+
 function loadIframe(iframeName, url) {
     var $iframe = $('#' + iframeName);
     if ( $iframe.length ) {
@@ -41,12 +43,12 @@ function loadIframe(iframeName, url) {
     }
     return true;
 }
-loadIframe('iframe1', play);
+loadIframe('iframe1', 'upg_player.html/?play='+play);
 
 });
   </script>
 
-  <div class="upgads">
+  <div class="upgads2">
     <!-- UPG.GR ADVERTS -->
     <script type="text/javascript">
     ( function() {
