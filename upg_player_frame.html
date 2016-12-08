@@ -22,7 +22,7 @@
 <style>
 body
 {
-background: #000000; 
+background: #000000;
 }
 </style>
 </head>
@@ -40,7 +40,8 @@ $( document ).ready(function() {
   $(".iframediv").css({"position":"fixed","top":"50%","left":"50%","transform":"translate(-50%, -50%)"});
 
 var play = getUrlVars()["play"];
-
+var title = getUrlVars()["channel"];
+$(document).prop('title', title);
 function loadIframe(iframeName, url) {
     var $iframe = $('#' + iframeName);
     if ( $iframe.length ) {
