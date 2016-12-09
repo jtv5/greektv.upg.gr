@@ -642,6 +642,7 @@ function convertm3uurl($url,$type2)
 
 function convertm3u2xml($url,$type2)
 {
+  echo 'ok';
   $var = fread_url($url);
   if ($type2 == 'hls') {
   //  $re = '/.*,\s*(.*)\n(http:\/\/.*\.m3u8)/';
