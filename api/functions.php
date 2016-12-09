@@ -355,7 +355,7 @@ function startapi()
                     break;
 
                     case 'm3u2xml':
-                    header('Content-Type: text/plain');
+                    header('Content-Type: application/json');
                         convertm3u2xml($_GET['url']);
                         break;
 
@@ -642,11 +642,20 @@ function convertm3uurl($url,$type2)
 
 function convertm3u2xml($url)
 {
-  echo 'ok';
   $var = fread_url($url);
     $re = '/(http:.*ng).*,\s*(.*)\n(.*)\n/';
     preg_match_all($re, $var, $matches);
   for ($i = 0; $i < count($matches[2]); $i++) {
+    echo'
+    <a href="/upg_player.html?play='.$matches[3][$i].'&poster='.$matches[1][$i].'&type='.$matches[2][$i].'&channel='.$matches[2][$i].'">
+    <li class="clearfix">
+    <img width="70px" height="70px" src="'.$matches[1][$i].'" alt="'.$matches[2][$i].'" class="thumbnail">
+    <h2>'.$matches[2][$i].'</h2>
+    <p class="desc">'.$matches[2][$i].'</p>
+    <span class="price">'.$matches[2][$i].'</span>
+    </li>
+    </a>';
+
     echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
 }
