@@ -156,7 +156,7 @@ html[xmlns] .clearfix { display: block; }
 <script type="text/javascript">
 $(document).ready(function(){
   $.ajax({
-      url: "http://greektv.upg.gr/api/?type=m3u2xml",
+      url: "http://greektv.upg.gr/api/?type=unijson",
       success: function (data) {
         $('ul').append(data);
       },
