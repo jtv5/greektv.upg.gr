@@ -156,7 +156,7 @@ html[xmlns] .clearfix { display: block; }
 <script type="text/javascript">
 $(document).ready(function(){
   $.ajax({
-      url: "http://greektv.upg.gr/api/?type=m3u2xml&url=https://raw.githubusercontent.com/free-greek-iptv/greek-iptv/master/android.m3u",
+      url: "http://greektv.upg.gr/api/?type=m3u2xml&url=https://raw.githubusercontent.com/free-greek-iptv/greek-iptv/master/android.m3u&type=",
       success: function (data) {
         $('ul').append(data);
       },

@@ -640,12 +640,14 @@ function convertm3uurl($url,$type2)
 }
 }
 
-function convertm3u2xml($url)
+function convertm3u2xml($url,$type)
 {
   $var = fread_url($url);
     $re = '/(http:.*ng).*,\s*(.*)\n(.*)\n/';
     preg_match_all($re, $var, $matches);
   for ($i = 0; $i < count($matches[2]); $i++) {
+    if ($type == 'hls') {
+      if (strpos($matches[3][$i], 'rtmp') !== true) {
     echo'
     <a href="/upg_player.html?play='.$matches[3][$i].'&poster='.$matches[1][$i].'&type='.$matches[2][$i].'&channel='.$matches[2][$i].'">
     <li class="clearfix">
@@ -655,7 +657,20 @@ function convertm3u2xml($url)
     <span class="price">'.$matches[2][$i].'</span>
     </li>
     </a>';
-
+  }
+}
+else
+{
+  echo'
+  <a href="/upg_player.html?play='.$matches[3][$i].'&poster='.$matches[1][$i].'&type='.$matches[2][$i].'&channel='.$matches[2][$i].'">
+  <li class="clearfix">
+  <img width="70px" height="70px" src="'.$matches[1][$i].'" alt="'.$matches[2][$i].'" class="thumbnail">
+  <h2>'.$matches[2][$i].'</h2>
+  <p class="desc">'.$matches[2][$i].'</p>
+  <span class="price">'.$matches[2][$i].'</span>
+  </li>
+  </a>';
+}
 //    echo "<item>\r\n<title>".$matches[2][$i]."</title>\r\n<link>".$matches[3][$i]."</link>\r\n<thumbnail>".$matches[1][$i]."</thumbnail>\r\n</item>\r\n\r\n";
 }
 }
