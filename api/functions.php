@@ -647,7 +647,7 @@ function convertm3u2xml($url,$type2)
     preg_match_all($re, $var, $matches);
   for ($i = 0; $i < count($matches[2]); $i++) {
     if ($type2 == 'hls') {
-      if (strpos($matches[3][$i], 'rtmp') !== false) {
+      if (strpos($matches[3][$i], 'rtmp') !== true) {
     echo'
     <a href="/upg_player.html?play='.$matches[3][$i].'&poster='.$matches[1][$i].'&type='.$matches[2][$i].'&channel='.$matches[2][$i].'">
     <li class="clearfix">
