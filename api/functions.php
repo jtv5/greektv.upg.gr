@@ -651,6 +651,9 @@ function convertm3u2xml($url,$type2)
         echo $matches[3][$i].'<br />';
   //  echo'<a href="/upg_player.html?play='.$matches[3][$i].'&poster='.$matches[1][$i].'&type='.$matches[2][$i].'&channel='.$matches[2][$i].'"><li class="clearfix"><img width="70px" height="70px" src="'.$matches[1][$i].'" alt="'.$matches[2][$i].'" class="thumbnail"><h2>'.$matches[2][$i].'</h2><p class="desc">'.$matches[2][$i].'</p><span class="price">'.$matches[2][$i].'</span></li></a>';
   }
+  else {
+    echo '<a href="/upg_player.html?play='.$matches[3][$i].'&poster='.$matches[1][$i].'&type='.$matches[2][$i].'&channel='.$matches[2][$i].'"><li class="clearfix"><img width="70px" height="70px" src="'.$matches[1][$i].'" alt="'.$matches[2][$i].'" class="thumbnail"><h2>'.$matches[2][$i].'</h2><p class="desc">'.$matches[2][$i].'</p><span class="price">'.$matches[2][$i].'</span></li></a>';
+  }
 }
 else
 {
