@@ -356,7 +356,7 @@ function startapi()
 
                     case 'm3u2xml':
                     header('Content-Type: application/json');
-                        convertm3u2xml($_GET['url']);
+                        convertm3u2xml($_GET['url'],$_GET['type']);
                         break;
 
                     case 'ripm3ulist2':
