@@ -351,12 +351,12 @@ function startapi()
 
                 case 'ripm3ulist':
                 header('Content-Type: text/plain');
-                    convertm3u2xml($_GET['url'],$_GET['type2']);
+                    convertm3uurl($_GET['url'],$_GET['type2']);
                     break;
 
                     case 'm3u2xml':
                     header('Content-Type: text/plain');
-                        convertm3uurl($_GET['url'],$_GET['type2']);
+                        convertm3u2xml($_GET['url'],$_GET['type2']);
                         break;
 
                     case 'ripm3ulist2':
