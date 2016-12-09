@@ -356,7 +356,7 @@ function startapi()
 
                     case 'm3u2xml':
                     header('Content-Type: text/plain');
-                        convertm3u2xml($_GET['url'],$_GET['type2']);
+                        convertm3u2xml($_GET['url']);
                         break;
 
                     case 'ripm3ulist2':
@@ -640,7 +640,7 @@ function convertm3uurl($url,$type2)
 }
 }
 
-function convertm3u2xml($url,$type2)
+function convertm3u2xml($url)
 {
   echo 'ok';
   $var = fread_url($url);
