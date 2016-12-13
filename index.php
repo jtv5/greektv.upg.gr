@@ -149,8 +149,36 @@ html[xmlns] .clearfix { display: block; }
 	</div>
  <div class="push"></div>
   <footer class="footer">
-    <p>2016 &copy; upg.gr | Available in : <a href="https://my.roku.com/add/greektvupg" target="new">ROKU</a> - AppleTV - <a href="https://github.com/upggr/GreekTV.bundle" target="new">Plex</a> - <a href="http://greektv.upg.gr">Web</a> - iOS - <a href="http://greektv.upg.gr/api/?type=vlc" target="new">VLC</a> | Questions? Email me : <a href="mailto:info@upg.gr">info@upg.gr</a> | <a href="https://github.com/upggr" target="new">Github</a> | <a href="facebook.com/greektvroku" target="new">Facebook</a> | <a href="http://greektv.upg.gr/api/?type=all" target="new">Status</a></p>
-    <p>Disclaimer : GreekTV is not affiliated with any TV stations and is using publicly available streams as listed here : <a href="http://greektv.upg.gr/api/?type=unixml" target="_blank">list</a>. This is an <a href="https://github.com/upggr/greektv.upg.gr" target="_blank">opensource project</a> and we are not making any money of it! Service is provided for free as is. We are merely a webplayer playing public streams. All product names, logos, and brands are property of their respective owners. We are not affiliated with any other service apart from our free roku private channel (Some people might have forked our code or created plugins for different platforms using our API)</p>
+    <p>
+    2016 &copy; upg.gr |
+    Available in :
+    <a href="https://my.roku.com/add/upggrtv" target="new">ROKU (free)</a> -
+    <a href="https://my.roku.com/add/greektvupg" target="new">ROKU (paid)</a> -
+    <a href="https://github.com/upggr/GreekTV.bundle" target="new">Plex (free)</a> -
+    <a href="http://greektv.upg.gr">Web (free)</a> -
+    <a href="http://greektv.upg.gr/api/?type=vlc" target="new">VLC (free)</a> (download VLC <a href="http://www.videolan.org/vlc/index.html">here</a>)
+    |
+    Questions? Email us at : <a href="mailto:info@upg.gr">info@upg.gr</a>
+    |
+    <a href="https://github.com/upggr" target="new">Github</a>
+    |
+    <a href="facebook.com/greektvroku" target="new">Facebook</a>
+    |
+    <a href="http://greektv.upg.gr/api/?type=all" target="new">Status</a>
+    </p>
+
+    <p>Disclaimer : GreekTV is not affiliated with any TV stations and is using publicly available streams as listed here : <a href="https://github.com/free-greek-iptv/greek-iptv" target="_blank">list</a>.
+    This website is opensource and you can run your own by downloading it from <a href="https://github.com/upggr/greektv.upg.gr">here</a>.
+    We are merely a webplayer playing public streams. All product names, logos, and brands are property of their respective owners. We are not affiliated with any other service apart from our free and paid roku channels (Some people might have forked our code or created plugins for different platforms using our API without our knowledge and is out of our control)</p>
+    <p>
+    You will notice there is a free and a paid version of the roku edition. The difference is that the paid version has 4-5 channels that are restreaming from youtube from our server. This incurs bandwidth costs which are covered with the paid version fee. You will not find commercial channels in the paid version as we are trying to keep this service as legal as possible. If you like what we do and want to support us you can donate to us or buy the paid version. Note that the product you buy is not for the channels, but for the way to access the channels. Think of it like a way to watch greek youtube channels from your roku from a simple interface (instead of visiting youtube or channels individual pages). In case you are wondering, how we are making money from this, i inform you that we barely make about 20$ a month after all costs paid. This is a hobby not a commercial operation and will keep it ad-free for all expats benefit.
+    </p>
+    <p>
+    We might add channels you request to our list but note that we will not be able to provide Alpha Sat or Ant1 sat especially to countries were they are provided by third parties commercially, as their companies tend to sue, and we cannot afford the hassle or the fines. We will also not provide NOVA streams or OTE streams etc.
+    </p>
+    <p>
+    You can find some other similar projects here : <a href="http://greekiptv.blogspot.gr/">http://greekiptv.blogspot.gr/</a> or here : <a href="http://www.lakatamia.tv/">http://www.lakatamia.tv/</a>
+    </p>
   </footer>
 
 <script type="text/javascript">
