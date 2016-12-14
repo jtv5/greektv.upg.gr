@@ -568,11 +568,11 @@ function db_select($query, $type)
     if (is_url_exist($row['streamurl'])) {
     //    $dbres = 'done - go check <a href="http://greektv.upg.gr/api/?type=all">all channels</a>';
         $constquery = "UPDATE streams SET active=1,timesinactive = timesinactive-1 where id ='".$row['id']."'";
-        echo $row['title'].'========='.$row['streamurl'].' set to active<br>';
+        echo '========='.$row['streamurl'].' set to active<br>';
         db_query($constquery);
     } else {
         $constquery = "UPDATE streams SET active=0, timesinactive = timesinactive+1 where id ='".$row['id']."'";
-        echo $row['title'].'========='.$row['streamurl'].' set to INACTIVE<br>';
+        echo '========='.$row['streamurl'].' set to INACTIVE<br>';
         db_query($constquery);
 
     }
