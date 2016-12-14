@@ -572,6 +572,7 @@ function db_select($query, $type)
         db_query($constquery);
     } else {
         $constquery = "UPDATE streams SET active=0, timesinactive = timesinactive+1 where id ='".$row['id']."'";
+        echo $row['streamurl'].'set to INACTIVE<br>';
         db_query($constquery);
 
     }
