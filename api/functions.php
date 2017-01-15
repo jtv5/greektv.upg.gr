@@ -428,7 +428,7 @@ case 'unijson':
     break;
     case 'findactive':
          db_connect();
-        echo db_select('select * from streams WHERE streams.private != 1 ', 'findactive');
+        echo db_select('select * from streams WHERE streams.private != 1 and streams.exclude != 1', 'findactive');
         break;
 
         case 'removeinactive':
