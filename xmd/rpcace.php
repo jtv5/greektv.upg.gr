@@ -1,7 +1,7 @@
 <?php
 require_once 'jsonRPCClient.php';
 
-  $bitcoin = new jsonRPCClient('http://user:password@xmdcoin4.cloudapp.net:63667/');
+  $bitcoin = new jsonRPCClient('http://xmdcoin4.cloudapp.net:63667/json_rpc');
 
   echo "<pre>\n";
   print_r($bitcoin->getinfo()); echo "\n";
