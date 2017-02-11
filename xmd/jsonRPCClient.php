@@ -271,18 +271,6 @@ class jsonRPCClient
         $debug .= $pAdd;
         // get starttime
         $startTime = empty($startTime) ? array_sum(explode(' ', microtime())) : $startTime;
-        if (true === $pShow and !empty($debug))
-        {
-            // get endtime
-            $endTime = array_sum(explode(' ', microtime()));
-            // performance summary
-            $debug .= 'Request time: ' . round($endTime - $startTime, 3) . ' s Memory usage: ' . round(memory_get_usage() / 1024) . " kb\r\n";
-            echo nl2br($debug);
-            // send output imidiately
-            flush();
-            // clean static
-            $debug = $startTime = null;
-        }
     }
 
     /**
