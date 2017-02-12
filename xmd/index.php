@@ -8,7 +8,7 @@ $.jsonRPC.setup({
 
 var method = 'getblockheaderbyhash';
 $.jsonRPC.request(method, {
-  params: ("hash", "0f5cd7b89c8d25bab8a033e87e4e93225f8105de1572fe31f7f6ecb48363d232"),
+  params: array("hash", "0f5cd7b89c8d25bab8a033e87e4e93225f8105de1572fe31f7f6ecb48363d232"),
   success: function(result) {
 console.log(result);
   },
