@@ -2,7 +2,9 @@
 include('JsonRPC/Client.php');
 include('JsonRPC/HttpClient.php');
 include('JsonRPC/Request/RequestBuilder.php');
-include('JsonRPC/Response/RequestParser.php');
+include('JsonRPC/Request/RequestParser.php');
+include('JsonRPC/Response/ResponseParser.php');
+include('JsonRPC/Response/ResponseParser.php');
 use JsonRPC\Client;
 
 $client = new Client('http://xmdcoin4.cloudapp.net:63667/json_rpc');
