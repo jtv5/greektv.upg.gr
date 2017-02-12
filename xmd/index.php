@@ -3,7 +3,7 @@
 include('xmdrpc.php');
 
 $api = new JsonRpcClient('http://xmdcoin4.cloudapp.net:63667/json_rpc');
-print $api->account_balance('hash', '0f5cd7b89c8d25bab8a033e87e4e93225f8105de1572fe31f7f6ecb48363d232');
+print $api->getblockheaderbyhash('hash', '0f5cd7b89c8d25bab8a033e87e4e93225f8105de1572fe31f7f6ecb48363d232');
 
 
 
