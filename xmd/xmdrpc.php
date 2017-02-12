@@ -1,61 +1,196 @@
 <?php
 
-class JsonRpcFault extends Exception {}
+namespace JsonRPC;
 
-class JsonRpcClient {
-    private $uri;
+use Exception;
+use JsonRPC\Request\RequestBuilder;
+use JsonRPC\Response\ResponseParser;
 
-    public function __construct($uri) {
-        $this->uri = $uri;
+/**
+ * JsonRPC client class
+ *
+ * @package JsonRPC
+ * @author  Frederic Guillot
+ */
+class Client
+{
+    /**
+     * If the only argument passed to a function is an array
+     * assume it contains named arguments
+     *
+     * @access private
+     * @var boolean
+     */
+    private $isNamedArguments = true;
+
+    /**
+     * Do not immediately throw an exception on error. Return it instead.
+     *
+     * @access public
+     * @var boolean
+     */
+    private $returnException = false;
+
+    /**
+     * True for a batch request
+     *
+     * @access private
+     * @var boolean
+     */
+    private $isBatch = false;
+
+    /**
+     * Batch payload
+     *
+     * @access private
+     * @var array
+     */
+    private $batch = array();
+
+    /**
+     * Http Client
+     *
+     * @access private
+     * @var HttpClient
+     */
+    private $httpClient;
+
+    /**
+     * Constructor
+     *
+     * @access public
+     * @param  string      $url               Server URL
+     * @param  bool        $returnException   Return exceptions
+     * @param  HttpClient  $httpClient        HTTP client object
+     */
+    public function __construct($url = '', $returnException = false, HttpClient $httpClient = null)
+    {
+        $this->httpClient = $httpClient ?: new HttpClient($url);
+        $this->returnException = $returnException;
     }
 
-    private function generateId() {
-        $chars = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));
-        $id = '';
-        for($c = 0; $c < 16; ++$c)
-            $id .= $chars[mt_rand(0, count($chars) - 1)];
-        return $id;
+    /**
+     * Arguments passed are always positional
+     *
+     * @access public
+     * @return $this
+     */
+    public function withPositionalArguments()
+    {
+        $this->isNamedArguments = false;
+        return $this;
     }
 
-    public function __call($name, $arguments) {
-        $id = $this->generateId();
+    /**
+     * Get HTTP Client
+     *
+     * @access public
+     * @return HttpClient
+     */
+    public function getHttpClient()
+    {
+        return $this->httpClient;
+    }
 
-        $request = array(
-            'jsonrpc' => '2.0',
-            'method'  => $name,
-            'params'  => $arguments,
-            'id'      => $id
-        );
+    /**
+     * Set username and password
+     *
+     * @access public
+     * @param  string $username
+     * @param  string $password
+     * @return $this
+     */
+    public function authentication($username, $password)
+    {
+        $this->httpClient
+            ->withUsername($username)
+            ->withPassword($password);
 
-        $jsonRequest = json_encode($request);
+        return $this;
+    }
 
-        $ctx = stream_context_create(array(
-            'http' => array(
-                'method'  => 'POST',
-                'header'  => 'Content-Type: application/json\r\n',
-                'content' => $jsonRequest
-            )
-        ));
-        $jsonResponse = file_get_contents($this->uri, false, $ctx);
+    /**
+     * Automatic mapping of procedures
+     *
+     * @access public
+     * @param  string   $method   Procedure name
+     * @param  array    $params   Procedure arguments
+     * @return mixed
+     */
+    public function __call($method, array $params)
+    {
+        if ($this->isNamedArguments && count($params) === 1 && is_array($params[0])) {
+            $params = $params[0];
+        }
 
-        if ($jsonResponse === false)
-            throw new JsonRpcFault('file_get_contents failed', -32603);
+        return $this->execute($method, $params);
+    }
 
-        $response = json_decode($jsonResponse);
+    /**
+     * Start a batch request
+     *
+     * @access public
+     * @return Client
+     */
+    public function batch()
+    {
+        $this->isBatch = true;
+        $this->batch = array();
+        return $this;
+    }
 
-        if ($response === null)
-            throw new JsonRpcFault('JSON cannot be decoded', -32603);
+    /**
+     * Send a batch request
+     *
+     * @access public
+     * @return array
+     */
+    public function send()
+    {
+        $this->isBatch = false;
+        return $this->sendPayload('['.implode(', ', $this->batch).']');
+    }
 
-        if ($response->id != $id)
-            throw new JsonRpcFault('Mismatched JSON-RPC IDs', -32603);
+    /**
+     * Execute a procedure
+     *
+     * @access public
+     * @param  string      $procedure Procedure name
+     * @param  array       $params    Procedure arguments
+     * @param  array       $reqattrs
+     * @param  string|null $requestId Request Id
+     * @return mixed
+     */
+    public function execute($procedure, array $params = array(), array $reqattrs = array(), $requestId = null)
+    {
+        $payload = RequestBuilder::create()
+            ->withProcedure($procedure)
+            ->withParams($params)
+            ->withRequestAttributes($reqattrs)
+            ->withId($requestId)
+            ->build();
 
-        if (property_exists($response, 'error'))
-            throw new JsonRpcFault($response->error->message, $response->error->code);
-        else if (property_exists($response, 'result'))
-            return $response->result;
-        else
-            throw new JsonRpcFault('Invalid JSON-RPC response', -32603);
+        if ($this->isBatch) {
+            $this->batch[] = $payload;
+            return $this;
+        }
+
+        return $this->sendPayload($payload);
+    }
+
+    /**
+     * Send payload
+     *
+     * @access private
+     * @throws Exception
+     * @param  string $payload
+     * @return Exception|Client
+     */
+    private function sendPayload($payload)
+    {
+        return ResponseParser::create()
+            ->withReturnException($this->returnException)
+            ->withPayload($this->httpClient->execute($payload))
+            ->parse();
     }
 }
-
-?>
