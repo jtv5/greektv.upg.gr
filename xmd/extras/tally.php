@@ -11,8 +11,8 @@
 
 $rpcUser = 'user';
 $rpcPass = 'pass';
-$rpcHost = '127.0.0.1';
-$rpcPort = 12345;
+$rpcHost = 'xmdcoin4.cloudapp.net';
+$rpcPort = 63667;
 
 $abort = false;
 $numAddresses = 100;
