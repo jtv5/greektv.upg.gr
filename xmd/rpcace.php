@@ -40,7 +40,7 @@ class RPCAce
     {
         $rpc = new Bitcoin( RPC_USER, RPC_PASS, RPC_HOST, RPC_PORT );
         $info = $rpc->getinfo();
-        echo $info;
+        echo $rpc->status;
         if( $rpc->status !== 200 && $rpc->error !== '' )
             return [ 'err'=>'failed to connect - node not reachable, or user/pass incorrect' ];
 
