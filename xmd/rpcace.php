@@ -26,7 +26,7 @@ const BLOCKS_PER_LIST = 12;
 const DB_FILE = 'db/xmd.sq3';
 
 // for the example explorer
-const COIN_HOME = 'http://xmdclin.com/';
+const COIN_HOME = 'http://xmdcoin.com/';
 const REFRESH_TIME = 180;
 
 // courtesy of https://github.com/aceat64/EasyBitcoin-PHP/
@@ -39,6 +39,10 @@ class RPCAce
     private static function base()
     {
         $rpc = new Bitcoin( RPC_USER, RPC_PASS, RPC_HOST, RPC_PORT );
+        echo RPC_USER;
+        echo RPC_PASS;
+        echo RPC_HOST;
+        echo RPC_PORT;
         $info = $rpc->getinfo();
         if( $rpc->status !== 200 && $rpc->error !== '' )
             return [ 'err'=>'failed to connect - node not reachable, or user/pass incorrect' ];
