@@ -44,6 +44,7 @@ class RPCAce
         echo RPC_HOST;
         echo RPC_PORT;
         $info = $rpc->getinfo();
+        echo $info;
         if( $rpc->status !== 200 && $rpc->error !== '' )
             return [ 'err'=>'failed to connect - node not reachable, or user/pass incorrect' ];
 
