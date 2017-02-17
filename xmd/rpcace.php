@@ -39,10 +39,6 @@ class RPCAce
     private static function base()
     {
         $rpc = new Bitcoin( RPC_USER, RPC_PASS, RPC_HOST, RPC_PORT );
-        echo RPC_USER;
-        echo RPC_PASS;
-        echo RPC_HOST;
-        echo RPC_PORT;
         $info = $rpc->getinfo();
         echo $info;
         if( $rpc->status !== 200 && $rpc->error !== '' )
