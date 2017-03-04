@@ -151,13 +151,6 @@ html[xmlns] .clearfix { display: block; }
   <footer class="footer">
     <p>
     2016 &copy; upg.gr |
-    Available in :
-    <a href="https://my.roku.com/add/upggrtv" target="new">ROKU (free)</a> -
-    <a href="https://my.roku.com/add/greektvupg" target="new">ROKU (paid)</a> -
-    <a href="https://github.com/upggr/GreekTV.bundle" target="new">Plex (free)</a> -
-    <a href="http://greektv.upg.gr">Web (free)</a> -
-    <a href="http://greektv.upg.gr/api/?type=vlc" target="new">VLC (free)</a> (download VLC <a href="http://www.videolan.org/vlc/index.html">here</a>)
-    |
     Questions? Email us at : <a href="mailto:info@upg.gr">info@upg.gr</a>
     |
     <a href="https://github.com/upggr" target="new">Github</a>
