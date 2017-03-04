@@ -159,14 +159,12 @@ html[xmlns] .clearfix { display: block; }
     This website is opensource and you can run your own by downloading it from <a href="https://github.com/upggr/greektv.upg.gr">here</a>.
     We are merely a webplayer playing public streams. All product names, logos, and brands are property of their respective owners. We are not affiliated with any other service apart from our free roku channels (Some people might have forked our code or created plugins for different platforms using our API without our knowledge and is out of our control)</p>
     <p>
-    You will notice there is a free and a paid version of the roku edition. The difference is that the paid version has 4-5 channels that are restreaming from youtube from our server. This incurs bandwidth costs which are covered with the paid version fee. You will not find commercial channels in the paid version as we are trying to keep this service  LEGAL . If you like what we do and want to support us you can donate to us or buy the paid version. Note that the product you buy is not for the channels, but for the way to access the channels. Think of it like a way to watch greek youtube channels from your roku from a simple interface (instead of visiting youtube or channels individual pages). This is a hobby not a commercial operation and will keep it ad-free for all expats benefit. If you want a full blown service just check google, there are ILLEGAL services for about 15-40 a month that have all channels from their own servers stable but you run the risk of getting caught.
+    We might add channels you request to our list but note that we will not be able to provide Alpha Sat or Ant1 sat especially to countries were they are provided by third parties commercially, as their companies sue, and we cannot afford the hassle or the fines. We will also not provide NOVA streams or OTE streams or rogue channels that show movies etc. Any breach of copyright is unintentional and we do not profit from this operation
     </p>
-    <p>
-    We might add channels you request to our list but note that we will not be able to provide Alpha Sat or Ant1 sat especially to countries were they are provided by third parties commercially, as their companies sue, and we cannot afford the hassle or the fines. We will also not provide NOVA streams or OTE streams or rogue channels that show movies etc.
-    </p>
-    <p>
-    You can find some other similar projects here : <a href="http://greekiptv.blogspot.gr/">http://greekiptv.blogspot.gr/</a> or here : <a href="http://www.lakatamia.tv/">http://www.lakatamia.tv/</a>
-    </p>
+<p>
+
+ΤΟ greektv.upg.gr ειναι ενα opensource project και δεν εχει σκοπο να κανει breach κανενα copyright. Αν σας ανοικει καποιο καναλι, η εχετε copyrights στειλτε μου email στο info@upg.gr για αφαιρεση. Η υπηρεσια προσφερετε δωρεαν για κατοικους εξωτερικου και απλα χρησιμοποιει ρομποτ για να τραβαει καναλια απο το ιντερνετ οπως παρεχονται ελευθερα. δεν ειμαι ανωνυμος, δεν ειμαικ σε offshore servers και δε ψαχνω μπλεξιματα με την ασφαλεια :)
+</p>
   </footer>
 
 <script type="text/javascript">
