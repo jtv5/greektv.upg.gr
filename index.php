@@ -153,11 +153,6 @@ html[xmlns] .clearfix { display: block; }
     2016 &copy; upg.gr |
     Questions? Email us at : <a href="mailto:info@upg.gr">info@upg.gr</a>
     |
-    <a href="https://github.com/upggr" target="new">Github</a>
-    |
-    <a href="facebook.com/greektvroku" target="new">Facebook</a>
-    |
-    <a href="http://greektv.upg.gr/api/?type=all" target="new">Status</a>
     </p>
 
     <p>Disclaimer : GreekTV is not affiliated with any TV stations and is just reading this list : https://github.com/free-greek-iptv/greek-iptv from github that is (hopefully) using publicly available streams as listed here : <a href="https://github.com/free-greek-iptv/greek-iptv" target="_blank">list</a> (ONLY THE FREE ONES! NO PAYTV). If you are a content owner, or a channel owner and do not want your channel to appear in this website just email me at : info@upg.gr and I will comply instantly.
