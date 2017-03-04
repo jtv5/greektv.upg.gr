@@ -1,6 +1,6 @@
 
 <p>
-greektv.upg.gr is not operational until further notice you can download the source code etc from : https://github.com/upggr/greektv.upg.gr and run your own identical setAttribute
+greektv.upg.gr is not operational until further notice you can download the source code etc from : https://github.com/upggr/greektv.upg.gr and run your own identical service
 </p>
 
 
