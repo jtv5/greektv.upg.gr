@@ -43,7 +43,7 @@
                               <option  value="Cyprus">Cyprus</option>
                               <option  value="Canada">Canada</option>
                               <option  value="USA">USA</option>
-                            </select> 
+                            </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -128,6 +128,8 @@
                               <option  value="WebTV">WebTV</option>
                               <option  value="World">World</option>
                               <option  value="Cyprus">Cyprus</option>
+                              <option  value="Canada">Canada</option>
+                              <option  value="USA">USA</option>
                             </select>
                                     </div>
                                 </div>
