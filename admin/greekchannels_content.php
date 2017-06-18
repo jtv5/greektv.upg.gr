@@ -41,6 +41,8 @@
                               <option  value="WebTV">WebTV</option>
                               <option  value="World">World</option>
                               <option  value="Cyprus">Cyprus</option>
+                              <option  value="Cyprus">Canada</option>
+                              <option  value="Cyprus">USA</option>
                             </select>
                                     </div>
                                 </div>
