@@ -5,5 +5,5 @@ greektv.upg.gr is not operational until further notice. You can download the sou
 
 
 <p>
-Το greektv.upg.gr ειναι απενεργοποιημενο, μπορειτε να τρεξετε το δικο σας service κατεβαζοντας τη σελιδα απο το github : https://github.com/upggr/greektv.upg.gr
+Το greektv.upg.gr ειναι απενεργοποιημενο , μπορειτε να τρεξετε το δικο σας service κατεβαζοντας τη σελιδα απο το github : https://github.com/upggr/greektv.upg.gr
 </p>
