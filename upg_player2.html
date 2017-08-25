@@ -16,11 +16,11 @@
   <meta name="HandheldFriendly" content="true">
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
   <link rel='dns-prefetch' href='//s0.wp.com' />
-<link rel='dns-prefetch' href='//vjs.zencdn.net' />
-<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='stylesheet' id='videojs-css'  href='//vjs.zencdn.net/5.9.2/video-js.css?ver=4.6.1' type='text/css' media='all' />
-<link rel='stylesheet' id='videojs-style-css'  href='http://ioniantv.gr/wp-content/plugins/videojs-hls-player/videojs-hls-player.css?ver=4.6.1' type='text/css' media='all' />
-<link rel='stylesheet' id='videojs-airplay-css'  href='http://ioniantv.gr/wp-content/plugins/videojs-hls-player/videojs-airplay/videojs.airplay.css?ver=4.6.1' type='text/css' media='all' />
+  <link rel='dns-prefetch' href='//vjs.zencdn.net' />
+  <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+  <link rel='stylesheet' id='videojs-css' href='//vjs.zencdn.net/5.9.2/video-js.css?ver=4.6.1' type='text/css' media='all' />
+  <link rel='stylesheet' id='videojs-style-css' href='http://ioniantv.gr/wp-content/plugins/videojs-hls-player/videojs-hls-player.css?ver=4.6.1' type='text/css' media='all' />
+  <link rel='stylesheet' id='videojs-airplay-css' href='http://ioniantv.gr/wp-content/plugins/videojs-hls-player/videojs-airplay/videojs.airplay.css?ver=4.6.1' type='text/css' media='all' />
 
   <script type='text/javascript' src='//code.jquery.com/jquery-1.12.4.min.js'></script>
   <script type='text/javascript' src='//releases.flowplayer.org/6.0.5/flowplayer.min.js?ver=2.0.1'></script>
@@ -174,7 +174,7 @@
 
       function append_m3u8(play) {
         $(".upgvid").empty().append(
-          '<div id="videoHolder" style="background-image:url();" data-embed="true" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="fullscreen-bg__video" controls preload="auto" autoplay data-setup={"fluid":true,"plugins":{"airplayButton":{}}} playsinline ><source type="application/x-mpegurl" src="' +
+          '<div id="videoHolder" style="background-image:url();" data-embed="true" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><video id="upgvideoplayer" poster="" class="video-js vjs-default-skin vjs-fluid vjs-16-9 vjs-big-play-centered fullscreen-bg__video" controls preload="auto" autoplay data-setup={"fluid":true,"plugins":{"airplayButton":{}}} playsinline ><source type="application/x-mpegurl" src="' +
           play + '"></video></div>');
         vid = $(".videoHolder").flowplayer({
           "live": "true",
@@ -182,7 +182,7 @@
           "data-embed": "true",
           "adaptiveRatio": true
         });
-      }
+      } 
 
 
 
@@ -217,7 +217,6 @@
   </script>
   <div class="upgvid"></div>
   <div class="upgads">
-
 
 
 
