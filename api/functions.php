@@ -6,7 +6,7 @@ function db_connect()
     static $connection;
     if (!isset($connection)) {
         $config = parse_ini_file('../../gtv_db.ini');
-
+echo $GLOBALS['host'];
         $connection = mysqli_connect($GLOBALS['host'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
     }
     if ($connection === false) {
