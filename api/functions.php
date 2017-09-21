@@ -4,12 +4,12 @@ include('../config.php');
 function db_connect()
 {
     static $connection;
-    if (!isset($connection)) {
-        $config = parse_ini_file('../../gtv_db.ini');
+    if (!isset($connection)) { 
+    //    $config = parse_ini_file('../../gtv_db.ini');
     //    echo $config['host'].' - '.$config['username'].' - '.$config['password'].' - '.$config['dbname'];
   //      echo $GLOBALS['dbhost'].' - '.$GLOBALS['username'].' - '.$GLOBALS['password'].' - '.$GLOBALS['dbname'];
-        $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['dbname']);
-  //       $connection = mysqli_connect($GLOBALS['dbhost'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
+    //    $connection = mysqli_connect($config['host'], $config['username'], $config['password'], $config['dbname']);
+        $connection = mysqli_connect($GLOBALS['dbhost'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
     }
     if ($connection === false) {
         return mysqli_connect_error();
