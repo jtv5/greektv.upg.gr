@@ -1,12 +1,13 @@
 <?php
 $GLOBALS['cdn'] = 'http://greektv.upg.gr/img/';
+include('../config.php');
 function db_connect()
 {
     static $connection;
     if (!isset($connection)) {
         $config = parse_ini_file('../../gtv_db.ini');
-        include('../config.php');
-        $connection = mysqli_connect($host, $username, $password, $dbname);
+
+        $connection = mysqli_connect($GLOBALS['host'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
     }
     if ($connection === false) {
         return mysqli_connect_error();
