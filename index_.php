@@ -139,7 +139,7 @@ html[xmlns] .clearfix { display: block; }
 <body>
 	<div id="view">
 		<header>
-			<h1>GreekTV by UPG.GR _ _ </h1>
+			<h1>GreekTV by UPG.GR</h1>
 		</header>
 
 		<div id="container">
