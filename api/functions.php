@@ -460,11 +460,11 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 $data = curl_exec($ch);
 curl_close($ch);
-$re = "/<span itemprop=\"contentUrl\" href=\"(.*?)\"><\\/span>/";
+$re = "/<span itemprop=\"contentUrl\" href=\"(.*?)\">/";
 preg_match($re, $data, $matches);
 $theurl = 'https://www.youtube.com/watch?v='.$matches[1];
 //header("Location: $theurl");
-echo $theurl; 
+echo $theurl;
 break;
 
 case 'pi1':
