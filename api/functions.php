@@ -468,8 +468,8 @@ curl_close($ch);
 $re = "/<span itemprop=\"contentUrl\" href=\"(.*?)\">/";
 preg_match($re, $data, $matches);
 $theurl = 'https://www.youtube.com/watch?v='.$matches[1];
-//header("Location: $theurl");
-echo $theurl;
+header("Location: $theurl");
+//echo $theurl;
 break;
 
 case 'pi1':
