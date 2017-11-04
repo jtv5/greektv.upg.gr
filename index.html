@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="ielko-video-grid.css">
+  <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.9/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.9/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src='https://masonry.desandro.com/masonry.pkgd.js'></script>
+  <script src='https://imagesloaded.desandro.com/imagesloaded.pkgd.js'></script>
+  <script>
+    $(function() {
+      $("#tabs").tabs();
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="tabs">
+    <ul class="thetabs">
+    </ul>
+    <div class="thetabcontent">
+    </div>
+  </div>
+
+
+  <script>
+    $('document').ready(function() {
+      $.ajax({
+        url: 'http://greektvlite.x-mad.com/?feed=roku_dp',
+        dataType: 'json',
+        cache: false,
+        success: function(result) {
+          //    console.log(result);
+          thetags = [];
+          theitems = {};
+          $.each(result, function(key, value) {
+            if (key == 'tvSpecials') {
+              $.each(value, function(key2, value2) {
+                thetags.push(value2.tags);
+                value_easy_tab = 'tab-' + value2.tags[0].replace(/\s+/g, '-').toLowerCase();
+                //      console.log(value_easy_tab);
+              });
+            }
+
+          });
+          //    console.log(theitems);
+          thetags = [].concat.apply([], thetags);
+          var uniquetags = [];
+          $.each(thetags, function(i, el) {
+            if ($.inArray(el, uniquetags) === -1) uniquetags.push(el);
+          });
+          var thetabsdiv = '';
+          thetabcontentdiv = '';
+          $.each(uniquetags, function(key, value) {
+            //        console.log(key, value);
+            value_easy = value.replace(/\s+/g, '-').toLowerCase();
+            thetabsdiv += '<li><a href="#tabs-' + value_easy + '">' + value + '</a></li>';
+            thetabcontentdiv += '<div id="tabs-' + value_easy + '"><div class="grid tabs-' + value_easy + '"></div></div>';
+          })
+
+
+
+          $(".thetabs").empty();
+          $(".thetabs").append(thetabsdiv);
+          $(".thetabcontent").empty();
+          console.log(thetabcontentdiv)
+          $(".thetabs").append(thetabcontentdiv);
+
+          $.each(result, function(key, value) {
+            if (key == 'tvSpecials') {
+              $.each(value, function(key2, value2) {
+                console.log(value2);
+                value_easy_tab = 'tabs-' + value2.tags[0].replace(/\s+/g, '-').toLowerCase();
+                console.log(value2.content.videos[0].url);
+                dawidth = $(window).width() * 0.8;
+                daheight = (dawidth / 2) + (dawidth / 10);
+                $('.' + value_easy_tab).append('<div class="grid-sizer"></div><div class="grid-item"><a href="http://greektv.upg.gr/upg_player.html?play=' + value2.content.videos[0].url +
+                  '" data-featherlight="iframe" data-featherlight-iframe-width="' + dawidth + '" data-featherlight-iframe-height="' + daheight + '"><img src="' +
+                  value2.thumbnail + '" /></a></div>');
+              });
+            }
+
+          });
+
+          $("#tabs").tabs("refresh");
+
+        },
+        error: function() {
+          alert('failure');
+        }
+      });
+    })
+
+    var grid = document.querySelector('.grid');
+    var msnry;
+    imagesLoaded(grid, function() {
+      msnry = new Masonry(grid, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true
+      });
+    });
+  </script>
+</body>
+
+</html>
