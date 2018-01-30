@@ -1,3 +1,9 @@
+<script src='_YOUR_BITMOVIN_PLAYER_SOURCE_PATH_' type='text/javascript'>
+</script>
+
+<script>
+</script>
+
 <!doctype html>
 <html lang="en">
 
@@ -16,11 +22,7 @@
 
   <!-- JS -->
   <script type='text/javascript' src='js/jquery.min.js'></script>
-  <script type='text/javascript' src='js/video.min.js'></script>
-  <script type='text/javascript' src='js/videojs-contrib-hls.min.js'></script>
-  <script type='text/javascript' src='js/videojs.airplay.js'></script>
-  <script type='text/javascript' src='js/videojs-ie8.min.js'></script>
-  <script type='text/javascript' src='js/Youtube.min.js'></script>
+  <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7.5/bitmovinplayer.js"></script>
   <!-- JS -->
 
 
@@ -51,32 +53,36 @@
         case 'm3u8':
           thetype = 'application/x-mpegurl';
           techordernode = '';
-          break;
-        case 'youtube':
-          thetype = 'video/youtube';
-          techordernode = '"techOrder": ["youtube"],';
-          break;
-        case 'rtmp':
-          thetype = 'application/x-mpegurl';
-          techordernode = '';
+          var bitmovinPlayer = bitmovin.player("upgvid");
+          var conf = {
+            key: "70d8b74e-7e77-4978-92c1-9acadc47d0a8",
+            source: {
+              hls: url,
+              progressive: url
+            },
+            playback: {
+              autoplay: true,
+              muted: false
+            },
+            style: {
+              width: '640px',
+              height: '360px'
+            },
+            events: {
+              onError: function(data) {
+                if (typeof console == "object") {
+                  console.log("bitmovin error: " + data.code + ": " + data.message);
+                }
+              }
+            }
+          };
+          bitmovinPlayer.setup(conf);
+
           break;
       }
 
-      $(".upgvid").empty().append(
-        '<div id="videoHolder" style="background-image:url();" data-embed="true" class="flowplayer-video videoHolder-322 videoHolder"> \
-        <video id="upgvideoplayer" \
-        class="video-js" \
-        controls \
-        autoplay \
-        data-setup=\'{ \
-          ' +
-        techordernode + ' \
-        "sources": [{ \
-        "type":"' + thetype + '", \
-        "src":"' + url + '" \
-      }]}\' > \
-        </video></div> \
-        ');
+
+
 
     }
     $(document).ready(function() {
@@ -85,52 +91,12 @@
         if (play.indexOf('m3u8') > -1) {
           console.log('m3u8_');
           playmedia('m3u8', play)
-        } else if (play.indexOf('rtmp') > -1) {
-          console.log('rtmp');
-          playmedia('rtmp', play)
-        } else if (play.indexOf('youtube') > -1) {
-          console.log('youtube');
-          playmedia('youtube', play)
-        } else if (play.indexOf('livestream.com') > -1) {
-          console.log('livestream.com');
-          append_livestream(play);
-        } else if (play.indexOf('dailymotion') > -1) {
-          console.log('dailymotion');
-          append_dailymotion(play);
-        } else if (play.indexOf('vimeo') > -1) {
-          console.log('vimeo');
-          append_vimeo(play);
         }
-      }
-      var poster = getUrlVars()["poster"];
-      var title = getUrlVars()["channel"];
-
-
-
-      function append_dailymotion(play) {
-        var dailymotionID = (m = play.match(new RegExp("\/video\/([^_?#]+).*?"))) ? m[1] : void 0;
-        $(".upgvid").empty().append(
-          '<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://www.dailymotion.com/embed/video/' +
-          dailymotionID + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
-      }
-
-      function append_livestream(play) {
-        var livestreamID = play.substr(play.lastIndexOf('/') + 1);
-        $(".upgvid").empty().append(
-          '<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://cdn.livestream.com/embed/' +
-          livestreamID + '?autoplay=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
-      }
-
-      function append_vimeo(play) {
-        var vimeoID = play.substr(play.lastIndexOf('/') + 1);
-        $(".upgvid").empty().append(
-          '<div id="videoHolder" style="background-image:url();" class="flowplayer-video videoHolder-322 videoHolder fullscreen-bg playful no-background"><div class="embed-container"><iframe src="http://player.vimeo.com/video/' +
-          vimeoID + '?autoplay=true" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>')
       }
 
     });
   </script>
-  <div class="upgvid"></div>
+  <div id="upgvid"></div>
 </body>
 
 </html>
