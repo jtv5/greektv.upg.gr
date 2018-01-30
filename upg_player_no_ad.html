@@ -22,7 +22,7 @@
   <script type='text/javascript' src='js/videojs.airplay.js'></script>
   <script type='text/javascript' src='js/videojs-ie8.min.js'></script>
   <script type='text/javascript' src='js/Youtube.min.js'></script>
-  <script type='text/javascript' src='js/ielko-video-player.js?'></script>
+  <script type='text/javascript' src='js/ielko-video-player.js?12'></script>
   <script type='text/javascript' src='analytics.js'></script>
   <!-- JS -->
 
@@ -95,13 +95,13 @@
       if (play) {
         if (play.indexOf('m3u8') > -1) {
           console.log('m3u8_');
-          playmedia2('m3u8', play)
+          playmedia('m3u8', play)
         } else if (play.indexOf('rtmp') > -1) {
           console.log('rtmp');
-          playmedia2('rtmp', play)
+          playmedia('rtmp', play)
         } else if (play.indexOf('youtube') > -1) {
           console.log('youtube');
-          playmedia2('youtube', play)
+          playmedia('youtube', play)
         } else if (play.indexOf('livestream.com') > -1) {
           console.log('livestream.com');
           append_livestream(play);
